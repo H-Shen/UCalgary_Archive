@@ -2,11 +2,6 @@ A fork of the original project of Group25, will be updated inconsistently.
 
 This readme file has been adapted from the readme file template from PurpleBooth: https://gist.github.com/PurpleBooth/109311bb0361f32d87a2
 
-![](https://img.shields.io/badge/Form--based-App-https%3A%2F%2Fihttps%3A%2F%2Fimg.shields.io%2Fbadge%2F--brightgreen--brightgreen.svgmg.shields.io%2Fbadge%2F--brightgreen--brightgreen.svg.svg)
-[![](https://img.shields.io/badge/SQLite3-JDBC-httpshttps%3A%2F%2Fimg.shields.io%2Fbadge%2F--informational--informational.svg%3A%2F%2Fimg.shields.io%2Fbadge%2F--brightgreen--brightgreen.svg.svg)](https://github.com/xerial/sqlite-jdbc)
-[![](https://img.shields.io/badge/Web%20Scraper-Jsoup-https%3A%2F%2Fimg.shields.io%2Fbadge%2F--blue--blue.svg.svg)](https://jsoup.org/)
-[![](https://img.shields.io/badge/UCalgary%20Calender-Course%20Description-https%3A%2F%2Fimg.shields.io%2Fbadge%2F--blue--blue.svg.svg)](https://www.ucalgary.ca/pubs/calendar/current/course-desc-main.html)
-
 # Student & Faculty Information Manager
 
 This is a form-based application which allows students, faculty members and administrators of a university institution to create and manage accounts. Functionality for adding students, adding courses, dropping courses, checking GPA, checking courses already taken and their GPA, and change personal information. For faculty, users will be able to access courses they are currently teaching, look at students enrolled in the courses, change and add grades, as well as change their own personal information. The admin users will be able to look at all users enrolled in the institutions, change personal information in other users, delete accounts, add courses, edit courses, delete courses, as well as edit their own personal information. </br>
@@ -17,57 +12,57 @@ Some strategies, such as parameterized sql and log files, are also introduced to
 
 **All users are able to check information of a specific course. There are totally 2551 courses listed which are collected by a built-in web crawler.**
 
-![](https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Search_A_Course.png)
+![](https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Search_A_Course.png)
 
 **An administrator can edit a course except its credits.**
 
-![](https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Edit_A_Course.png)
+![](https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Edit_A_Course.png)
 
 **An administrator can check who logged in when and what operations he did during his online.**
 
-![](https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Check_Login_History.png)
+![](https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Check_Login_History.png)
 
 **An administrator can add an account to the database.**
 
 <center>
-<img src="https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Add_an_account.png" width = "60%">
+<img src="https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Add_an_account.png" width = "60%">
 </center>
 
 **The new password for a user should satisfy a set of basic rules for the purpose of security.**
 
 <center>
-<img src="https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Invalid_Password_Example.png" width = "60%">
+<img src="https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Invalid_Password_Example.png" width = "60%">
 </center>
 
 **The password that satisfied the set of basic rules may not be considered as a strong one since there is another built-in algorithm to evaluate its intensity, and a message will be poped up to warn the user when such case happens if he edits his account.**
 
 <center>
-<img src="https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Weak_Password.png" width = "60%">
+<img src="https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Weak_Password.png" width = "60%">
 </center>
 
 **An administrator can check members with a specific role by the keyword filter.**
 
-![](https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Obtain_All_Faculty_Members.png)
+![](https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Obtain_All_Faculty_Members.png)
 
 **A student is able to check all its past and current grade.**
 
 <center>
-<img src="https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Check_Your_Grades.png" width = "60%">
+<img src="https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Check_Your_Grades.png" width = "60%">
 </center>
 
 **A student is able to check if a course is in his academic requirement. So CPSC355 is mandatory for both graduation and internship of a CPSC-major student.**
 
-![](https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Check_req.png)
+![](https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Check_req.png)
 
 **All open courses are shown to students for enrollment.**
 
 <center>
-<img src="https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Check_Enrollment.png" width = "60%">
+<img src="https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Check_Enrollment.png" width = "60%">
 </center>
 
 **A faculty member who is currently teaching PHIL279 can check how many students enrolled the course, as well as decide their final grade.**
 
-![](https://raw.githubusercontent.com/H-Shen/CPSC_233_W2019/master/Group25_Project/res/Grading_a_student.png)
+![](https://raw.githubusercontent.com/H-Shen/UCalgary_Archive/master/CPSC_233_W2019/Group25_Project/res/Grading_a_student.png)
 
 ### Prerequisites
 
