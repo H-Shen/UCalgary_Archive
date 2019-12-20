@@ -1,0 +1,239 @@
+Script started on 2019-06-10 20:31:03-06:00
+No such schema “org.gnome.gedit.preferences.editor”
+]0;haohu.shen@csa1:~/CPSC355/Assignment5haohu.shen@csa1:~/CPSC355/Assignment5$ m4 a5a.asm > a5a.s
+]0;haohu.shen@csa1:~/CPSC355/Assignment5haohu.shen@csa1:~/CPSC355/Assignment5$ as a5a.s -o a5a.o
+]0;haohu.shen@csa1:~/CPSC355/Assignment5haohu.shen@csa1:~/CPSC355/Assignment5$ gcc -c a5aMain.c
+]0;haohu.shen@csa1:~/CPSC355/Assignment5haohu.shen@csa1:~/CPSC355/Assignment5$ gcc a5aMain.o a5a.o -o a5aMain
+]0;haohu.shen@csa1:~/CPSC355/Assignment5haohu.shen@csa1:~/CPSC355/Assignment5$ ./a5aMain
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 44
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 191
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 281
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 3
+
+Current queue contents:
+ 44 <-- head of queue
+ 191
+ 281 <-- tail of queue
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 1814
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 3883
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 3
+
+Current queue contents:
+ 44 <-- head of queue
+ 191
+ 281
+ 1814
+ 3883 <-- tail of queue
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 44
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 3
+
+Current queue contents:
+ 191 <-- head of queue
+ 281
+ 1814
+ 3883 <-- tail of queue
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 91
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 7811
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 4811
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 481
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 1
+
+Enter the positive integer value to be enqueued: 3837838 
+
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 3
+
+Current queue contents:
+ 191 <-- head of queue
+ 281
+ 1814
+ 3883
+ 91
+ 7811
+ 4811
+ 481 <-- tail of queue
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 191
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 281
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 1814
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 3883
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 91
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 7811
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 4811
+
+Press the return key to continue . . . 2 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Dequeued value is 481
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 2
+
+Queue underflow! Cannot dequeue from an empty queue.
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 3
+
+Empty queue
+
+Press the return key to continue . . . 
+[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 4
+
+Terminating program
+]0;haohu.shen@csa1:~/CPSC355/Assignment5haohu.shen@csa1:~/CPSC355/Assignment5$ vi[K[Kexit
+exit
+
+Script done on 2019-06-10 20:33:41-06:00

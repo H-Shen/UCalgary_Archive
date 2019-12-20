@@ -1,0 +1,82 @@
+* {
+    -fx-text-fill: #2b393e;
+}
+
+.canvas {
+    -fx-alignment: center;
+    -fx-pref-width: 1000px;
+    -fx-pref-height: 600px;
+    -fx-background-color: #ffffff;
+}
+
+.top_contain {
+    -fx-pref-height: 200px;
+    -fx-background-color: #ebe9e9;
+}
+
+.title {
+    -fx-font-size: 3em;
+    -fx-alignment: center;
+}
+
+.center_contain {
+    -fx-padding: 100 0 0 0;
+    -fx-alignment: top-center;
+    -fx-background-color: #ffffff;
+}
+
+
+.label_start {
+    -fx-min-width: 200px;
+    -fx-font-size: 1.8em;
+    -fx-text-fill: #30393E;
+    -fx-alignment: center-right;
+}
+
+.role {
+    -fx-pref-width: 400px;
+    -fx-pref-height: 60px;
+    -fx-max-width: 400px;
+    -fx-max-height: 60px;
+    -fx-min-height: 60px;
+    -fx-alignment: center;
+}
+
+.textfield {
+    -fx-pref-width: 328px;
+    -fx-pref-height: 60px;
+    -fx-max-width: 328px;
+    -fx-max-height: 60px;
+    -fx-text-fill: #30393E;
+    -fx-border-color: #30393E;
+    -fx-font-size: 20px;
+}
+
+#image {
+    -fx-max-width: 150px;
+}
+
+.textfield:focused {
+    -fx-border-color: #30393E;
+    -fx-background-color: #eeeeee;
+}
+
+.radio-button {
+    -fx-font-size: 1.3em;
+}
+
+.login {
+    -fx-pref-width: 240px;
+    -fx-pref-height: 30px;
+    -fx-max-width: 240px;
+    -fx-max-height: 40px;
+    -fx-background-color: #e6e6e6;
+    -fx-font-size: 1.5em;
+    -fx-text-fill: #30393E;
+}
+
+.login:hover {
+    -fx-border-color: #30393E;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+}

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="420.0"
+            prefWidth="830.0"
+            xmlns="http://javafx.com/javafx/8" fx:controller="CourseAddGUI">
+    <children>
+        <Line endX="800.0" endY="60.0" layoutY="-40.0" startX="20.0"
+              startY="60.0"/>
+        <Label layoutX="25.0" layoutY="30.0" prefHeight="19.0" prefWidth="94.0"
+               text="Course ID">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="25.0" layoutY="55.0" prefHeight="19.0" prefWidth="102.0"
+               text="Course Name">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0"/>
+            </font>
+        </Label>
+        <Button layoutX="25.0" layoutY="373.0" mnemonicParsing="false"
+                onAction="#updateOnAction" prefHeight="27.0" prefWidth="113.0"
+                text="Update"/>
+        <Label layoutX="25.0" layoutY="144.0" prefHeight="20.0"
+               prefWidth="156.0" text="Course Description">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <Label layoutX="25.0" layoutY="303.0" prefHeight="20.0"
+               prefWidth="113.0" text="Course Units">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <Label fx:id="courseIdLabel" alignment="CENTER" layoutX="168.0"
+               layoutY="30.0" prefHeight="19.0" prefWidth="198.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="445.0" layoutY="55.0" prefHeight="20.0"
+               prefWidth="143.0" text="Prerequisites">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="courseUnitsTextField" layoutX="25.0" layoutY="329.0"
+                   onKeyReleased="#courseUnitsKeyReleased" prefHeight="29.0"
+                   prefWidth="143.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <TextArea fx:id="courseNameTextArea" layoutX="25.0" layoutY="79.0"
+                  onKeyReleased="#courseNameKeyReleased" prefHeight="61.0"
+                  prefWidth="395.0" wrapText="true"/>
+        <TextArea fx:id="courseDescriptionTextArea" layoutX="25.0"
+                  layoutY="170.0" onKeyReleased="#courseDescriptionKeyReleased"
+                  prefHeight="124.0" prefWidth="395.0" wrapText="true"/>
+        <TableView fx:id="prerequisitesTable" layoutX="445.0" layoutY="79.0"
+                   prefHeight="215.0" prefWidth="163.0">
+            <columns>
+                <TableColumn prefWidth="162.0" text="Course ID"/>
+            </columns>
+        </TableView>
+        <Label layoutX="635.0" layoutY="55.0" prefHeight="20.0"
+               prefWidth="128.0" text="Antirerequisites">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <Label layoutX="185.0" layoutY="303.0" prefHeight="20.0"
+               prefWidth="143.0" text="Can be repeated?">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <TableView fx:id="antirequisitesTable" layoutX="634.0" layoutY="79.0"
+                   prefHeight="215.0" prefWidth="163.0">
+            <columns>
+                <TableColumn prefWidth="162.0" text="Course ID"/>
+            </columns>
+        </TableView>
+        <Button layoutX="634.0" layoutY="330.0" mnemonicParsing="false"
+                onAction="#addToPrerequisitesOnAction" prefHeight="27.0"
+                prefWidth="163.0" text="Add  to prerequisites"/>
+        <Button layoutX="445.0" layoutY="373.0" mnemonicParsing="false"
+                onAction="#removeOnAction" prefHeight="27.0" prefWidth="163.0"
+                text="Remove selected"/>
+        <MenuButton fx:id="canBeRepeatedMenuButton" alignment="CENTER"
+                    layoutX="186.0" layoutY="330.0" mnemonicParsing="false"
+                    prefHeight="27.0" prefWidth="94.0" text="Yes">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#noMenuItemOnAction"
+                          text="No"/>
+                <MenuItem mnemonicParsing="false"
+                          onAction="#yesMenuItemOnAction" text="Yes"/>
+            </items>
+        </MenuButton>
+        <Label layoutX="445.0" layoutY="303.0" prefHeight="20.0"
+               prefWidth="143.0" text="Add course ID">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="courseIdAddToListTextField" layoutX="445.0"
+                   layoutY="329.0" onKeyReleased="#courseIdAddToListKeyReleased"
+                   prefHeight="29.0" prefWidth="163.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <Button layoutX="634.0" layoutY="373.0" mnemonicParsing="false"
+                onAction="#addToAntirerequisitesOnAction" prefHeight="27.0"
+                prefWidth="163.0" text="Add to antirerequisites"/>
+        <TextField fx:id="courseIdTextField" layoutX="139.0" layoutY="26.0"
+                   onKeyReleased="#courseIdKeyReleased" prefHeight="27.0"
+                   prefWidth="128.0"/>
+    </children>
+</AnchorPane>

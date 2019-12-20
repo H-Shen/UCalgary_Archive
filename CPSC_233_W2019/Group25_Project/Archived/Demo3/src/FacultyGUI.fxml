@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="800.0"
+            prefWidth="1200.0"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="FacultyGUI">
+    <children>
+        <Button fx:id="searchCourses" layoutX="30.0" layoutY="31.0"
+                mnemonicParsing="false" onAction="#searchCoursesOnAction"
+                prefHeight="30.0" prefWidth="156.0" text="Search Courses">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+        </Button>
+        <Button fx:id="coursesManagement" layoutX="196.0" layoutY="31.0"
+                mnemonicParsing="false"
+                onAction="#coursesManagmentButtonOnAction" prefHeight="30.0"
+                prefWidth="210.0" text="Courses Management">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+        </Button>
+        <TableView fx:id="tableView" layoutX="30.0" layoutY="89.0"
+                   prefHeight="680.0" prefWidth="870.0">
+            <columns>
+                <TableColumn fx:id="courseIdColumn" editable="false"
+                             prefWidth="170.0" text="COURSE ID"/>
+                <TableColumn fx:id="courseNameColumn" editable="false"
+                             prefWidth="390.0" text="COURSE NAME"/>
+                <TableColumn fx:id="courseUnitsColumn" prefWidth="158.0"
+                             text="COURSE UNITS"/>
+                <TableColumn fx:id="canBeRepeated" editable="false"
+                             prefWidth="153.0" text="CAN BE REPEATED"/>
+            </columns>
+        </TableView>
+        <Pane fx:id="panel" layoutX="928.0" layoutY="60.0">
+            <children>
+                <Label alignment="CENTER" layoutX="15.0" prefHeight="30.0"
+                       prefWidth="210.0" text="COURSE INFORMATION">
+                    <font>
+                        <Font name="Helvetica Bold" size="15.0"/>
+                    </font>
+                </Label>
+                <MenuButton fx:id="menuButton" layoutY="677.0"
+                            mnemonicParsing="false" prefHeight="27.0"
+                            prefWidth="156.0" text="Select">
+                    <items>
+                        <MenuItem fx:id="courseIdMenuItem"
+                                  mnemonicParsing="false"
+                                  onAction="#courseIdMenuItemAction"
+                                  text="Course ID"/>
+                        <MenuItem fx:id="courseNameMenuItem"
+                                  mnemonicParsing="false"
+                                  onAction="#courseNameMenuItemAction"
+                                  text="Course Name"/>
+                        <MenuItem fx:id="courseDescriptionItem"
+                                  mnemonicParsing="false"
+                                  onAction="#courseDescriptionItemAction"
+                                  text="Course Description"/>
+                        <MenuItem fx:id="coursePrerequisitesItem"
+                                  mnemonicParsing="false"
+                                  onAction="#coursePrerequisitesItemAction"
+                                  text="Course Prerequisites"/>
+                        <MenuItem fx:id="courseAntirequisitesItem"
+                                  mnemonicParsing="false"
+                                  onAction="#courseAntirequisitesItemAction"
+                                  text="Course Antirequisites"/>
+                    </items>
+                </MenuButton>
+                <Label layoutX="1.0" layoutY="30.0" prefHeight="30.0"
+                       prefWidth="210.0" text="COURSE NAME">
+                    <font>
+                        <Font name="Helvetica Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <TextArea fx:id="coursePrerequisitesTextArea" editable="false"
+                          layoutY="381.0" prefHeight="63.0" prefWidth="240.0"
+                          promptText="NULL" wrapText="true">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </TextArea>
+                <TextArea fx:id="courseNameTextArea" editable="false"
+                          layoutY="60.0" prefHeight="70.0" prefWidth="240.0"
+                          promptText="NULL" wrapText="true">
+                    <font>
+                        <Font name="Arial Bold Italic" size="15.0"/>
+                    </font>
+                </TextArea>
+                <Label layoutX="1.0" layoutY="138.0" prefHeight="30.0"
+                       prefWidth="210.0" text="COURSE DESCRIPTION">
+                    <font>
+                        <Font name="Helvetica Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <TextArea fx:id="courseAntirequisitesTextArea" editable="false"
+                          layoutY="476.0" prefHeight="70.0" prefWidth="240.0"
+                          promptText="NULL" wrapText="true">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </TextArea>
+                <Label fx:id="keywordLabel" layoutY="599.0" prefHeight="30.0"
+                       prefWidth="240.0" text="KEYWORD" wrapText="true">
+                    <font>
+                        <Font name="Helvetica Bold" size="12.0"/>
+                    </font>
+                </Label>
+                <Label fx:id="searchPanel" layoutY="569.0" prefHeight="30.0"
+                       prefWidth="210.0" text="SEARCH PANEL">
+                    <font>
+                        <Font name="Helvetica Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <Button fx:id="go" layoutX="164.0" layoutY="677.0"
+                        mnemonicParsing="false" onAction="#goOnAction"
+                        prefHeight="27.0" prefWidth="76.0" text="Go">
+                    <font>
+                        <Font name="System Bold" size="14.0"/>
+                    </font>
+                </Button>
+                <TextField fx:id="searchByKeyword" layoutY="629.0"
+                           onKeyReleased="#searchBarKeyReleased"
+                           prefHeight="30.0" prefWidth="240.0"
+                           promptText="Press keyword and enter...">
+                    <font>
+                        <Font size="14.0"/>
+                    </font>
+                </TextField>
+                <TextArea fx:id="courseDescriptionTextArea" editable="false"
+                          layoutY="168.0" prefHeight="179.0" prefWidth="240.0"
+                          promptText="NULL" wrapText="true">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </TextArea>
+                <Label layoutX="1.0" layoutY="446.0" prefHeight="30.0"
+                       prefWidth="210.0" text="COURSE ANTIREQUISITES">
+                    <font>
+                        <Font name="Helvetica Bold" size="14.0"/>
+                    </font>
+                </Label>
+                <Label layoutY="351.0" prefHeight="30.0" prefWidth="210.0"
+                       text="COURSE PREREQUISITES">
+                    <font>
+                        <Font name="Helvetica Bold" size="14.0"/>
+                    </font>
+                </Label>
+            </children>
+        </Pane>
+        <Button fx:id="accountSettings" layoutX="415.0" layoutY="31.0"
+                mnemonicParsing="false" onAction="#accountSettingsOnAction"
+                prefHeight="30.0" prefWidth="165.0" text="Account Setting">
+            <font>
+                <Font name="System Bold" size="14.0"/>
+            </font>
+        </Button>
+        <Label fx:id="infoLabel" layoutX="600.0" layoutY="33.0"
+               prefHeight="27.0" prefWidth="471.0" text="Hello">
+            <font>
+                <Font name="Arial" size="16.0"/>
+            </font>
+        </Label>
+    </children>
+</AnchorPane>

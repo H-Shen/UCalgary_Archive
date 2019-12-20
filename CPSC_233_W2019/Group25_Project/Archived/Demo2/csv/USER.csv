@@ -1,0 +1,9 @@
+UUID,ROLE,USERNAME,FULLNAME,GENDER,DATE_OF_BIRTH,EMAIL,PHONE,ADDRESS,PASSWORD
+3e45b1dc-1c3e-4db6-a1a3-951d67392874,ADMIN,jonathan wood,JONATHAN WOOD,M,1977-06-17,jonathanwood@example.net,143-446-7139,"250 Jones Court Apt. 943, South Julie, IN 70978",demodemo
+611d4b16-b15d-49a6-8eba-923eb322b444,ADMIN,jessica rice,JESSICA RICE,F,1982-12-10,jessicarice@example.com,804-156-9324,"807 James Vista Apt. 676, Justinborough, NH 56950",demodemo
+7b2cdf2b-e2ee-466b-97ab-2937b9e612c2,ADMIN,cory robbins,CORY ROBBINS,M,1985-05-05,coryrobbins@example.com,157-462-5325,"014 Sean Burgs Apt. 895, Parrishland, DC 28758",demodemo
+b2a45aa0-2ae7-49c2-87e5-0ef90aa04f2e,FACULTY,demoFaculty1,SYLVIA WARREN,F,1973-07-15,sylviawarren@example.com,966-013-7308,"46197 Tonya Ways Frankborough, FL 70454",demodemo
+0cd1a2bc-dbd9-4713-bb08-475b01fec8a0,STUDENT,demoStudent1,CHRISTOPHER SAUNDERS,M,1997-03-12,christophersaunders@example.org,058-176-2285,"196 Mariah Park Apt. 691, South Stephanie, NV 15534",demodemo
+99c7b825-57f0-4023-a012-ada4e6b86c6f,ADMIN,demo,THOMAS RICK,M,1983-12-04,demo@demo.com,123-456-7899,"12B Demo Street, NV 15248",demodemo
+79d697ab-5fed-4807-a08b-59ab9c6d3803,STUDENT,demoStudent,SAMIR CHIN,M,1985-01-01,9sa8dy98asdy9@9adsu90asud.cn,999-999-9999,KAJSHASHIUAHUSHSA,demodemo
+54e0603d-d73e-435a-bc37-cda9346fd87c,FACULTY,demoFaculty,IXIIFPGRY UQDORDPO,F,2004-02-01,yromero@yahoo.com,123-123-1234,"PSC 6602, Box 2316, APO AE 03361",demodemo

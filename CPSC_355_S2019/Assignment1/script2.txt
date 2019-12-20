@@ -1,0 +1,156 @@
+Script started on 2019-05-15 19:21:55-06:00
+]0;haohu.shen@csa3:~/CPSC355/Assignment1haohu.shen@csa3:~/CPSC355/Assignment1$ gdb assign1b
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign1b...done.
+(gdb) [K(gdb) [K(gdb) b output
+Breakpoint 1 at 0x40061c: file assign1b.s, line 75.
+(gdb) i b
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x000000000040061c assign1b.s:75
+(gdb) r
+Starting program: /home/ugd/haohu.shen/CPSC355/Assignment1/assign1b 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-37.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+(gdb) displat[Ky [K/i $[p[K[Kpc
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) c
+Continuing.
+If x = -6, then y =   -29 and the current maximum of y is -29.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) p $x20
+$1 = -29
+(gdb) c
+Continuing.
+If x = -5, then y =  -139 and the current maximum of y is -29.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$2 = -29
+(gdb) p $x20c[K
+Continuing.
+If x = -4, then y =  -161 and the current maximum of y is -29.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$3 = -29
+(gdb) [K(gdb) [K(gdb) c
+Continuing.
+If x = -3, then y =  -125 and the current maximum of y is -29.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$4 = -29
+(gdb) p $x20c[K
+Continuing.
+If x = -2, then y =   -61 and the current maximum of y is -29.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$5 = 1
+(gdb) p $x20c[K
+Continuing.
+If x = -1, then y =     1 and the current maximum of y is   1.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$6 = 31
+(gdb) p $x20c[K
+Continuing.
+If x =  0, then y =    31 and the current maximum of y is  31.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$7 = 31
+(gdb) p $x20c[K
+Continuing.
+If x =  1, then y =    -1 and the current maximum of y is  31.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$8 = 31
+(gdb) p $x20c[K
+Continuing.
+If x =  2, then y =  -125 and the current maximum of y is  31.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$9 = 31
+(gdb) p $x20c[K
+Continuing.
+If x =  3, then y =  -371 and the current maximum of y is  31.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$10 = 31
+(gdb) p $x20c[K
+Continuing.
+If x =  4, then y =  -769 and the current maximum of y is  31.
+
+Breakpoint 1, output () at assign1b.s:75
+75	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40061c <output>:	adrp	x0, 0x400000
+(gdb) cp $x20
+$11 = 31
+(gdb) p $x20c[K
+Continuing.
+If x =  5, then y = -1349 and the current maximum of y is  31.
+[Inferior 1 (process 13750) exited normally]
+(gdb) q
+]0;haohu.shen@csa3:~/CPSC355/Assignment1haohu.shen@csa3:~/CPSC355/Assignment1$ exit
+exit
+
+Script done on 2019-05-15 19:24:05-06:00

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="646.0"
+            prefWidth="450.0"
+            xmlns="http://javafx.com/javafx/8" fx:controller="UserAddGUI">
+    <children>
+        <Line endX="430.0" endY="60.0" layoutY="-40.0" startX="20.0"
+              startY="60.0"/>
+        <Label layoutX="25.0" layoutY="30.0" prefHeight="19.0" prefWidth="53.0"
+               text="UUID ">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="25.0" layoutY="55.0" prefHeight="19.0" prefWidth="53.0"
+               text="ROLE">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0"/>
+            </font>
+        </Label>
+        <Label fx:id="uuidLabel" layoutX="99.0" layoutY="30.0" prefHeight="19.0"
+               prefWidth="330.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Button layoutX="338.0" layoutY="596.0" mnemonicParsing="false"
+                onAction="#createOnAction" prefHeight="27.0" prefWidth="85.0"
+                text="Create"/>
+        <TextField fx:id="usernameTextField" layoutX="25.0" layoutY="194.0"
+                   onKeyReleased="#usernameTextFieldKeyReleased"
+                   prefHeight="29.0" prefWidth="395.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <Label layoutX="25.0" layoutY="110.0" prefHeight="19.0" prefWidth="94.0"
+               text="FULL NAME">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="23.0" layoutY="82.0" prefHeight="19.0" prefWidth="71.0"
+               text="GENDER">
+            <font>
+                <Font name="Arial Bold Italic" size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="26.0" layoutY="169.0" prefHeight="19.0" prefWidth="94.0"
+               text="Username">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <Label layoutX="27.0" layoutY="234.0" prefHeight="19.0" prefWidth="94.0"
+               text="Address">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="addressTextField" layoutX="25.0" layoutY="256.0"
+                   onKeyReleased="#addressTextFieldKeyReleased"
+                   prefHeight="29.0" prefWidth="395.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <Label layoutX="28.0" layoutY="298.0" prefHeight="20.0"
+               prefWidth="127.0" text="Phone Number">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="phoneNumberTextField" layoutX="25.0" layoutY="322.0"
+                   onKeyReleased="#phoneNumberTextFieldKeyReleased"
+                   prefHeight="29.0" prefWidth="395.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <Label layoutX="25.0" layoutY="365.0" prefHeight="20.0"
+               prefWidth="113.0" text="Date Of Birth">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="dateOfBirthTextField" layoutX="25.0" layoutY="388.0"
+                   onKeyReleased="#dateOfBirthKeyReleased" prefHeight="29.0"
+                   prefWidth="395.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <Label layoutX="162.0" layoutY="299.0" prefHeight="19.0"
+               prefWidth="113.0" text="###-###-####">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="162.0" layoutY="366.0" prefHeight="19.0"
+               prefWidth="113.0" text="yyyy-mm-dd">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Label>
+        <Label layoutX="26.0" layoutY="488.0" prefHeight="20.0"
+               prefWidth="113.0" text="Password">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <PasswordField fx:id="newPasswordField" layoutX="25.0" layoutY="511.0"
+                       onKeyReleased="#newPasswordTextFieldKeyReleased"
+                       prefHeight="29.0" prefWidth="395.0"
+                       promptText="New Password">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </PasswordField>
+        <PasswordField fx:id="newPasswordAgainField" layoutX="25.0"
+                       layoutY="552.0"
+                       onKeyReleased="#newPasswordAgainTextFieldKeyReleased"
+                       prefHeight="29.0" prefWidth="395.0"
+                       promptText="Enter New Password Again">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </PasswordField>
+        <Label layoutX="25.0" layoutY="425.0" prefHeight="20.0"
+               prefWidth="113.0" text="Email Address">
+            <font>
+                <Font name="Arial Bold Italic" size="16.0"/>
+            </font>
+        </Label>
+        <TextField fx:id="emailAddressTextField" layoutX="25.0" layoutY="449.0"
+                   onKeyReleased="#emailAddressKeyReleased" prefHeight="29.0"
+                   prefWidth="395.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <TextField fx:id="fullNameTextField" layoutX="25.0" layoutY="136.0"
+                   onKeyReleased="#fullNameTextFieldKeyReleased"
+                   prefHeight="29.0" prefWidth="395.0">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </TextField>
+        <MenuButton fx:id="genderMenuButton" alignment="CENTER" layoutX="286.0"
+                    layoutY="80.0" mnemonicParsing="false" prefHeight="23.0"
+                    prefWidth="134.0" text="Male">
+            <font>
+                <Font size="12.0"/>
+            </font>
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#maleMenuItemAction"
+                          text="Male"/>
+                <MenuItem mnemonicParsing="false"
+                          onAction="#femaleMenuItemAction" text="Female"/>
+            </items>
+        </MenuButton>
+        <MenuButton fx:id="roleMenuButton" alignment="CENTER" layoutX="286.0"
+                    layoutY="53.0" mnemonicParsing="false" prefHeight="23.0"
+                    prefWidth="134.0" text="STUDENT">
+            <font>
+                <Font size="12.0"/>
+            </font>
+            <items>
+                <MenuItem mnemonicParsing="false"
+                          onAction="#studentMenuItemAction" text="STUDENT"/>
+                <MenuItem mnemonicParsing="false"
+                          onAction="#facultyMenuItemAction" text="FACULTY"/>
+                <MenuItem mnemonicParsing="false"
+                          onAction="#adminMenuItemAction" text="ADMIN"/>
+            </items>
+        </MenuButton>
+        <Button layoutX="244.0" layoutY="596.0" mnemonicParsing="false"
+                onAction="#resetOnAction" prefHeight="27.0" prefWidth="85.0"
+                text="Reset"/>
+    </children>
+</AnchorPane>

@@ -1,0 +1,70 @@
+Script started on 2019-06-09 15:29:11-06:00
+]0;haohu.shen@csa3:~/CPSC355/Assignment4haohu.shen@csa3:~/CPSC355/Assignment4$ gcc[K[K[Kg[Km4[K[Km4 assign4.asm > assign4.s && gcc -g -O0 assign4.s -o assign4 && gdb assign4
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign4...done.
+(gdb) b output0
+Breakpoint 1 at 0x40076c: file assign4.s, line 213.
+(gdb) b ret
+Breakpoint 2 at 0x4007dc: file assign4.s, line 266.
+(gdb) r
+Starting program: /home/ugd/haohu.shen/CPSC355/Assignment4/assign4 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-38.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, output0 () at assign4.s:213
+213	output0:        ldr     x0, =title0                                         // Set title0 as the 1st argument of 'printf'
+(gdb) display/i $pc
+1: x/i $pc
+=> 0x40076c <output0>:	ldr	x0, 0x4007f0 <ret+20>
+(gdb) x/5dw $x29+16
+0xfffffffff0c0:	0	0	1	1
+0xfffffffff0d0:	1
+(gdb) x/5dw $x29+36
+0xfffffffff0d4:	0	0	1	1
+0xfffffffff0e4:	1
+(gdb) c
+Continuing.
+Initial box values:
+Box first origin = (0, 0) width = 1 height = 1 area = 1
+Box second origin = (0, 0) width = 1 height = 1 area = 1
+
+Changed box values:
+Box first origin = (-5, 7) width = 1 height = 1 area = 1
+Box second origin = (0, 0) width = 3 height = 3 area = 9
+
+Breakpoint 2, ret () at assign4.s:266
+266	ret:            mov     w0, 0			                            // Return 0 for 'main' function
+1: x/i $pc
+=> 0x4007dc <ret>:	mov	w0, #0x0                   	// #0
+(gdb) cx/5dw $x29+3616
+0xfffffffff0c0:	-5	7	1	1
+0xfffffffff0d0:	1
+(gdb) x/5dw $x29+16[C[C[C[C[C[Cc[Kx/5dw $x29+36
+0xfffffffff0d4:	0	0	3	3
+0xfffffffff0e4:	9
+(gdb) c
+Continuing.
+[Inferior 1 (process 5348) exited normally]
+(gdb) q
+]0;haohu.shen@csa3:~/CPSC355/Assignment4haohu.shen@csa3:~/CPSC355/Assignment4$ exit
+exit
+
+Script done on 2019-06-09 15:31:20-06:00

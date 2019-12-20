@@ -1,0 +1,8 @@
+#! /bin/tcsh
+
+echo 'A Set of Tests for the Sorting Algorithm'
+echo ' '
+
+javac TestSort.java
+java org.junit.runner.JUnitCore cpsc331.assignment3.TestSort
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0"
+            prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="CourseHistoryGUI">
+    <TableView fx:id="tableView" layoutX="14.0" layoutY="73.0"
+               prefHeight="497.0" prefWidth="471.0"
+               stylesheets="@FontAndColorControl.css">
+        <columns>
+            <TableColumn fx:id="courseIdColumn" editable="false"
+                         prefWidth="153.0" resizable="false"
+                         text="COURSE ID">
+                <styleClass>
+                    <String fx:value="default-font"/>
+                    <String fx:value="fontAlignCenter"/>
+                </styleClass>
+            </TableColumn>
+            <TableColumn fx:id="gradeColumn" editable="false"
+                         prefWidth="165.0" resizable="false" text="GRADE">
+                <styleClass>
+                    <String fx:value="default-font"/>
+                    <String fx:value="fontAlignCenter"/>
+                </styleClass>
+            </TableColumn>
+            <TableColumn fx:id="statusColumn" editable="false"
+                         prefWidth="152.0" resizable="false" text="STATUS">
+                <styleClass>
+                    <String fx:value="default-font"/>
+                    <String fx:value="fontAlignCenter"/>
+                </styleClass>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <Label layoutX="27.0" layoutY="20.0" prefHeight="21.0" prefWidth="176.0"
+           text="TOTAL COURSES TAKEN">
+        <font>
+            <Font name="Arial Bold" size="14.0"/>
+        </font>
+    </Label>
+    <Label layoutX="295.0" layoutY="21.0" prefHeight="21.0"
+           prefWidth="102.0" text="OVERALL GPA">
+        <font>
+            <Font name="Arial Bold" size="14.0"/>
+        </font>
+    </Label>
+    <Label fx:id="totalCoursesTakenLabel" layoutX="210.0" layoutY="16.0"
+           prefHeight="31.0" prefWidth="67.0" styleClass="default-font"
+           stylesheets="@FontAndColorControl.css"/>
+    <Label fx:id="overallGPALabel" layoutX="407.0" layoutY="16.0"
+           prefHeight="31.0" prefWidth="67.0" styleClass="default-font"
+           stylesheets="@FontAndColorControl.css"/>
+</AnchorPane>

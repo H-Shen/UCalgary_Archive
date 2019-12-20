@@ -1,0 +1,74 @@
+import java.math.BigDecimal;
+
+/**
+ * The {@code SavingsAccount} class provides methods of simulating a saving
+ * account in the real world.
+ * <p>
+ * All methods ensure that the balance in a bank account is never overdrafted
+ * (a negative amount) and that only positive amounts are deposited/withdrawn.
+ * <p>
+ *
+ * @author Haohu Shen
+ * @version 2019-02-10
+ */
+
+public class SavingsAccount extends BankAccount {
+
+    private double annualInterestRate = 0.05;
+    private double minimumBalance;
+
+    /**
+     * Getter of annual interest rate
+     *
+     * @return annualInterestRate
+     */
+    public double getAnnualInterestRate() {
+        return annualInterestRate;
+    }
+
+    /**
+     * Setter of annual interest rate
+     *
+     * @param annualInterestRate
+     */
+    public void setAnnualInterestRate(double annualInterestRate) {
+        BigDecimal temp = new BigDecimal(annualInterestRate);
+        if (temp.compareTo(BigDecimal.ZERO) >= 0) {
+            if (temp.compareTo(BigDecimal.ONE) <= 0) {
+                this.annualInterestRate = annualInterestRate;
+            }
+        }
+    }
+
+    /**
+     * Setter of annual minimum balance
+     *
+     * @param minimumBalance
+     */
+    public void setMinimumBalance(double minimumBalance) {
+        this.minimumBalance = minimumBalance;
+    }
+
+    /**
+     * Override the withdraw method from the parent class, it verifies that
+     * there are sufficient funds in the account for the withdraw before
+     * invoking the withdraw method in the parent class.
+     *
+     * @param money the money to withdraw
+     */
+    @Override
+    public void withdraw(double money) {
+        BigDecimal temp = new BigDecimal(super.getBalance()).subtract(new BigDecimal(money));
+        if (temp.compareTo(new BigDecimal(minimumBalance)) >= 0) {
+            super.withdraw(money);
+        }
+    }
+
+    /**
+     * Calculates the amount of interest earned on the balance in the
+     * SavingsAccount on a monthly basis, and adds it to the balance
+     */
+    public void depositMonthlyInterest() {
+        super.deposit(super.getBalance() * annualInterestRate / 12.0);
+    }
+}

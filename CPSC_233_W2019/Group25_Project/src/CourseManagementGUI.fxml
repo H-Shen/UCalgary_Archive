@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" prefHeight="710.0"
+            prefWidth="630.0"
+            xmlns="http://javafx.com/javafx/8"
+            fx:controller="CourseManagementGUI">
+    <TableView fx:id="coursesCurrentlyTeachingTable" layoutX="27.0"
+               layoutY="55.0" prefHeight="191.0" prefWidth="574.0">
+        <columns>
+            <TableColumn fx:id="courseIdColumn" editable="false"
+                         prefWidth="290.0" resizable="false"
+                         text="Course ID"/>
+            <TableColumn fx:id="countOfStudentsColumn" prefWidth="290.0"
+                         resizable="false" text="Count of students"/>
+        </columns>
+    </TableView>
+    <Label layoutX="27.0" layoutY="20.0" prefHeight="21.0" prefWidth="270.0"
+           text="Courses Currently Teaching">
+        <font>
+            <Font name="Arial Bold" size="18.0"/>
+        </font>
+    </Label>
+    <Button layoutX="473.0" layoutY="657.0" mnemonicParsing="false"
+            onAction="#submitOnAction" prefHeight="29.0" prefWidth="127.0"
+            text="Submit"/>
+    <TableView fx:id="coursesGraderTable" layoutX="27.0" layoutY="305.0"
+               prefHeight="191.0" prefWidth="574.0">
+        <columns>
+            <TableColumn fx:id="uuidColumn" editable="false"
+                         prefWidth="290.0" resizable="false" text="UUID"/>
+            <TableColumn fx:id="gradeColumn" prefWidth="283.0"
+                         resizable="false" text="Grade"/>
+        </columns>
+    </TableView>
+    <Label layoutX="27.0" layoutY="269.0" prefHeight="21.0"
+           prefWidth="230.0" text="List for Grading Courses">
+        <font>
+            <Font name="Arial Bold" size="18.0"/>
+        </font>
+    </Label>
+    <Label layoutX="27.0" layoutY="511.0" prefHeight="21.0"
+           prefWidth="176.0" text="Student Information">
+        <font>
+            <Font name="Arial Bold" size="18.0"/>
+        </font>
+    </Label>
+    <Label layoutX="27.0" layoutY="539.0" prefHeight="21.0" prefWidth="88.0"
+           text="Full name">
+        <font>
+            <Font name="Arial Italic" size="17.0"/>
+        </font>
+    </Label>
+    <Label layoutX="325.0" layoutY="539.0" prefHeight="21.0"
+           prefWidth="127.0" text="Email Address">
+        <font>
+            <Font name="Arial Italic" size="17.0"/>
+        </font>
+    </Label>
+    <TextArea fx:id="fullNameTextArea" editable="false" layoutX="27.0"
+              layoutY="566.0" prefHeight="51.0" prefWidth="270.0"/>
+    <TextArea fx:id="emailAddressTextArea" editable="false" layoutX="323.0"
+              layoutY="566.0" prefHeight="51.0" prefWidth="277.0"/>
+    <Label layoutX="27.0" layoutY="628.0" prefHeight="21.0" prefWidth="88.0"
+           text="Grade">
+        <font>
+            <Font name="Arial Bold" size="18.0"/>
+        </font>
+    </Label>
+    <TextField fx:id="gradeTextField" layoutX="27.0" layoutY="657.0"
+               onKeyReleased="#gradeTextFieldKeyReleased" prefHeight="29.0"
+               prefWidth="112.0"/>
+    <Button layoutX="323.0" layoutY="658.0" mnemonicParsing="false"
+            onAction="#resetSelectedOnAction" prefHeight="27.0"
+            prefWidth="127.0" text="Reset Selected"/>
+    <Button layoutX="150.0" layoutY="658.0" mnemonicParsing="false"
+            onAction="#gradeUpdateOnAction" prefHeight="27.0"
+            prefWidth="75.0" text="Update"/>
+</AnchorPane>

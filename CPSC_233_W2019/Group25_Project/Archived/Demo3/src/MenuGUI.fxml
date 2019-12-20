@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import java.net.URL?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" opacity="0.95"
+            styleClass="canvas"
+            xmlns="http://javafx.com/javafx/8">
+    <top>
+        <HBox alignment="CENTER" styleClass="top_contain">
+            <children>
+                <Label fx:id="label_title" styleClass="title"
+                       text="FACULTY &amp; STUDENT INFORMATION MANAGER">
+                    <font>
+                        <Font name="System Bold Italic" size="13.0"/>
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox fx:id="center_contain" spacing="25" styleClass="center_contain">
+            <children>
+
+                <HBox alignment="center" spacing="30">
+                    <children>
+                        <Label minWidth="186.0" prefHeight="29.0"
+                               prefWidth="186.0" styleClass="label_start"
+                               text="USERNAME"/>
+                        <TextField fx:id="userAccount" maxWidth="401.0"
+                                   prefHeight="42.0" prefWidth="401.0"
+                                   promptText="Please enter username..."
+                                   styleClass="textfield"/>
+                    </children>
+                </HBox>
+
+                <HBox alignment="center" spacing="30">
+                    <children>
+                        <Label minWidth="182.0" prefHeight="29.0"
+                               prefWidth="182.0" styleClass="label_start"
+                               text="PASSWORD"/>
+                        <PasswordField fx:id="password"
+                                       promptText="Please enter password..."
+                                       styleClass="textfield"/>
+                    </children>
+                </HBox>
+
+                <HBox alignment="center" spacing="30">
+                    <children>
+                        <Label minWidth="133.0" prefHeight="29.0"
+                               prefWidth="133.0" styleClass="label_start"
+                               text="ROLE"/>
+                        <HBox alignment="CENTER" maxWidth="430.0"
+                              prefWidth="430.0" spacing="40" styleClass="role">
+                            <children>
+                                <RadioButton fx:id="studentRadioButton"
+                                             prefHeight="22.0" prefWidth="142.0"
+                                             text="STUDENT"/>
+                                <RadioButton fx:id="facultyRadioButton"
+                                             prefHeight="22.0" prefWidth="156.0"
+                                             text="FACULTY"/>
+                                <RadioButton fx:id="adminRadioButton"
+                                             prefHeight="22.0" prefWidth="124.0"
+                                             text="ADMIN"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </HBox>
+
+                <HBox alignment="center" prefHeight="300.0" prefWidth="1400.0"
+                      spacing="200.0">
+                    <children>
+                        <ImageView fx:id="image" scaleX="0.5" scaleY="0.5"
+                                   translateX="-80">
+
+                        </ImageView>
+                        <Label fx:id="loginLabel" alignment="CENTER"
+                               maxWidth="300.0" prefHeight="13.0"
+                               prefWidth="60.0" styleClass="login"
+                               text="Sign In" translateX="-100">
+                            <rotationAxis>
+                                <Point3D/>
+                            </rotationAxis>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@MenuGUI.css"/>
+    </stylesheets>
+
+</BorderPane>

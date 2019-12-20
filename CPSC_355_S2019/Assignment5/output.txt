@@ -1,0 +1,3053 @@
+[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Empty queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Empty queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Queue underflow! Cannot dequeue from an empty queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Empty queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Empty queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ###[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Queue underflow! Cannot dequeue from an empty queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Empty queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Queue underflow! Cannot dequeue from an empty queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current que[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jue contents:
+ 1 <-- head of queue
+ 1
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Queue underflow! Cannot dequeue from an empty queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Queue underflow! Cannot dequeue from an empty queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Queue underflow! Cannot dequeue from an empty queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### [3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2JQueue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 1
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Deque[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 3
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Queue underflow! Cannot dequeue from an empty queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Empty queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Empty queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Empty queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your opt[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jion? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 1
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 1
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 1
+ 1
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 1
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 1
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 1
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 1
+ 1
+ 3
+ 3
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 3
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press [3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jthe return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 3
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 3
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 3
+ 3
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to con[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jtinue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 2
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 3
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 3
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 3
+ 3
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 3
+ 1
+ 3
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 3 <-- tail of queue
+
+Press the ret[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jurn key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 2
+ 1
+ 1
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 2
+ 1
+ 1
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 2
+ 1
+ 1
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 2
+ 1
+ 1
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 2
+ 1
+ 1
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 2
+ 1
+ 1
+ 2
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press t[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jhe return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 1
+ 2
+ 3
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 1
+ 2
+ 3
+ 3
+ 1
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 2
+ 3
+ 3
+ 1
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 2
+ 3
+ 3
+ 1
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 3
+ 3
+ 1
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 1
+ 1
+ 2
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 2
+ 3
+ 1
+ 3
+ 3 <-- tail of queue
+[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 2
+ 3
+ 1
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 3
+ 3
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 3
+ 3
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 3
+ 3
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2
+ 2
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3 <-- tail of queue
+
+[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2JPress the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return ke[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jy to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 3
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 3
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 3
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 3
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue O[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jperations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 1
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 2
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 2
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 2
+ 2
+ 1
+ 3
+ 3
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 1
+ 3
+ 3
+ 2
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 1
+ 3
+ 3
+ 2
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3
+ 3
+ 2
+ 2
+ 3 <-- tail of queue
+
+Press[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3
+ 3
+ 2
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3
+ 3
+ 2
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 3
+ 2
+ 2
+ 3
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 3
+ 2
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 3
+ 2
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 3
+ 2
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 3
+ 2
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 2
+ 3
+ 2
+ 1
+ 3
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <--[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J head of queue
+ 1
+ 3
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3
+ 2
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3
+ 2
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 3
+ 2
+ 2
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 2
+ 2
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 1
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current qu[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jeue contents:
+ 3 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1
+ 1
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 2
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 2
+ 2
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 1 <-- tail of queue
+
+Press the return ke[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2Jy to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 2
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 2
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 1
+ 3
+ 2
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 2
+ 3
+ 1
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 2
+ 3
+ 1
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 1
+ 1
+ 3
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . [3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J[3J[H[2J. ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 3 <-- head of queue
+ 1
+ 1
+ 3
+ 2
+ 2
+ 3
+ 3 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 2
+ 2
+ 3
+ 3
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 2
+ 2
+ 3
+ 3
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 1 <-- head of queue
+ 3
+ 2
+ 2
+ 3
+ 3
+ 2
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 1
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 3
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Dequeued value is 2
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 3
+ 3
+ 2
+ 2
+ 3
+ 1 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Enter the positive integer value to be enqueued: 
+Queue overflow! Cannot enqueue into a full queue.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Current queue contents:
+ 2 <-- head of queue
+ 3
+ 3
+ 2
+ 2
+ 3
+ 1
+ 2 <-- tail of queue
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Invalid option! Try again.
+
+Press the return key to continue . . . ### Queue Operations ###
+
+Press 1 - Enqueue, 2 - Dequeue, 3 - Display, 4 - Exit
+Your option? 
+Terminating program

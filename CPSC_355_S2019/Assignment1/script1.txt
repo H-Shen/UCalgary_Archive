@@ -1,0 +1,331 @@
+Script started on 2019-05-15 19:08:19-06:00
+]0;haohu.shen@csa3:~/CPSC355/Assignment1haohu.shen@csa3:~/CPSC355/Assignment1$ gdb assignm[K1a.[K
+GNU gdb (GDB) Fedora 8.1.1-4.fc28
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "aarch64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from assign1a...done.
+(gdb) b main
+Breakpoint 1 at 0x4005d4: file assign1a.s, line 28.
+(gdb) i b
+Num     Type           Disp Enb Address            What
+1       breakpoint     keep y   0x00000000004005d4 assign1a.s:28
+(gdb) r
+Starting program: /home/ugd/haohu.shen/CPSC355/Assignment1/assign1a 
+warning: the debug information found in "/usr/lib/debug//usr/lib64/ld-2.27.so.debug" does not match "/lib/ld-linux-aarch64.so.1" (CRC mismatch).
+
+Missing separate debuginfos, use: dnf debuginfo-install glibc-2.27-37.fc28.aarch64
+warning: the debug information found in "/usr/lib/debug//lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+warning: the debug information found in "/usr/lib/debug//usr/lib64/libc-2.27.so.debug" does not match "/lib64/libc.so.6" (CRC mismatch).
+
+
+Breakpoint 1, main () at assign1a.s:28
+28	main:       stp     x29, x30, [sp, -16]!        // Save Frame Pointer and Link Register to the Stack Pointer
+(gdb) display/i $[K%[K$pc
+1: x/i $pc
+=> 0x4005d4 <main>:	stp	x29, x30, [sp, #-16]!
+(gdb) ni
+29	            mov     x29, sp                     // Set FP to the address of the Stack Pointer
+1: x/i $pc
+=> 0x4005d8 <main+4>:	mov	x29, sp
+(gdb) ni
+31	            mov     x19, -2147483648            // Set the initial value of y as the mininum value for a signed int
+1: x/i $pc
+=> 0x4005dc <main+8>:	mov	x19, #0xffffffff80000000    	// #-2147483648
+(gdb) ni[K[Kç[Kni
+35	            mov     x20, x19                    // Set the initial value of current maximum y the same as that in x19
+1: x/i $pc
+=> 0x4005e0 <main+12>:	mov	x20, x19
+(gdb) x[Kp $x19
+$1 = -2147483648
+(gdb) ni
+36	            mov     x21, -6                     // Set the initial value of x as -6 in register x21
+1: x/i $pc
+=> 0x4005e4 <main+16>:	mov	x21, #0xfffffffffffffffa    	// #-6
+(gdb) nip $x19[K[K20
+$2 = -2147483648
+(gdb) p $x20[4Pni
+37	            mov     x25, -5                     // Set the coefficient of x*x*x as -5 in register x25
+1: x/i $pc
+=> 0x4005e8 <main+20>:	mov	x25, #0xfffffffffffffffb    	// #-5
+(gdb) nip $x20[K1
+$3 = -6
+(gdb) p $x21[4Pni
+38	            mov     x26, -31                    // Set the coefficient of x*x as -31 in register x26
+1: x/i $pc
+=> 0x4005ec <main+24>:	mov	x26, #0xffffffffffffffe1    	// #-31
+(gdb) nip $x21[K5
+$4 = -5
+(gdb) p $x25[4Pni
+39	            mov     x27, 4                      // Set the coefficient of x as 4 in register x27
+1: x/i $pc
+=> 0x4005f0 <main+28>:	mov	x27, #0x4                   	// #4
+(gdb) nip $x25[K6
+$5 = -31
+(gdb) p $x26[4Pnip $x25[4Pni
+loop_test () at assign1a.s:41
+41	loop_test:  cmp     x21, 5                      // Compare x in x21 and 5
+1: x/i $pc
+=> 0x4005f4 <loop_test>:	cmp	x21, #0x5
+(gdb) nip $x26[K7
+$6 = 4
+(gdb) p $x27[4Pni
+42	            b.gt    ret                         // Branch to label 'ret' if x > 5
+1: x/i $pc
+=> 0x4005f8 <loop_test+4>:	b.gt	0x40064c <ret>
+(gdb) ni
+loop () at assign1a.s:44
+44	loop:       mov     x19, 31                     // Set value of y in x19 to 31 at the beginning of every iteration
+1: x/i $pc
+=> 0x4005fc <loop>:	mov	x19, #0x1f                  	// #31
+(gdb) ni
+47	            mul     x22, x21, x21               // Calculate x*x and store in register x22
+1: x/i $pc
+=> 0x400600 <loop+4>:	mul	x22, x21, x21
+(gdb) nip $x27[K[K19
+$7 = 31
+(gdb) p $x19[4Pnik[K
+48	            mul     x23, x22, x21               // Multiply the value in x22 and x then store in register x23
+1: x/i $pc
+=> 0x400604 <loop+8>:	mul	x23, x22, x21
+(gdb) nip $x19[K[K22
+$8 = 36
+(gdb) p $x22[4Pni
+49	            mul     x24, x23, x25               // Calculate the value in x23 * (-5) and store in register x24
+1: x/i $pc
+=> 0x400608 <loop+12>:	mul	x24, x23, x25
+(gdb) nip $x22[K3
+$9 = -216
+(gdb) p $x23[4Pni
+50	            add     x19, x19, x24               // Add -5*x*x*x in x24 to y in x19
+1: x/i $pc
+=> 0x40060c <loop+16>:	add	x19, x19, x24
+(gdb) nip $x23[K4
+$10 = 1080
+(gdb) p $x24[4Pni
+53	            mul     x23, x22, x26               // Multiply the value in x22 and -31 in x26 then store in x23
+1: x/i $pc
+=> 0x400610 <loop+20>:	mul	x23, x22, x26
+(gdb) nip $x24[K[K19
+$11 = 1111
+(gdb) p $x19[4Pni
+54	            add     x19, x19, x23               // Add -31*x*x in x23 to y in x19
+1: x/i $pc
+=> 0x400614 <loop+24>:	add	x19, x19, x23
+(gdb) nip $x19[K[K23
+$12 = -1116
+(gdb) p $x23[4Pni
+57	            mul     x22, x21, x27               // Multiply the value in x21 and 4 in x27 then store in x22
+1: x/i $pc
+=> 0x400618 <loop+28>:	mul	x22, x21, x27
+(gdb) nip $x23[K[K19
+$13 = -5
+(gdb) p $x19[4Pni
+58	            add     x19, x19, x22               // Add 4*x in x22 to y in x19
+1: x/i $pc
+=> 0x40061c <loop+32>:	add	x19, x19, x22
+(gdb) nip $x19[K[K22
+$14 = -24
+(gdb) p $x22[4Pni
+cmp_y () at assign1a.s:60
+60	cmp_y:      cmp     x19, x20                    // Compare y in x19 and the current maximum of y in x20
+1: x/i $pc
+=> 0x400620 <cmp_y>:	cmp	x19, x20
+(gdb) nip $x22[K[K19
+$15 = -29
+(gdb) p $x19[4Pni
+61	            b.le    output                      // Branch to label 'output' if y <= maximum
+1: x/i $pc
+=> 0x400624 <cmp_y+4>:	b.le	0x40062c <output>
+(gdb) nip $x19[4Pni
+update () at assign1a.s:63
+63	update:     mov     x20, x19                    // Update maximum to the current y
+1: x/i $pc
+=> 0x400628 <update>:	mov	x20, x19
+(gdb) ni
+output () at assign1a.s:65
+65	output:     adrp    x0, fmt                     // Set fmt as the 1st argument of 'printf'
+1: x/i $pc
+=> 0x40062c <output>:	adrp	x0, 0x400000
+(gdb) nip $x19[K[K20
+$16 = -29
+(gdb) p $x20[4Pni
+66	            add     x0, x0, :lo12:fmt           // Add the low 12 bits to x0
+1: x/i $pc
+=> 0x400630 <output+4>:	add	x0, x0, #0x594
+(gdb) ni
+67	            mov     x1, x21                     // Set the value of x in x21 as the 2nd argument of 'printf'
+1: x/i $pc
+=> 0x400634 <output+8>:	mov	x1, x21
+(gdb) nip $x20[4Pnip $x20[4Pni
+68	            mov     x2, x19                     // Set the value of y in x19 as the 3rd argument of 'printf'
+1: x/i $pc
+=> 0x400638 <output+12>:	mov	x2, x19
+(gdb) ni[K[Knip $x20[K1[K[K1
+$17 = -6
+(gdb) p $x1[3Pni
+69	            mov     x3, x20                     // Set the value of maximum y in x20 as the 4th argument of 'printf'
+1: x/i $pc
+=> 0x40063c <output+16>:	mov	x3, x20
+(gdb) nip $x1[K2
+$18 = -29
+(gdb) p $x2[3Pni
+70	            bl      printf                      // Call printf
+1: x/i $pc
+=> 0x400640 <output+20>:	bl	0x400480 <printf@plt>
+(gdb) nip $x2[K3
+$19 = -29
+(gdb) p $x3[3Pni
+If x = -6, then y =   -29 and the current maximum of y is -29.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) nip $x3[3Pni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x3\[K[K21
+$20 = -5
+(gdb) p $x21[4Pni
+If x = -5, then y =  -139 and the current maximum of y is -29.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) nip $x21[4Pnip $x21[4Pni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21[K1
+$21 = -4
+(gdb) p $x21[4Pni
+If x = -4, then y =  -161 and the current maximum of y is -29.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) nip $x21[4Pni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21
+$22 = -3
+(gdb) p $x21[4Pnis[K
+If x = -3, then y =  -125 and the current maximum of y is -29.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) nip $x21[4Pni[Ki[K[Kni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) p $x1[K21
+$23 = -2
+(gdb) p $x21[4Pni
+If x = -2, then y =   -61 and the current maximum of y is -29.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) nip $x21
+$24 = -2
+(gdb) p $x21[4Pni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21
+$25 = -1
+(gdb) p $x21[4Pni
+If x = -1, then y =     1 and the current maximum of y is   1.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) ni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21
+$26 = 0
+(gdb) p $x21[4Pni
+If x =  0, then y =    31 and the current maximum of y is  31.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) ni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21
+$27 = 1
+(gdb) p $x21[4Pni
+If x =  1, then y =    -1 and the current maximum of y is  31.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) ni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21
+$28 = 2
+(gdb) p $x21[4Pnip $x21[4Pni
+If x =  2, then y =  -125 and the current maximum of y is  31.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) ni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21
+$29 = 3
+(gdb) p $x21[4Pni
+If x =  3, then y =  -371 and the current maximum of y is  31.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) nip $x21[4Pni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21
+$30 = 4
+(gdb) p $x21[4Pni
+If x =  4, then y =  -769 and the current maximum of y is  31.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) nip $x21[4Pni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21
+$31 = 5
+(gdb) p $x21[4Pni
+If x =  5, then y = -1349 and the current maximum of y is  31.
+72	            add     x21, x21, 1                 // Update x in x21 by increasing 1
+1: x/i $pc
+=> 0x400644 <output+24>:	add	x21, x21, #0x1
+(gdb) nip $x21
+$32 = 5
+(gdb) p $x21[4Pni
+73	            b       loop_test                   // Branch to label 'loop_test' for next iteration
+1: x/i $pc
+=> 0x400648 <output+28>:	b	0x4005f4 <loop_test>
+(gdb) nip $x21[4Pnip $x21
+$33 = 6
+(gdb) p $x21[4Pni
+[Inferior 1 (process 13269) exited normally]
+(gdb) q
+]0;haohu.shen@csa3:~/CPSC355/Assignment1haohu.shen@csa3:~/CPSC355/Assignment1$ exit
+exit
+
+Script done on 2019-05-15 19:18:34-06:00

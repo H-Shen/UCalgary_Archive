@@ -1,0 +1,39 @@
+.courseId-column {
+    -fx-background-color: #d2fbd4;
+    -fx-text-fill: #000000;
+    -fx-font: 14px "Monaco";
+}
+
+.courseId-column-for-faculty {
+    -fx-background-color: #c9e5fb;
+    -fx-text-fill: #000000;
+    -fx-font: 14px "Monaco";
+}
+
+.courseId-column-for-student {
+    -fx-background-color: #a9fbcc;
+    -fx-text-fill: #000000;
+    -fx-font: 14px "Monaco";
+}
+
+.username-column {
+    -fx-background-color: #ffc897;
+    -fx-text-fill: #000000;
+    -fx-font: 14px "Monaco";
+}
+
+.default-font {
+    -fx-font: 14px "Monaco";
+}
+
+.fontAlignCenter {
+    -fx-alignment: CENTER;
+}
+
+.table-row-cell {
+    -fx-table-cell-border-color: #6d6d69;
+}
+
+.table-row-cell-boarder {
+    -fx-border-color: #6d695b;
+}
