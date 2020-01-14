@@ -1,6 +1,6 @@
 /**
  * A demo of implementations numerous common sorting algorithm.
- * To compile in C++17
+ * To compile in g++ -std=c++17
  */
 #include <vector>
 #include <iostream>
@@ -495,6 +495,37 @@ namespace MergeSort {
     }
 }
 
+namespace BubbleSort {
+    template<typename T>
+    void sort(std::vector<T> &A) {
+        bool flag = true; // A boolean flag indicates the array has to be sorted again if it is true
+        int n = static_cast<int>(A.size());
+        while (flag) {
+            flag = false;
+            for (int i = 0; i < n - 1; ++i) {
+                if (A.at(i) > A.at(i + 1)) {
+                    flag = true;
+                    std::swap(A.at(i), A.at(i + 1));
+                }
+            }
+        }
+    }
+    template<typename T, typename ThreeWayComparator>
+    void sort(std::vector<T> &A, const ThreeWayComparator &comp) {
+        bool flag = true; // A boolean flag indicates the array has to be sorted again if it is true
+        int n = static_cast<int>(A.size());
+        while (flag) {
+            flag = false;
+            for (int i = 0; i < n - 1; ++i) {
+                if (comp(A.at(i), A.at(i + 1)) > 0) {
+                    flag = true;
+                    std::swap(A.at(i), A.at(i + 1));
+                }
+            }
+        }
+    }
+}
+
 namespace Tester {
     // List all sorting algorithms which are gonna be tested
     enum class SORTING_ALGORITHM {
@@ -502,6 +533,7 @@ namespace Tester {
         HEAP_SORT,
         MERGE_SORT,
         SELECTION_SORT,
+        BUBBLE_SORT
     };
     // Initialization
     inline std::random_device dev;
@@ -663,6 +695,30 @@ namespace Tester {
                     }
                 }
                 break;
+            case SORTING_ALGORITHM::BUBBLE_SORT:
+                for (int i = 0; i < test_time; ++i) {
+                    array_of_ints = generate_array_with_random_integers(
+                            array_length);
+                    array_of_ints_copy = array_of_ints;
+                    sort(array_of_ints.begin(), array_of_ints.end());
+                    BubbleSort::sort(array_of_ints_copy);
+                    if (array_of_ints != array_of_ints_copy) {
+                        throw;
+                    }
+                }
+                for (int i = 0; i < test_time; ++i) {
+                    array_of_pairs = generate_array_with_random_pairs(
+                            array_length);
+                    array_of_pairs_copy = array_of_pairs;
+                    sort(array_of_pairs.begin(), array_of_pairs.end(),
+                         pair_comparator);
+                    BubbleSort::sort(array_of_pairs_copy,
+                                    pair_three_way_comparator);
+                    if (array_of_pairs != array_of_pairs_copy) {
+                        throw;
+                    }
+                }
+                break;
             default:
                 break;
         }
@@ -674,6 +730,7 @@ int main() {
     Tester::test(Tester::SORTING_ALGORITHM::SELECTION_SORT);
     Tester::test(Tester::SORTING_ALGORITHM::HEAP_SORT);
     Tester::test(Tester::SORTING_ALGORITHM::MERGE_SORT);
+    Tester::test(Tester::SORTING_ALGORITHM::BUBBLE_SORT);
     std::cout << "No news is good news" << std::endl;
     return 0;
 }
