@@ -74,7 +74,7 @@ namespace Binary_search_tree {
     }
 
     template <typename T>
-    void level_order(const std::shared_ptr<Node<T> > &root) {
+    void level_order_traverse(const std::shared_ptr<Node<T> > &root) {
         std::queue<std::shared_ptr<Node<T> > >q;
         q.push(root);
         std::shared_ptr<Node<T> > node = nullptr;
