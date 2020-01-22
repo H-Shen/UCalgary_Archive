@@ -80,6 +80,7 @@ namespace Binary_search_tree {
         std::shared_ptr<Node<T> > node = nullptr;
         while (!q.empty()) {
             node = q.front();
+            q.pop();
             if (node != nullptr) {
                 std::cout << node->value << std::endl;
             }
