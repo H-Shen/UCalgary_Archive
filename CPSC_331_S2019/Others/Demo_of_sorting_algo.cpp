@@ -510,6 +510,7 @@ namespace BubbleSort {
             }
         }
     }
+
     template<typename T, typename ThreeWayComparator>
     void sort(std::vector<T> &A, const ThreeWayComparator &comp) {
         bool flag = true; // A boolean flag indicates the array has to be sorted again if it is true
@@ -526,6 +527,124 @@ namespace BubbleSort {
     }
 }
 
+namespace QuickSort {
+    // Deterministic Partition
+    // Precondition:
+    // 1.A is an array with positive length, storing values from an
+    //   ordered type T, that is accessed — and modified — as
+    //   global data.
+    // 2.Integers p and r, such that 0 < p <= r < A.size(), are
+    //   given as input.
+    //
+    // Postcondition:
+    // 1.The value returned is an integer array with length 2, whose first and second entries
+    //   are a pair of integers s and t such that p <= s <= t <= r. A[s] stores the value x
+    //   that was initially stored at index r in the array A.
+    // 2.A[h] < A[s] for every integer h such that p <= h < s.
+    // 3.A[h] = A[s] for every integer h such that s <= h <=t.
+    // 4.A[h] > A[s] for every integer h such that t < h <= r.
+    // 5.If h is an integer such that 0 <= h < p or such that r + 1 <= h < A.length then
+    //   A[h] has not been changed.
+    // The entries of A have been reordered but are otherwise unchanged.
+    template<typename T>
+    std::pair<int, int> partition(std::vector<T> &A, int p, int r) {
+        T x = A.at(r);
+        int s = p;
+        int t = p - 1;
+        int i = p;
+        while (i < r) {
+            T y = A.at(i);
+            if (y < x) {
+                A.at(i) = A.at(t + 1);
+                A.at(t + 1) = A.at(s);
+                A.at(s) = y;
+                ++s;
+                ++t;
+            } else if (y == x) {
+                A.at(i) = A.at(t + 1);
+                A.at(t + 1) = y;
+                ++t;
+            }
+            ++i;
+        }
+        T y = A.at(t + 1);
+        A.at(t + 1) = x;
+        ++t;
+        A.at(r) = y;
+        std::pair<int, int> out(s, t);
+        return out;
+    }
+
+    template<typename T, typename ThreeWayComparator>
+    std::pair<int, int>
+    partition(std::vector<T> &A, int p, int r, const ThreeWayComparator &comp) {
+        T x = A.at(r);
+        int s = p;
+        int t = p - 1;
+        int i = p;
+        while (i < r) {
+            T y = A.at(i);
+            if (comp(y, x) < 0) {
+                A.at(i) = A.at(t + 1);
+                A.at(t + 1) = A.at(s);
+                A.at(s) = y;
+                ++s;
+                ++t;
+            } else if (comp(y, x) == 0) {
+                A.at(i) = A.at(t + 1);
+                A.at(t + 1) = y;
+                ++t;
+            }
+            ++i;
+        }
+        T y = A.at(t + 1);
+        A.at(t + 1) = x;
+        ++t;
+        A.at(r) = y;
+        std::pair<int, int> out(s, t);
+        return out;
+    }
+
+    // Main stage of a deterministic quick sort: O(nlogn)
+    // Precondition:
+    // 1.an ArrayList A with non-negative length, storing values from an ordered type T, is
+    //   being accessed and modified, as global data
+    // 2.integers p and r such that 0 <= p <= r <= A.size() − 1 have been given as input
+    // Postcondition:
+    // A is sorted in place, as required
+    template<typename T>
+    void sort(std::vector<T> &A, int p, int r) {
+        if (A.empty()) {
+            return;
+        }
+        if (p < r) {
+            std::pair<int, int> split = partition(A, p, r);
+            if (p < split.first) {
+                sort(A, p, split.first - 1);
+            }
+            if (split.second < r) {
+                sort(A, split.second + 1, r);
+            }
+        }
+    }
+
+    template<typename T, typename ThreeWayComparator>
+    void sort(std::vector<T> &A, int p, int r, const ThreeWayComparator &comp) {
+        if (A.empty()) {
+            return;
+        }
+        if (p < r) {
+            std::pair<int, int> split = partition(A, p, r, comp);
+            if (p < split.first) {
+                sort(A, p, split.first - 1);
+            }
+            if (split.second < r) {
+                sort(A, split.second + 1, r);
+            }
+        }
+    }
+}
+
 namespace Tester {
     // List all sorting algorithms which are gonna be tested
     enum class SORTING_ALGORITHM {
@@ -533,7 +652,8 @@ namespace Tester {
         HEAP_SORT,
         MERGE_SORT,
         SELECTION_SORT,
-        BUBBLE_SORT
+        BUBBLE_SORT,
+        QUICK_SORT
     };
     // Initialization
     inline std::random_device dev;
@@ -713,6 +833,34 @@ namespace Tester {
                     sort(array_of_pairs.begin(), array_of_pairs.end(),
                          pair_comparator);
                     BubbleSort::sort(array_of_pairs_copy,
+                                     pair_three_way_comparator);
+                    if (array_of_pairs != array_of_pairs_copy) {
+                        throw;
+                    }
+                }
+                break;
+            case SORTING_ALGORITHM::QUICK_SORT:
+                for (int i = 0; i < test_time; ++i) {
+                    array_of_ints = generate_array_with_random_integers(
+                            array_length);
+                    array_of_ints_copy = array_of_ints;
+                    sort(array_of_ints.begin(), array_of_ints.end());
+                    QuickSort::sort(array_of_ints_copy, 0,
+                                    static_cast<int>(array_of_ints_copy.size()) -
+                                    1);
+                    if (array_of_ints != array_of_ints_copy) {
+                        throw;
+                    }
+                }
+                for (int i = 0; i < test_time; ++i) {
+                    array_of_pairs = generate_array_with_random_pairs(
+                            array_length);
+                    array_of_pairs_copy = array_of_pairs;
+                    sort(array_of_pairs.begin(), array_of_pairs.end(),
+                         pair_comparator);
+                    QuickSort::sort(array_of_pairs_copy, 0,
+                                    static_cast<int>(array_of_pairs_copy.size()) -
+                                    1,
                                     pair_three_way_comparator);
                     if (array_of_pairs != array_of_pairs_copy) {
                         throw;
@@ -731,6 +879,7 @@ int main() {
     Tester::test(Tester::SORTING_ALGORITHM::HEAP_SORT);
     Tester::test(Tester::SORTING_ALGORITHM::MERGE_SORT);
     Tester::test(Tester::SORTING_ALGORITHM::BUBBLE_SORT);
+    Tester::test(Tester::SORTING_ALGORITHM::QUICK_SORT);
     std::cout << "No news is good news" << std::endl;
     return 0;
 }
