@@ -3,9 +3,9 @@
 **Follow these instructions in a \*nix terminal**
 
 ```sh
-git clone https://github.com/H-Shen/CPSC_231_F2018.git
+git clone https://github.com/H-Shen/UCalgary_Archive.git
 
-cd CPSC_231_F2018/assignment_1
+cd ./UCalgary_Archive/CPSC_231_F2018/assignment_1
 
 # Problem 1
 python3 p1.py worlds/p1-newspaper.w
