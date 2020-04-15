@@ -1,6 +1,6 @@
 /**
  * An implementation of a binary search tree.
- * To compile in g++ -std=c++17
+ * To compile in g++ -std=c++17 -O2
  */
 #include <memory>
 #include <iostream>
@@ -33,11 +33,11 @@ namespace Binary_search_tree {
             return false;
         }
         // Case 2:
-        else if (value < root->left_child) {
+        else if (value < root->value) {
             return search(root->left_child, value);
         }
         // Case 3:
-        else if (value > root->right_child) {
+        else if (value > root->value) {
             return search(root->right_child, value);
         }
         // Case 4:
@@ -191,7 +191,7 @@ namespace Binary_search_tree {
     template <typename T>
     inline
     bool empty(const std::shared_ptr<Node<T> > &root) {
-        return (root == nullptr);
+        return !root;
     }
     //  std::shared_ptr<Binary_search_tree::Node<int> > BSTInstance = nullptr;
     //  std::cout << std::boolalpha << Binary_search_tree::empty(BSTInstance) << std::endl;
@@ -225,14 +225,14 @@ namespace Binary_search_tree {
                     if (father_node->value > root->value) {
                         father_node->left_child = nullptr;
                     }
-                    // When the root is the right child of its father
-                    // we break the relationship between root and its father
+                        // When the root is the right child of its father
+                        // we break the relationship between root and its father
                     else {
                         father_node->right_child = nullptr;
                     }
                 }
             }
-            // Case 2: left is null, right is not null
+                // Case 2: left is null, right is not null
             else {
                 std::shared_ptr<Node<T> > right_child_node = root->right_child;
                 // When root has no parents, we make its right child as new root
@@ -246,7 +246,7 @@ namespace Binary_search_tree {
                     if (root->value < father_node->value) {
                         father_node->left_child = right_child_node;
                     }
-                    // When root is its father's right child
+                        // When root is its father's right child
                     else {
                         father_node->right_child = right_child_node;
                     }
@@ -255,7 +255,7 @@ namespace Binary_search_tree {
                 }
             }
         }
-        // Case 3: left is not null, right is null
+            // Case 3: left is not null, right is null
         else if (root->right_child == nullptr) {
             std::shared_ptr<Node<T> > left_child_node = root->left_child;
             // When root has no parents, we make its left child as new root
@@ -269,14 +269,14 @@ namespace Binary_search_tree {
                 if (root->value < father_node->value) {
                     father_node->left_child = left_child_node;
                 }
-                // When root is its father's right child
+                    // When root is its father's right child
                 else {
                     father_node->right_child = left_child_node;
                 }
                 left_child_node->father = father_node;
             }
         }
-        // Case 4: left is not null, right is not null
+            // Case 4: left is not null, right is not null
         else {
             std::shared_ptr<Node<T> > successor = get_successor(root);
             root->value = successor->value;
@@ -296,11 +296,11 @@ namespace Binary_search_tree {
         if (key < root->value) {
             erase(root->left_child, key);
         }
-        // Case 3:
+            // Case 3:
         else if (key > root->value) {
             erase(root->right_child, key);
         }
-        // Case 4:
+            // Case 4:
         else {
             delete_a_node<T>(root);
         }
@@ -324,8 +324,62 @@ namespace Binary_search_tree {
         }
         return get_size(root->left_child) + get_size(root->right_child) + 1;
     }
+
+    // Get the root of a given node in a BST
+    template <typename T>
+    inline
+    std::shared_ptr<Node<T> > get_root(std::shared_ptr<Node<T> > node) {
+        if (node) {
+            while (node->father) {
+                node = node->father;
+            }
+        }
+        return node;
+    }
+
+    // Get the minimal value of nodes in a BST
+    // the minimal value should be on the node that is a leaf on the left-most
+    // chain
+    // Return -1 if the given node is null
+    template <typename T>
+    inline
+    T get_min(std::shared_ptr<Node<T> > node) {
+        if (node) {
+            while (node->left_child) {
+                node = node->left_child;
+            }
+            return node->value;
+        }
+        return T(-1);
+    }
+    // Get the maximal value of nodes in a BST
+    // the minimal value should be on the node that is a leaf on the right-most
+    // chain
+    // Return -1 if the given node is null
+    template <typename T>
+    inline
+    T get_max(std::shared_ptr<Node<T> > node) {
+        if (node) {
+            while (node->right_child) {
+                node = node->right_child;
+            }
+            return node->value;
+        }
+        return T(-1);
+    }
 }
 
 int main() {
+
+    std::vector<int> A = {2, 4, 7, 8, 3, 6, 1, 101001, -123};
+    std::shared_ptr<Binary_search_tree::Node<int> > Tree;
+    Binary_search_tree::post_order_traverse(Tree);
+    for (const auto &i : A) {
+        Tree = Binary_search_tree::insert(Tree, i);
+    }
+    Binary_search_tree::post_order_traverse(Tree);
+    std::cout << Binary_search_tree::get_min(Tree) << std::endl;
+    std::cout << Binary_search_tree::get_max(Tree) << std::endl;
+
     return 0;
 }
