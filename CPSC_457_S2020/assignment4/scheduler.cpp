@@ -329,6 +329,7 @@ int main(int argc, char *argv[]) {
 
   // For faster input/output, we use std::cin/std::cout and
   // disable the synchronization between standard C++ streams and standard
+  // C streams, we also cancel the tie between std::cin and std::cout
   std::ios_base::sync_with_stdio(false);
   std::cin.tie(nullptr);
 
