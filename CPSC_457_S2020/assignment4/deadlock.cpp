@@ -85,7 +85,7 @@ std::vector<int> size_of_scc; // size_of_scc.at(id) is the size_of_tree of the
 inline void init(int n) {
   number_of_nodes = n;
   number_of_scc = 0;
-  current_timestamp = 0;
+  current_timestamp = 1;  // the current time stamp will be initialized as 1 since the node id starts from 1
   // Give some flexibility of size_of_tree of our containers since
   // the node id/SCC id may not strictly start from 1, since the
   // number of nodes in the assignment will not exceed 10001,
