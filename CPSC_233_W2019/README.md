@@ -22,7 +22,3 @@ The environment of coding:
 *   json-simple-1.1.jar https://code.google.com/archive/p/json-simple/<br/>
 *   hamcrest-core-1.3.jar https://github.com/hamcrest/JavaHamcrest
 *   GNU bash, version 4.4.23(1)-release (x86_64-redhat-linux-gnu)
-
-## Copyright
-
-Unless otherwise stated, all contents are licensed under the [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0.txt)</br>
