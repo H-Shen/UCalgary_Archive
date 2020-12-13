@@ -1,0 +1,407 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{tikz,graphicx}
+\usetikzlibrary{automata, positioning, arrows, shapes}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[shortlabels]{enumitem}
+
+% Use listings to insert the haskell code
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+     language=Haskell,
+     aboveskip=3mm,
+     belowskip=3mm,
+     showstringspaces=false,
+     columns=flexible,
+     basicstyle = \ttfamily\small,
+     numberstyle=\tiny\color{gray},
+     keywordstyle=\color{blue},
+     commentstyle=\color{dkgreen},
+     stringstyle=\color{mauve},
+     breaklines=true,
+     breakatwhitespace=true,
+     tabsize=3
+}
+
+\parindent 0pt
+\parskip 3mm
+
+\theoremstyle{definition}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+\begin{center}
+{\bf \Large CPSC 449 --- Principles of Programming Languages
+
+Theory Components of Assignment 2}
+\end{center}
+
+\newenvironment{titlemize}[1]{%
+  \paragraph{#1}
+  \begin{itemize}}
+  {\end{itemize}}
+  
+\hrule 	
+
+\textbf{Name:} Haohu Shen \\
+\textbf{Student ID:} 30063099 \\
+\textbf{Tutorial:} 03 
+
+\medskip \hrule
+
+\begin{enumerate} \itemsep 20pt
+
+\item[] \textbf{Problem 3}
+
+\begin{enumerate}[(a)]
+\item Prove that the implementation of merge sort in 2(c) always terminates.
+
+\textbf{Solution.} In order to prove the implementation of merge sort in 2(c) always terminates, that is, the $mSort$ function terminates for
+all inputs, we firstly prove all functions that are involved terminate for all inputs, that is, the $splitList$, 
+$getEvenIndexItems$, $getOddIndexItems$, $mergeLists$ functions terminate for all inputs. Before giving any prove, the
+definitions of all functions involved are listed below:
+
+\begin{lstlisting}[language=Haskell]
+mergeLists :: [Integer] -> [Integer] -> [Integer]
+mergeLists xs [] = xs -- (mergeLists.1)
+mergeLists [] ys = ys -- (mergeLists.2)
+mergeLists (x : xs) (y : ys) -- (mergeLists.3)
+	| x <= y = x : mergeLists xs (y : ys)
+	| otherwise = y : mergeLists (x : xs) ys
+
+getEvenIndexItems :: [Integer] -> [Integer]
+getEvenIndexItems [] = [] -- (getEvenIndexItems.1)
+getEvenIndexItems (x:_:xs) = x:getEvenIndexItems xs -- (getEvenIndexItems.2)
+getEvenIndexItems (x:xs) = x:getEvenIndexItems xs -- (getEvenIndexItems.3)
+
+getOddIndexItems :: [Integer] -> [Integer]
+getOddIndexItems [] = [] -- (getOddIndexItems.1)
+getOddIndexItems (_:x:xs) = x:getOddIndexItems xs -- (getOddIndexItems.2)
+getOddIndexItems (_:xs) = getOddIndexItems xs -- (getOddIndexItems.3)
+
+splitList :: [Integer] -> ([Integer], [Integer])
+splitList [] = ([], []) -- (splitList.1)
+splitList xs = (getEvenIndexItems xs, getOddIndexItems xs) -- (splitList.2)
+
+mSort :: [Integer] -> [Integer]
+mSort [] = [] -- (mSort.1)
+mSort [x] = [x] -- (mSort.2)
+mSort xs = mergeLists (mSort ys) (mSort zs) -- (mSort.3)
+  where
+    (ys, zs) = splitList xs
+\end{lstlisting}
+
+\begin{enumerate}[i.]
+
+\item Firstly we prove that $getEvenIndexItems$ function terminates for all inputs, in order to do that, we define a 
+function $rankGetEvenIndexItem$ that maps the input list to the length of the list, which is a non-negative integer.
+Consider that the input list $xs$ has length of $n$, then:
+\begin{lstlisting}[language=Haskell]
+rankGetEvenIndexItem :: Integer -> Integer
+rankGetEvenIndexItem 0 = 0 -- (rankE.1)
+rankGetEvenIndexItem (1 + n) = 1 + rankGetEvenIndexItem n -- (rankE.2)
+\end{lstlisting}
+
+Thus, for the 2nd equation in the definition of $getEvenIndexItems$ such that it involves 1 recursive call, we prove 
+that \\
+$rankGetEvenIndexItem \text{(2 + n)} > rankGetEvenIndexItem \text{ n}$:
+\begin{verbatim}
+rankGetEvenIndexItem (2 + n)
+= rankGetEvenIndexItem (1 + (1 + n))                           by arith.
+= 1 + rankGetEvenIndexItem (1 + n)                             by (rankE.2)
+= 1 + (1 + rankGetEvenIndexItem n)                             by (rankE.2)
+= 2 + rankGetEvenIndexItem n                                   by arith.
+> rankGetEvenIndexItem n                                       by arith.
+\end{verbatim}
+As required. \\
+On the other hand, for the 3rd equation in the definition of $getEvenIndexItems$ such that it involves 1 recursive call, 
+we prove that \\
+$rankGetEvenIndexItem \text{ (1 + n)} > rankGetEvenIndexItem \text{ n}$:
+\begin{verbatim}
+rankGetEvenIndexItem (1 + n)
+= 1 + rankGetEvenIndexItem n                                   by (rankE.2)
+> rankGetEvenIndexItem n                                       by arith.
+\end{verbatim}
+As required. \\
+Therefore, the function $rankGetEvenIndexItem$ maps the function $getEvenIndexItems$ to a natural number and there is a strict decrease of $rankGetEvenIndexItem$ 
+when the recursion occurs, that is, we can say the function $getEvenIndexItems$ always terminates for all inputs.
+
+\item Secondly we prove that $getOddIndexItems$ function terminates for all inputs, in order to do that, we define a 
+function $rankGetOddIndexItem$ that maps the input list to the length of the list, which is a non-negative integer.
+Consider that the input list $xs$ has length of $n$, then:
+\begin{lstlisting}[language=Haskell]
+rankGetOddIndexItem :: Integer -> Integer
+rankGetOddIndexItem 0 = 0 -- (rankO.1)
+rankGetOddIndexItem (1 + n) = 1 + rankGetOddIndexItem n -- (rankO.2)
+\end{lstlisting}
+
+Thus, for the 2nd equation in the definition of $getOddIndexItems$ such that it involves 1 recursive call, we prove 
+that \\
+$rankGetOddIndexItem \text{ (2 + n)} > rankGetOddIndexItem \text{ n}$:
+
+\begin{verbatim}
+rankGetOddIndexItem (2 + n)
+rankGetOddIndexItem (1 + (1 + n))                             by arith.
+= 1 + rankGetOddIndexItem (1 + n)                             by (rankO.2)
+= 1 + (1 + rankGetOddIndexItem n)                             by (rankO.2)
+= 2 + rankGetOddIndexItem n                                   by arith.
+> rankGetOddIndexItem n                                       by arith.
+\end{verbatim}
+As required. \\
+On the other hand, for the 3rd equation in the definition of $getOddIndexItems$ such that it involves 1 recursive call, 
+we prove that \\
+$rankGetOddIndexItem \text{ (1 + n)} > rankGetOddIndexItem \text{ n}$:
+
+\begin{verbatim}
+rankGetOddIndexItem (1 + n)
+= 1 + rankGetOddIndexItem xs                                  by (rankO.2)
+> rankGetOddIndexItem xs                                      by arith.
+\end{verbatim}
+As required. \\
+Therefore, the function $rankGetOddIndexItem$ maps the function $getOddIndexItems$ to a natural number and there is a strict decrease of $rankGetOddIndexItem$ 
+when the recursion occurs, that is, we can say the function $getOddIndexItems$ always terminates for all inputs.
+
+\item Thirdly we prove that $splitList$ function terminates for all inputs, in order to do that, we define a 
+function $rankSplitList$ that maps the input list to the length of the list, which is a non-negative integer.
+Consider that the input list $xs$ has length of $n$, then:
+
+\begin{lstlisting}[language=Haskell]
+rankSplitList :: Integer -> Integer
+rankSplitList 0 = 0	-- (rankS.1)
+rankSplitList n = rankGetEvenIndexItem n + rankGetOddIndexItem n -- (rankS.2)
+\end{lstlisting}
+
+Thus, for the 2nd equation in the definition of $splitList$ such that it involves 1 recursive call, the length of the 
+input list is at least 1, thus\\
+\begin{itemize}
+\item \textbf{Case 1:} If the length of input is at least 2, then we prove that we prove
+that \\
+$rankSplitList \text{ (2 + n)} > rankSplitList \text{ n}$.
+
+\begin{verbatim}
+rankSplitList (2+n)
+= rankGetEvenIndexItem(2+n)+rankGetOddIndexItem(2+n)        by (rankS.2)
+= rankGetEvenIndexItem(1+(1+n))+rankGetOddIndexItem(2+n)    by arith.
+= 1+rankGetEvenIndexItem(1+n)+rankGetOddIndexItem(2+n)      by (rankE.2)
+= 1+rankGetEvenIndexItem(1+n)+rankGetOddIndexItem(1+(1+n))  by arith.
+= 1+rankGetEvenIndexItem(1+n)+1+rankGetOddIndexItem(1+n)    by (rankO.2)
+= 2+rankGetEvenIndexItem(1+n)+rankGetOddIndexItem(1+n)      by arith.
+= 2+(1+rankGetEvenIndexItem n)+rankGetOddIndexItem(1+n)     by (rankE.2)
+= 2+(1+rankGetEvenIndexItem n)+(1+rankGetOddIndexItem n)    by (rankO.2)
+= 4+(rankGetEvenIndexItem n + rankGetOddIndexItem n)        by arith.
+= 4+rankSplitList n                                         by (rankS.2)
+> rankSplitList n                                           by arith.
+\end{verbatim}
+
+\item \textbf{Case 2:} Otherwise, the length of input is 1, then we prove that \\
+$rankSplitList \text{ (1+n)} > rankSplitList \text{ n}$.
+
+\begin{verbatim}
+rankSplitList (1+n)
+= rankGetEvenIndexItem (1+n) + rankGetOddIndexItem (1+n)       by (rankS.2)
+= (1 + rankGetEvenIndexItem n) + rankGetOddIndexItem (1+n)     by (rankE.2)
+= (1 + rankGetEvenIndexItem n) + (1 + rankGetOddIndexItem n)   by (rankO.2)
+= 2 + (rankGetEvenIndexItem n + rankGetOddIndexItem n)         by arith.
+= 2 + rankSplitList n                                          by (rankS.2)
+> rankSplitList n                                              by arith.
+\end{verbatim}
+\end{itemize}
+Therefore, the function $rankSplitList$ maps the function $splitList$ to a natural number and there is a strict decrease of $rankSplitList$ 
+when the recursion occurs, that is, we can say the function $rankSplitList$ always terminates for all inputs.
+
+\item Next we prove that $mergeLists$ function terminates for all inputs, in order to do that, we define a 
+function $rankMergeLists$ that maps the input of two lists of integers to a non-negative number, since the recursival call
+only exists in the 3rd definition of $mergeList$, we consider its input $(x:xs)$ and $(y:ys)$ as arguments:
+\begin{itemize}
+	\item Suppose the length of $xs$ is $n$ and the length of $ys$ is $m$.
+	\item Then the $rankMergeLists$ of the inputs is:
+	\begin{verbatim}
+	rankMergeLists (1+n) (1+m)
+	= 1 + rankMergeLists n (1+m)
+	> rankMergeLists n (1+m)
+	\end{verbatim}
+	or
+	\begin{verbatim}
+	rankMergeLists (1+n) (1+m)
+	= 1 + rankMergeLists (1+n) m
+	> rankMergeLists (1+n) m
+	\end{verbatim}
+	Such that $\text{ n (1+m)}$ or $\text{ (1+n) m}$ are the arguments of $rankMergeLists$ in the recursive call on
+	the RHS. 
+\end{itemize}
+Since there is a strict decrease of value of $rankMergeLists$ when recursion occurs, we can say the function 
+$mergeLists$ terminates for all inputs.
+
+\item Finally we prove that the function $mSort$ terminates for all inputs, in order to do that, we define a function
+$rank$ that maps the input list to the length of the list, which is a non-negative integer.
+Consider that the input list $xs$ has length of $n$, then:
+
+\begin{lstlisting}[language=Haskell]
+rank :: Integer -> Integer
+rank 0 = 0	-- (rankS.1)
+rank 1 = 1 -- (rankS.2)
+rank n = rank a + rank b -- (rankS.3)
+\end{lstlisting}
+Such that $a$ is the length of $getEvenIndexItems \textbf{ xs}$, $b$ is the length of \\
+$getOddIndexItems \textbf{ xs}$.
+
+The 3rd equation involves 2 recursive calls. Since the length of $xs$ is $n$ and $n >= 2$ when the equation is called, we have:
+\begin{itemize}
+	\item For the first recursive call, the argument of the recursive call is
+	$a$. Since $a$ is the length of $getEvenIndexItems \textbf{ xs}$ such that $n >= 2$, thus $a < n$. Moreover, $rank$
+	maps the input list to the length of the list, thus $rank \text{ n}= \text{n}$, $rank \text{ a}= \text{a}$, thus
+	$rank \text{ n} > rank \text{ a}$, which indicates that $rank \text{ a}$ is strictly smaller than the input rank.
+	\item For the second recursive call, the argument of the recursive call is
+	$b$. Since $b$ is the length of $getOddIndexItems \textbf{ xs}$ such that $n >= 2$, thus $b < n$. Moreover, $rank$
+	maps the input list to the length of the list, thus $rank \text{ n}= \text{n}$, $rank \text{ b}= \text{b}$, thus
+	$rank \text{ n} > rank \text{ b}$, which indicates that $rank \text{ b}$ is strictly smaller than the input rank.
+\end{itemize}
+
+Since both ranks of argument decrease strictly as the recursion occurs, we can say that the function $mSort$ is guaranteed
+to terminate for all inputs. \qed
+
+\end{enumerate}
+
+\item Consider the following function.
+\begin{lstlisting}[language=Haskell]
+mystery :: [[Integer]] -> Integer
+mystery [] = 0
+mystery ((x:xs):ys) = x + mystery (xs:ys)
+mystery ([]:ys) = mystery ys
+\end{lstlisting}
+\begin{enumerate}[i.]
+\item Give a conjecture of what the $mystery$ function returns.
+
+\textbf{Solution.} The $mystery$ function takes a list of lists of integers and returns the summation of the sum of all sub-lists.
+\item Prove that the $mystery$ function terminates for all inputs.
+
+\textbf{Proof.} In order to prove the function terminates for all inputs, we define a function $rank$ that maps the input
+list to the sum of total length of sub-lists and the number of sub-lists inside the input list. That is:
+\begin{lstlisting}[language=Haskell]
+rank :: [[Integer]] -> Integer
+rank [] = 0 -- (rank.1)
+rank ((x : xs) : ys) = 1 + rank (xs : ys) -- (rank.2)
+rank ([] : ys) = 1 + rank ys -- (rank.3)
+\end{lstlisting}   
+Thus, for the 2nd equation in the definition of $mystery$ such that it involves 1 recursive call, we prove that $rank ((x:xs):ys) > rank(xs:ys)$:
+\begin{verbatim}
+rank ((x:xs):ys)
+= 1 + rank (xs : ys)                                      by (rank.2)
+> rank (xs : ys)                                          by arith.
+\end{verbatim}
+On the other hand, for the 3rd equation in the definition of $mystery$ such that it involves 1 recursive call, we prove that $rank ([\text{ }]:ys) > rank(ys)$:
+\begin{verbatim}
+rank ([]:ys)
+= 1 + rank ys                                             by (rank.3)
+> rank ys                                                 by arith.
+\end{verbatim}
+Therefore, the function $rank$ maps the function $mystery$ to a natural number and there is a strict decrease of $rank$ when the recursion occurs, that is, we can say the function $mystery$ always terminates for all inputs. 
+\end{enumerate}
+\end{enumerate}
+
+\item[] \textbf{Problem 4}
+Prove, by structural induction, for all finite lists $xs$, we have: 
+\begin{lstlisting}[language=Haskell]
+length xs = length (reverse xs)		-- (*)
+\end{lstlisting}
+You may assume the following equations for $reverse$ and $length$:
+\begin{lstlisting}[language=Haskell]
+reverse [] = [] -- (reverse.1)
+reverse (x : xs) = (reverse xs) ++ [x] -- (reverse.2)
+
+length [] = 0	-- (length.1)
+length (x : xs) = 1 + (length xs)	-- (length.2)
+length (xs ++ ys) = (length xs) + (length ys)	-- (length.3)
+\end{lstlisting}
+Adhere to the following steps in your proof.
+\begin{enumerate}[(a)]
+\item State the two proof goals (i.e., base case and induction step).
+
+\textbf{Proof Goals}
+\begin{itemize}
+  \item \textbf{Base Case}
+  	\begin{verbatim}
+length [] = length (reverse [])                              (base)
+	\end{verbatim}
+	\item \textbf{Induction Step}
+		\begin{itemize}
+		\item \textbf{Assume:}
+		\begin{verbatim}
+length xs = length (reverse xs)                          	 (hyp)
+		\end{verbatim}
+		\item \textbf{Prove:}
+		\begin{verbatim}
+length (x:xs) = length (reverse (x:xs))                    (ind)
+		\end{verbatim}
+		\end{itemize}
+\end{itemize}
+
+\item Prove the base case.
+\begin{itemize}
+\item \textbf{Want:}
+  	\begin{verbatim}
+length [] = length (reverse [])
+	\end{verbatim}
+\item \textbf{Left-hand side:}
+	\begin{verbatim}
+	length []
+= 0                                                    by (length.1)
+	\end{verbatim}
+\item \textbf{Right-hand side:}
+	\begin{verbatim}
+	length (reverse [])
+= length []                                            by (reverse.1)
+= 0                                                    by (length.1)
+= L.H.S.  
+	\end{verbatim}
+	Thus it shows that the two sides are the same, which completes the proof of the base case.
+\end{itemize}
+\item Prove the induction step.
+\begin{itemize}
+	\item \textbf{Assume:}
+		  \begin{verbatim}
+			length xs = length (reverse xs)                                (hyp)
+		\end{verbatim}
+	\item \textbf{Want:}
+		\begin{verbatim}
+			length (x:xs) = length (reverse (x:xs))
+		\end{verbatim}
+	\item \textbf{Left-hand side:}
+		\begin{verbatim}
+		length (x:xs)
+		= 1 + (length xs)                                       by (length.2)
+		= 1 + length xs
+		= 1 + length (reverse xs)                                    by (hyp)
+		\end{verbatim}
+	\item \textbf{Right-hand side:}
+		\begin{verbatim}
+		length (reverse (x:xs))
+		= length ((reverse xs) ++ [x])                          by (reverse.2)
+		= (length (reverse xs)) + (length [x])                  by (length.3)
+		= length (reverse xs) + length [x]
+		= length (reverse xs) + length (x : [])                 by defn. of [x]
+		= length (reverse xs) + (1 + (length []))               by (length.2)
+		= length (reverse xs) + (1 + length [])
+		= length (reverse xs) + (1 + 0)                         by (length.1)
+		= length (reverse xs) + 1
+		= 1 + length (reverse xs)					                                   by arith.
+		= L.H.S.
+		\end{verbatim}
+		Since the final step makes the left- and right-hand sides equal, on the assumption that the induction hypothesis holds, This completes the induction step, and therefore the proof itself. \qed
+	\end{itemize}
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}

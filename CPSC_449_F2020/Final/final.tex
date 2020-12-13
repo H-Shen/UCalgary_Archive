@@ -1,0 +1,313 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{tikz,graphicx}
+\usetikzlibrary{automata, positioning, arrows, shapes}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[shortlabels]{enumitem}
+
+% Use listings to insert the haskell code
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+     language=Haskell,
+     aboveskip=3mm,
+     belowskip=3mm,
+     showstringspaces=false,
+     columns=flexible,
+     basicstyle = \ttfamily\small,
+     numberstyle=\tiny\color{gray},
+     keywordstyle=\color{blue},
+     commentstyle=\color{dkgreen},
+     stringstyle=\color{mauve},
+     breaklines=true,
+     breakatwhitespace=true,
+     tabsize=3
+}
+
+\parindent 0pt
+\parskip 3mm
+
+\theoremstyle{definition}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+\begin{center}
+{\bf \Large CPSC 449 --- Principles of Programming Languages
+
+Theory Components of Final Exam}
+\end{center}
+
+\newenvironment{titlemize}[1]{%
+  \paragraph{#1}
+  \begin{itemize}}
+  {\end{itemize}}
+  
+\hrule 	
+
+\textbf{Name:} Haohu Shen \\
+\textbf{Student ID:} 30063099 \\
+\textbf{Tutorial:} 03 
+
+\medskip \hrule
+
+\begin{enumerate} \itemsep 20pt
+
+\item[] \textbf{Question 3}
+
+Consider the following function.
+\begin{verbatim}
+crunch :: [Integer] -> [Integer] -> Integer
+crunch [] [] = 0 						                      (crunch.1)
+crunch (x:xs) [] = crunch xs [x]        (crunch.2)
+crunch [] (y:ys) = y + crunch [] ys     (crunch.3)
+crunch (x:xs) (y:ys)
+    | even x	= crunch xs (x:y:ys)       (crunch.4)
+    | otherwise = crunch ((x+y):xs) ys  (crunch.5)
+\end{verbatim}
+
+(The source code above can also be found in the file $SampleCode.hs.$)
+
+\begin{enumerate}
+  \item Give a conjecture of what the $crunch$ function returns. \textbf{Hint:} Use equational reasoning to help yourself 
+  understand how recursion unfolds in $crunch$. There is, however, no need to include such equational reasoning work 
+  with your submission. Only report your conjecture.
+
+  \textbf{Solution.} The $crunch$ function takes two lists of integers and returns their sum.
+
+  \item Propose a rank function that can be used for demonstrating the termination of $crunch$. More specifically, 
+  formulate a function $rank(xs, ys)$ that takes two lists of $Integers$ as input, and returns a natural number as output.
+
+  \textbf{Solution.} We propose a rank function that takes two lists of $Integers$ $xs$ and $ys$ and which maps the input
+  lists to a natural number. Suppose the length of $xs$ is $m$, the length of $ys$ is $n$, then:
+  \begin{align*} 
+  \text{rank(xs, ys)} &= \text{m+n}           \tag{\text{rank.1}}
+  \end{align*}
+
+	\item Use the rank function you formulated above to prove that $crunch$ always terminates when given finite lists as input.
+
+  \textbf{Proof.} 
+  In order to prove the $crunch$ always terminates when given finite lists as input, we prove that there is a strict
+  decrease of rank when recursion occurs in each recursive equation.
+
+  We firstly look at the equation $crunch.3$. The equation involves 1 recursion call. Thus we prove that 
+  $rank([\text{ }],y:ys) > rank([\text{ }], ys)$:
+  \begin{verbatim}
+  rank ([],y:ys)
+  = 0 + (1 + n)                                             by (rank.1)
+  = 1 + n                                                   by arith.
+  > n                                                       by arith.
+  \end{verbatim}
+  And
+  \begin{verbatim}
+  rank ([],ys)
+  = 0 + n                                                   by (rank.1)
+  = n                                                       by arith.
+  \end{verbatim}
+  Thus $rank([\text{ }],y:ys) > rank([\text{ }], ys)$ by replacement.
+  Secondly we look at the equation $crunch.5$. The equation involves 1 recursion call. Thus we prove that
+  $rank(x:xs, y:ys) > rank((x+y):xs, ys)$.
+  \begin{verbatim}
+    rank (x:xs, y:ys)
+    = 1 + m + 1 + n                                           by (rank.1)
+    > 1 + m + n                                               by arith.
+  \end{verbatim}
+  And
+  \begin{verbatim}
+    rank((x+y):xs, ys)
+    = 1 + m + n                                               by (rank.1)
+  \end{verbatim}
+  Thus $rank(x:xs, y:ys) > rank((x+y):xs, ys)$ by replacement.
+
+  Thirdly we look at the equation $crunch.4$. The equation involves 1 recursion call. Since the rank function in this step
+  does not change, we consider where is its next stop, firstly, it may repeat the execution of the $crunch.4$ again, but the length
+  of first list is decreased by one, thus after finite operations, it must execute $crunch.5$ or $crunch.3$ if the first
+  list is empty. Since we have proved the rank function is strictly decreased in these two branches, we can say the rank 
+  function is strictly decreased in the recursion call in $crunch.4$.
+
+  Finally we look at the equation $crunch.2$. The equation involves 1 recursion call. Since the rank function in this step
+  does not change, we consider where is its next stop, since both of its lists are not empty, it must execute the 
+  $crunch.4$ or $crunch.5$. Since we have proved the rank function is strictly decreased in these two branches, we can say
+  the rank function is strictly decreased in the recursion call in $crunch.2$.
+
+  Since we have proved that there is a strictly decrease of rank when recursion occurs in each recursive equation, we can
+  conclude that the $crunch$ always terminates when given finite lists as inputs.
+
+\end{enumerate}
+
+\item[] \textbf{Question 5}
+
+Recall the simple expression language above.
+
+\begin{verbatim}
+type VarName = Char
+data Expr = Lit Integer
+          | Var VarName
+          | Add Expr Expr
+\end{verbatim}
+
+The function $numVars$ returns the number of variable occurrences in a given expression.
+
+\begin{verbatim}
+numVars :: Expr -> Integer
+numVars (Lit _) = 0                                         (numVars.1)
+numVars (Var _) = 1                                         (numVars.2)
+numVars (Add e1 e2) = (numVars e1) + (numVars e2)           (numVars.3)
+\end{verbatim}
+
+The function $leftHeight$ returns the number of $Add$ appearing in the leftmost branch of a given expression.
+
+\begin{verbatim}
+leftHeight :: Expr -> Integer
+leftHeight (Lit _) = 0                                      (leftHeight.1)
+leftHeight (Var _) = 0                                      (leftHeight.2)
+leftHeight (Add e _) = 1 + (leftHeight e)                   (leftHeight.3)
+\end{verbatim}
+
+The function $size$ returns the number of constructors used for constructing a given expression.
+
+\begin{verbatim}
+size :: Expr -> Integer
+size (Lit _) = 1                                            (size.1)
+size (Var _) = 1                                            (size.2)
+size (Add e1 e2) = 1 + (size e1) + (size e2)                (size.3)
+\end{verbatim}
+
+Use structural induction to prove that, for every finite expression $e$,
+\begin{align*} 
+\text{(numVars e) + (leftHeight e)} &\leq \text{size e}
+\end{align*}
+
+The presentation of your proof shall conform to the following format. Deviation will lead to significant mark reduction.
+
+\begin{enumerate}
+\item State the Principle of Structural Induction for the algebraic type $Expr$.
+
+\textbf{Solution.} From the description above we have the theorem $P(\text{e})$ as
+\begin{align*} 
+\text{(numVars e) + (leftHeight e)} &\leq \text{size e}
+\end{align*}
+
+Thus to prove that $P(\text{e})$ holds for all finite expression $e$, prove the following:
+\begin{enumerate}
+\item $P\text{(Lit \_)}$
+\item $P\text{(Var \_)}$
+\item $P\text{(e1)} \land P\text{(e2)} \implies P\text{(Add e1 e2)}$
+\end{enumerate}
+
+\item State the concrete proof goals.
+
+\textbf{Solution.} The proof goals are:
+
+\begin{itemize}
+  \item \textbf{Base Cases}
+\begin{align*}
+\text{(numVars (Lit \_)) + (leftHeight (Lit \_))} &\leq \text{size (Lit \_)} \tag{\text{base.1}}\\
+\text{(numVars (Var \_)) + (leftHeight (Var \_))} &\leq \text{size (Var \_)} \tag{\text{base.2}}
+\end{align*}
+	\item \textbf{Induction Steps}
+		\begin{itemize}
+		\item \textbf{Assume:}
+\begin{align*}
+\text{(numVars e1) + (leftHeight e1)} &\leq \text{size e1} \tag{\text{hyp.1}} \\
+\text{(numVars e2) + (leftHeight e2)} &\leq \text{size e2} \tag{\text{hyp.2}}
+\end{align*}
+		\item \textbf{Prove:}
+\begin{align*}
+\text{(numVars (Add e1 e2)) + (leftHeight (Add e1 e2))} &\leq \text{size (Add e1 e2)} \tag{\text{ind.1}} \\
+\end{align*}
+		\end{itemize}
+\end{itemize}
+
+\item Prove the proof goals.
+
+\textbf{Solution:}
+
+Firstly, we prove the first base case:
+\begin{itemize}
+\item \textbf{Want:}
+\begin{align*}
+\text{(numVars (Lit \_)) + (leftHeight (Lit \_))} &\leq \text{size (Lit \_)}
+\end{align*}
+\item \textbf{Left-hand side:}
+\begin{align*}
+\text{(numVars (Lit \_)) + (leftHeight (Lit \_))} &= 0 + \text{(leftHeight (Lit \_))} \tag{\text{by numVars.1}} \\
+                                                  &= 0 + 0 \tag{\text{by leftHeight.1}} \\
+                                                  &= 0 \tag{\text{by arith.}}
+\end{align*}
+\item \textbf{Right-hand side:}
+\begin{align*}
+\text{size (Lit \_)} &= 1 \tag{\text{by size.1}} \\
+                     &\geq 0 \tag{\text{by arith.}} \\
+							       &\geq \text{L.H.S} \tag{\text{by replacement}}
+\end{align*}
+Thus it shows that the left-hand-side is smaller than or equal to the right-hand-side, which completes the proof of the first base case.
+\end{itemize}
+
+Secondly, we prove the second base case:
+\begin{itemize}
+\item \textbf{Want:}
+\begin{align*}
+\text{(numVars (Var \_)) + (leftHeight (Var \_))} &\leq \text{size (Var \_)}
+\end{align*}
+\item \textbf{Left-hand side:}
+\begin{align*}
+\text{(numVars (Var \_)) + (leftHeight (Var \_))} &= 1 + \text{(leftHeight (Var \_))}  \tag{\text{by numVars.2}} \\
+                                                  &= 1 + 0 \tag{\text{by leftHeight.2}} \\
+                                                  &= 1 \tag{\text{by arith.}}
+\end{align*}
+\item \textbf{Right-hand side:}
+\begin{align*}
+\text{size (Var \_)} &= 1 \tag{\text{by size.2}} \\
+                     &\geq 1 \tag{\text{by arith.}} \\
+					           &\geq \text{L.H.S} \tag{\text{by replacement}}
+\end{align*}
+Thus it shows that the left-hand-side is smaller than or equal to the right-hand-side, which completes the proof of the second base case.
+\end{itemize}
+Since all base cases are proved, we completed the proof of the base case of the statement.
+
+Now we prove the induction step:
+\begin{itemize}
+\item \textbf{Assume:}
+\begin{align*}
+\text{(numVars e1) + (leftHeight e1)} &\leq \text{size e1} \tag{\text{hyp.1}} \\
+\text{(numVars e2) + (leftHeight e2)} &\leq \text{size e2} \tag{\text{hyp.2}}
+\end{align*}
+\item \textbf{Want:}
+\begin{align*}
+\text{(numVars (Add e1 e2)) + (leftHeight (Add e1 e2))} &\leq \text{size (Add e1 e2)}
+\end{align*}
+\item \textbf{Left-hand side:}
+
+\begin{align*}
+  L.H.S &= \text{(numVars (Add e1 e2)) + (leftHeight (Add e1 e2))} \\
+  &= \text{(numVars e1) + (numVars e2) + (leftHeight (Add e1 e2))} \tag{\text{by numVars.3}} \\
+  &= \text{(numVars e1) + (numVars e2) + 1 + (leftHeight e1)} \tag{\text{by leftHeight.3}}
+\end{align*}
+
+\item \textbf{Right-hand side:}
+\begin{align*}
+R.H.S &= \text{size (Add e1 e2)} \\
+      &= \text{1 + (size e1) + (size e2)} \tag{\text{by size.3}} \\
+      &\geq \text{1 + (numVars e1) + (leftHeight e1) + (size e2)} \tag{\text{by hyp.1}} \\
+      &\geq \text{1 + (numVars e1) + (leftHeight e1) + (numVars e2) + (leftHeight e2)} \tag{\text{by hyp.2}} \\
+      &\geq \text{1 + (numVars e1) + (leftHeight e1) + (numVars e2)} \tag{\text{by arith.}} \\
+      &\geq L.H.S \tag{\text{by replacement}}
+\end{align*}
+Therefore, we have proved that the left-hand-side is smaller than or equal to the right-hand-side,
+on the assumption that the induction hypothesis holds, which completes the induction step.
+\end{itemize}
+Since the induction step is completed, we can say the proof itself is also completed. \qed
+\end{enumerate}
+
+\end{enumerate}
+\end{document}

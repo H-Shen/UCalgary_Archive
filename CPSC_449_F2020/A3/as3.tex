@@ -1,0 +1,317 @@
+\documentclass[11pt]{article}
+
+\usepackage{amsmath,amsfonts,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{fullpage}
+\usepackage{tikz,graphicx}
+\usetikzlibrary{automata, positioning, arrows, shapes}
+\usepackage[margin=1in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[shortlabels]{enumitem}
+
+% Use listings to insert the haskell code
+\usepackage{listings}
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+     language=Haskell,
+     aboveskip=3mm,
+     belowskip=3mm,
+     showstringspaces=false,
+     columns=flexible,
+     basicstyle = \ttfamily\small,
+     numberstyle=\tiny\color{gray},
+     keywordstyle=\color{blue},
+     commentstyle=\color{dkgreen},
+     stringstyle=\color{mauve},
+     breaklines=true,
+     breakatwhitespace=true,
+     tabsize=3
+}
+
+\parindent 0pt
+\parskip 3mm
+
+\theoremstyle{definition}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+\begin{center}
+{\bf \Large CPSC 449 --- Principles of Programming Languages
+
+Theory Components of Assignment 3}
+\end{center}
+
+\newenvironment{titlemize}[1]{%
+  \paragraph{#1}
+  \begin{itemize}}
+  {\end{itemize}}
+  
+\hrule 	
+
+\textbf{Name:} Haohu Shen \\
+\textbf{Student ID:} 30063099 \\
+\textbf{Tutorial:} 03 
+
+\medskip \hrule
+
+\begin{enumerate} \itemsep 20pt
+
+\item[] \textbf{Problem 2}
+
+A $polynomial\text{ }with\text{ }one\text{ }variable$ is represented using the following algebraic type.
+\begin{lstlisting}[language=Haskell]
+data Polynomial
+= PConst Integer
+| PVar
+| PAdd Polynomial Polynomial
+| PMul Polynomial Polynomial
+\end{lstlisting}
+The $degree$ of a $Polynomial$ can be obtained by the function $degree\text{ :: }Polynomial\text{ -> }Integer$, which is
+defined by the following equations:
+\begin{lstlisting}[language=Haskell]
+degree :: Polynomial -> Integer
+degree (PConst n) = 0                               -- (degree.1)
+degree PVar = 1                                     -- (degree.2)
+degree (PAdd p1 p2) = max (degree p1) (degree p2)   -- (degree.3)
+degree (PMul p1 p2) = (degree p1) + (degree p2)     -- (degree.4)
+\end{lstlisting}
+The $first\text{ }derivative$ of a $Polynomial$ can be computed using the function $d\text{ :: }Polynomial\text{ -> }Polynomial$,
+the definition of which is given by the following equations.
+\begin{lstlisting}[language=Haskell]
+d (PConst n) = PConst 0 -- (d.1)
+d PVar = PConst 1 -- (d.2)
+d (PAdd p1 p2) = PAdd (d p1) (d p2) -- (d.3)
+d (PMul p1 p2) = PAdd (PMul p1 (d p2)) (PMul (d p1) p2) -- (d.4)
+\end{lstlisting}
+These four equations are the direct encoding of the well-known formulas in standard calculus textbooks.
+\begin{align*}
+\frac{dC}{dx} &= 0 \\
+\frac{dx}{dx} &= 1 \\
+\frac{d(u+v)}{dx} &= \frac{du}{dx} + \frac{dv}{dx} \\
+\frac{d(uv)}{dx} &= u\frac{dv}{dx} + v\frac{du}{dx}
+\end{align*}
+Prove, by structural induction, that the following inequality holds for all finite $Polynomial$ $p$.
+\begin{align*}
+\text{degree p} &\geq \text{degree (d p)} \tag{1}
+\end{align*}
+\begin{enumerate}[(a)]
+\item State the Principle of Structural Induction for $Polynomial$s.
+
+\textbf{Solution.} From the description above we have the theorem $P(p)$ as
+\begin{align*}
+	\text{degree p} &\geq \text{degree (d p)}
+\end{align*}
+Thus to prove that $P(p)$ holds for all finite $Polynomial\text{ p}$, prove the following:
+\begin{enumerate}
+\item $P\text{(Pconst Integer)}$
+\item $P\text{(PVar)}$
+\item $P\text{(p1)} \land P\text{(p2)} \implies P\text{(PAdd p1 p2)}$
+\item $P\text{(p1)} \land P\text{(p2)} \implies P\text{(PMul p1 p2)}$
+\end{enumerate}
+Therefore, the proof goals are:
+
+\textbf{Proof Goals}
+\begin{itemize}
+  \item \textbf{Base Cases}
+\begin{align*}
+\text{degree (PConst n)} &\geq \text{degree (d (PConst n))} \tag{\text{base.1}} \\
+\text{degree PVar} &\geq \text{degree (d PVar)} \tag{base.2}
+\end{align*}
+	\item \textbf{Induction Steps}
+		\begin{itemize}
+		\item \textbf{Assume:}
+\begin{align*}
+\text{degree p1} &\geq \text{degree (d p1)} \tag{\text{hyp.1}} \\
+\text{degree p2} &\geq \text{degree (d p2)} \tag{\text{hyp.2}}
+\end{align*}
+		\item \textbf{Prove:}
+\begin{align*}
+\text{degree (PAdd p1 p2)} &\geq \text{degree (d (PAdd p1 p2))} \tag{\text{ind.1}} \\
+\text{degree (PMul p1 p2)} &\geq \text{degree (d (PMul p1 p2))} \tag{\text{ind.2}}
+\end{align*}
+		\end{itemize}
+\end{itemize}
+
+\item Prove the base case(s).
+
+Firstly, we prove the first base case:
+\begin{itemize}
+\item \textbf{Want:}
+\begin{align*}
+\text{degree (PConst n)} &\geq \text{degree (d (PConst n))}
+\end{align*}
+\item \textbf{Left-hand side:}
+\begin{align*}
+\text{degree (PConst n)} &= 0 \tag{\text{by degree.1}}
+\end{align*}
+\item \textbf{Right-hand side:}
+\begin{align*}
+\text{degree (d (PConst n))} &= \text{degree (PConst 0)} \tag{\text{by d.1}} \\
+							 &= 0 \tag{\text{by degree.1}} \\
+							 &\leq \text{L.H.S} \tag{\text{by arith.}}
+\end{align*}
+Thus it shows that the left-hand-side is greater than or equal to the right-hand-side, which completes the proof of the first base case.
+\end{itemize}
+
+Secondly, we prove the second base case:
+\begin{itemize}
+\item \textbf{Want:}
+\begin{align*}
+\text{degree PVar} &\geq \text{degree (d PVar)}
+\end{align*}
+\item \textbf{Left-hand side:}
+\begin{align*}
+\text{degree PVar} &= 1 \tag{\text{by degree.2}}
+\end{align*}
+\item \textbf{Right-hand side:}
+\begin{align*}
+\text{degree (d PVar)} &= \text{degree (PConst 1)} \tag{\text{by d.2}} \\
+					   &= 0 \tag{\text{by degree.1}} \\
+					   &\leq \text{L.H.S} \tag{\text{by arith.}}
+\end{align*}
+Thus it shows that the left-hand-side is greater than or equal to the right-hand-side, which completes the proof of the second base case.
+\end{itemize}
+Since all base cases are proved, we completed the proof of the base case of the statement.
+
+\item Prove the induction step(s).
+
+Firstly, we prove the first induction step:
+\begin{itemize}
+\item \textbf{Assume:}
+\begin{align*}
+\text{degree p1} &\geq \text{degree (d p1)} \tag{\text{hyp.1}} \\
+\text{degree p2} &\geq \text{degree (d p2)} \tag{\text{hyp.2}}
+\end{align*}
+\item \textbf{Want:}
+\begin{align*}
+\text{degree (PAdd p1 p2)} &\geq \text{degree (d (PAdd p1 p2))}
+\end{align*}
+\item \textbf{Left-hand side:}
+\begin{align*}
+\text{degree (PAdd p1 p2)} &= \text{max (degree p1) (degree p2)} \tag{\text{by degree.3}}
+\end{align*}
+\item \textbf{Right-hand side:}
+\begin{align*}
+\text{degree (d (PAdd p1 p2))} &= \text{degree (PAdd (d p1) (d p2))} \tag{\text{by d.3}} \\
+							   &= \text{max (degree (d p1)) (degree (d p2))} \tag{\text{by degree.3}}
+\end{align*}
+Thus, we can split the possible situations of the left-hand-side into 2 cases:
+\begin{itemize}
+\item \textbf{Case 1: }If $\text{degree p1} \geq \text{degree p2}$, then we continue the deduction in the left-hand-side 
+and we have:
+\begin{align*}
+\text{L.H.S} &= \text{max (degree p1) (degree p2)} \\
+			 &= \text{degree p1} \tag{\text{by defn. of max}} \\
+			 &\geq \text{degree (d p1)} \tag{\text{by hyp.1}}
+\end{align*} 
+Also, we have
+\begin{align*}
+\text{L.H.S} &= \text{max (degree p1) (degree p2)} \\
+			 &= \text{degree p1} \tag{\text{by defn. of max}} \\
+			 &\geq \text{degree p2} \tag{\text{by cond. of the case}} \\
+			 &\geq \text{degree (d p2)} \tag{\text{by hyp.2}}
+\end{align*}
+Since $\text{L.H.S} \geq \text{degree (d p1)}$ and $\text{L.H.S} \geq \text{degree (d p2)}$, we have
+\begin{align*}
+\text{L.H.S} &\geq \text{max (degree (d p1)) (degree (d p2))} \tag{\text{by defn. of max}}
+\end{align*}
+Since $\text{R.H.S} = \text{max (degree (d p1)) (degree (d p2))}$, we have $\text{L.H.S} \geq \text{R.H.S}$. Thus in this case, the left-hand-side is greater than or equal to the right-hand-side.
+
+\item \textbf{Case 2: }If $\text{degree p2} \geq \text{degree p1}$, then we continue the deduction in the left-hand-side 
+and we have:
+\begin{align*}
+\text{L.H.S} &= \text{max (degree p1) (degree p2)} \\
+			 &= \text{degree p2} \tag{\text{by defn. of max}} \\
+			 &\geq \text{degree (d p2)} \tag{\text{by hyp.2}}
+\end{align*} 
+Also, we have
+\begin{align*}
+\text{L.H.S} &= \text{max (degree p1) (degree p2)} \\
+			 &= \text{degree p2} \tag{\text{by defn. of max}} \\
+			 &\geq \text{degree p1} \tag{\text{by cond. of the case}} \\
+			 &\geq \text{degree (d p1)} \tag{\text{by hyp.1}}
+\end{align*}
+Since $\text{L.H.S} \geq \text{degree (d p1)}$ and $\text{L.H.S} \geq \text{degree (d p2)}$, we have
+\begin{align*}
+\text{L.H.S} &\geq \text{max (degree (d p1)) (degree (d p2))} \tag{\text{by defn. of max}}
+\end{align*}
+Since $\text{R.H.S} = \text{max (degree (d p1)) (degree (d p2))}$, we have $\text{L.H.S} \geq \text{R.H.S}$. Thus in this case, the left-hand-side is greater than or equal to the right-hand-side.
+\end{itemize}
+Therefore, in both cases we have proved that the left-hand-side is greater than or equal to the right-hand-side,
+on the assumption that the induction hypothesis holds, which completes the induction step.
+\end{itemize}
+
+Secondly, we prove the second induction step:
+\begin{itemize}
+\item \textbf{Assume:}
+\begin{align*}
+\text{degree p1} &\geq \text{degree (d p1)} \tag{\text{hyp.1}} \\
+\text{degree p2} &\geq \text{degree (d p2)} \tag{\text{hyp.2}}
+\end{align*}
+\item \textbf{Want:}
+\begin{align*}
+\text{degree (PMul p1 p2)} &\geq \text{degree (d (PMul p1 p2))}
+\end{align*}
+\item \textbf{Left-hand side:}
+\begin{align*}
+\text{degree (PMul p1 p2)} &= \text{(degree p1)} + \text{(degree p2)} \tag{\text{by degree.4}}
+\end{align*}
+\item \textbf{Right-hand side:}
+\begin{align*}
+\text{degree (d (PMul p1 p2))} &= \text{degree (PAdd (PMul p1 (d p2)) (PMul (d p1) p2))} \tag{\text{by d.4}}
+\end{align*}
+Let $s1 = \text{PMul p1 (d p2)}$, $s2 = \text{PMul (d p1) p2}$, then we have
+\begin{align*}
+\text{R.H.S} &= \text{degree (PAdd s1 s2)} \tag{\text{by replacement}} \\
+             &= \text{max (degree s1) (degree s2)} \tag{\text{by degree.3}}
+\end{align*}
+Since
+\begin{align*}
+\text{degree s1} &= \text{degree (PMul p1 (d p2))} \tag{\text{by replacement}} \\
+				 &= \text{(degree p1) + (degree (d p2))} \tag{\text{by degree.4}} \\
+				 &\leq \text{(degree p1) + (degree p2)} \tag{\text{by hyp.2}}
+\end{align*}
+Also
+\begin{align*}
+\text{degree s2} &= \text{degree (PMul (d p1) p2)} \tag{\text{by replacement}} \\
+				 &= \text{(degree (d p1)) + (degree p2)} \tag{\text{by degree.4}} \\
+				 &\leq \text{(degree p1) + (degree p2)} \tag{\text{by hyp.1}}
+\end{align*}
+Thus, we can split the possible situations of the right-hand-side into 2 cases:
+
+\begin{itemize}
+\item \textbf{Case 1: }If $\text{degree s1} \geq \text{degree s2}$, then we continue the deduction in the right-hand-side 
+and have
+\begin{align*}
+\text{R.H.S} &= \text{max (degree s1) (degree s2)} \\
+			 &= \text{degree s1} \tag{\text{by defn. of max}} \\ 
+			 &\leq \text{(degree p1) + (degree p2)} \tag{\text{from the deduction in RHS}} \\
+\end{align*}
+Since $\text{L.H.S} = \text{(degree p1) + (degree p2)}$, we have $\text{L.H.S} \geq \text{R.H.S}$. Thus in this case, 
+the left-hand-side is greater than or equal to the right-hand-side.
+
+\item \textbf{Case 2: }If $\text{degree s2} \geq \text{degree s1}$, then we continue the deduction in the right-hand-side 
+and have
+\begin{align*}
+\text{R.H.S} &= \text{max (degree s1) (degree s2)} \\
+			 &= \text{degree s2} \tag{\text{by defn. of max}} \\ 
+			 &\leq \text{(degree p1) + (degree p2)} \tag{\text{from the deduction in RHS}} \\
+\end{align*}
+Since $\text{L.H.S} = \text{(degree p1) + (degree p2)}$, we have $\text{L.H.S} \geq \text{R.H.S}$. Thus in this case, 
+the left-hand-side is greater than or equal to the right-hand-side.
+\end{itemize}
+Therefore, in both cases we have proved that the left-hand-side is greater than or equal to the right-hand-side,
+on the assumption that the induction hypothesis holds, which completes the induction step.
+\end{itemize}
+Since all induction steps are completed, we can say the proof itself is also completed. \qed
+\end{enumerate}
+
+\end{enumerate}
+
+\end{document}
