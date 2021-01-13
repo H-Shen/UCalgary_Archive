@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Group Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .dropdown-item {
+            cursor: pointer;
+        }
+
+        #projects .pj-item {
+            /* width: 20%; */
+            padding: 20px;
+        }
+
+        div#pj_item {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        img.imageIcon {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+        }
+
+        #projects .pj-item img {
+            /* width: 100%; */
+        }
+
+        #add_project {
+            width: 130px;
+            height: 32px;
+            background-color: lightblue;
+            border: 1px solid #ccc;
+            line-height: 32px;
+            border-radius: 10px;
+            color: white;
+            margin: 10px 0;
+        }
+
+        .team-item .name {
+            height: 32px;
+            line-height: 32px;
+            background-color: lightblue;
+            border-radius: 4px;
+            text-align: center;
+            display: inline-block;
+            padding: 0 10px;
+            color: white;
+            cursor: pointer;
+        }
+
+        #groups {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .team-item {
+            margin-right: 20px;
+        }
+
+        .team-item.active .name {
+            background-color: Teal;
+        }
+
+        .code {
+            color: #666;
+            line-height: 22px;
+            text-align: left;
+        }
+
+        #leaveTeam {
+            text-align: right;
+            color: #666;
+            cursor: pointer;
+            line-height: 32px;
+        }
+
+        .mb-item {
+            background-color: #666;
+            color: white;
+            padding: 4px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .existTeam .name{
+            background-color:lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-login">
+            <div class="image-edit-wrap">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <a class="navbar-brand me-auto" href="#">
+                            <img src="logo.png" alt="Logo" style="width:70px;">
+                        </a>
+                        <span id="header-title">Image-O-City</span>
+                        <ul class="navbar-nav list-inline ms-auto">
+                            <!-- Icon dropdown -->
+                            <!-- <li class="nav-item me-3 me-lg-0 dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="navbarDropdown1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-bell fa-2x" style="color: black;"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                    <a class="dropdown-item">You've been added to team [team code]</a>
+                                </div>
+                            </li> -->
+                            <li class="nav-item me-3 me-lg-0 dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="navbarDropdown2"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user-circle fa-2x" style="color: black;"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                    <a class="dropdown-item" href="/user_profile.html">My Profile</a>
+                                    <a class="dropdown-item" href="/group_profile.html">Group Profile</a>
+                                    <a class="dropdown-item" href="/account_recovery.html">Change Password</a>
+                                    <a id="logout" class="dropdown-item"> Log Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- Profile Page -->
+                <div class="group-container">
+                    <div class="group-container-header">
+                        <h2>Team Profile</h2>
+                        <div class="tab">
+                            <!-- 创建小组-->
+                            <button id="create_team">Create a New Team</button>
+                        </div>
+                    </div>
+                    <!-- 小组列表 -->
+                    <div class="teams">
+                        <div id="groups">
+                            <!-- <div class="team-item">
+                                <div class="name active">Team1</div>
+                                <div class="code">12213</div>
+                            </div> -->
+                        </div>
+
+                        <div style="
+                        text-align: right;
+                    ">
+                            <span id="leaveTeam">
+                                Leave Team
+                            </span>
+                        </div>
+                    </div>
+                    <!-- 当前选中小组的简介 -->
+                    <div class="team-info">
+                        <h3>Members</h3>
+                        <div class="members" id="members_div">
+                            <!-- <div class="mb-item">SHHd</div> -->
+                        </div>
+                    </div>
+                    <!-- 当前选中小组的项目 -->
+                    <!-- 当前选中小组的简介 -->
+                    <div class="projects-info">
+                        <h3>Team Project</h3>
+                        <div class="add_project-btn">
+                            <button id="add_project">
+                                <a style="color: white; font-family: Lucida, cursive;">
+                                    Add New Project
+                                </a>
+                            </button>
+                        </div>
+                        <div id="projects">
+                            <div class="pj-item" id="pj_item">
+                                <!-- <img class="imageIcon" src="image.png" />
+                                <img class="imageIcon" src="image.png" />
+                                <img class="imageIcon" src="image.png" />
+                                <img class="imageIcon" src="image.png" />
+                                <img class="imageIcon" src="image.png" />
+                                <img class="imageIcon" src="image.png" />
+                                <img class="imageIcon" src="image.png" />
+                                <img class="imageIcon" src="image.png" />
+                                <img class="imageIcon" src="image.png" /> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        // change http://35.230.37.124
+        const socket = io('http://localhost:8089')
+        window.onload = function () {
+            let globalObj = {
+                //全局参数
+                activeTeamID: "",//当前激活的团队，实时消息的时候也要用这个
+                addClickTime: null,//增加分区点击不能过于太快，否则时间戳可能一样导致id一样
+                username: sessionStorage.getItem("username")
+            }
+            socket.on("teamCreate", () => {
+                queryGroups(globalObj.activeTeamID);
+            })
+            socket.on("leaveOrJoinGroup", () => {
+                queryGroups(globalObj.activeTeamID);
+            })
+            socket.on("addProjectS_success", () => { //更新团队项目
+                queryGroups(globalObj.activeTeamID);
+            })
+            socket.on("changeProject_success", () => { //更新团队项目
+                console.log("changeProject_success")
+                queryGroups(globalObj.activeTeamID);
+            })
+            queryGroups();
+            $('#logout').click(
+                function () {
+                    $.ajax({
+                        type: "post",
+                        url: window.location.origin + "/delete_session",
+                        //server sent back respons
+                        success: (res) => {
+                            switch (res["ret"]) {
+                                case "1":
+                                    window.location.href = 'index.html';
+                                    break;
+                                case "-1":
+                                    alert("Logout failed")
+                                    window.location.href = 'index.html';
+                                    break;
+                            }
+                        }
+                    })
+                }
+            );
+            function request(url, data) {
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        type: "post",
+                        url: window.location.origin + url,
+                        dataType: "JSON",
+                        contentType: 'application/json;charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: (res) => {
+                            const { code } = res;
+                            if (code == 200) {
+                                resolve(res)
+                            } else {
+                                reject(res.msg)
+                            }
+                        },
+                        error: (error) => {
+                            reject(error)
+                        }
+                    });
+                })
+            }
+            // 创建小组
+            $('#create_team').click(function () {
+                const teamID = (new Date()).valueOf() + "";
+                const memberID = globalObj.username;
+                if (globalObj.addClickTime) {
+                    alert("Please wait a moment")
+                    return;
+                }
+                globalObj.addClickTime = true;
+                setTimeout(function () {
+                    //至少1100毫秒 不然可能导致时间戳一样
+                    globalObj.addClickTime = null
+                }, 1100)
+                request("/createGroup", { teamID, memberID }).then((res) => {
+                    queryGroups(teamID);
+                })
+            });
+            $("#add_project").click(addProject)//添加项目
+
+            $("#leaveTeam").click(joinOrLeaveTeam)//加入或者离开
+            function renderImg(data) {//渲染缩略图
+                $("#pj_item").html("");
+                let str = ``;
+                data.map(item => {
+                    const time =(new Date()).valueOf()+ "";
+                    str += ` <img class="imageIcon" src="${item.url}?date=${time}" data-projectID="${item.projectID}" />`;
+                })
+                $("#pj_item").html(str);
+
+
+                //图片绑定事件
+                let nodes = document.querySelectorAll('.pj-item .imageIcon')
+                for (const node of nodes) {
+                    node.addEventListener('click', function (event) {
+                        if (checkAuthClick()) {
+                            let projectID = event.target.dataset.projectid;
+                            console.log("imageIcon----imageIcon:", projectID)
+                            window.location = `image_edit_group.html?teamID=${globalObj.activeTeamID}&projectID=${projectID}`
+                        } else {
+                            alert("抱歉，你不是该团队成员，无权限操作")
+                        }
+                    })
+                }
+            }
+
+            function renderMembers(data) {//渲染成员
+                $("#members_div").html("");
+                let str = ``;
+                data.map(item => {
+                    str += `  <div class="mb-item">${item}</div>`;
+                })
+                $("#members_div").html(str);
+
+                //判断是离开还是加入的显示
+                if (checkAuthClick()) { //说明是当前团队成员
+                    $("#leaveTeam").text("Leave Team")
+                } else {
+                    $("#leaveTeam").text("Join Team")
+                }
+            }
+            function updateGroupsNode(arr, id) { //更新所有团队
+                let str = "";
+                let activeProjectID = "";
+                for (let i = 0; i < arr.length; i++) {
+                    let item = arr[i];
+                    const { name, teamID, project,exist } = item;
+                    let active = "";
+                    let existTeamColor = exist?"existTeam":""; // 存在的团队就  显示 lightgreen
+                    
+                    if (id) { //如果是创建的时候 就需要有这个
+                        active = id == teamID ? "active" : "";
+                    } else {
+                        if (i == 0) {
+                            active = "active";
+                            globalObj.activeTeamID = teamID //记录第一个id  因为第一次是需要请求的
+                            activeProjectID = project;
+                        }
+                    }
+                    if (globalObj.activeTeamID) { //只要存在 就以存在的为主
+                        active = teamID == globalObj.activeTeamID ? "active" : ""; //activeTeamID有 那么当前团队数据肯定也有，所以当前团队数据不需要重新赋值
+                        if (teamID == globalObj.activeTeamID) {
+                            activeProjectID = project;
+                        }
+                    }
+                    // style="background-color:${existTeamColor}"
+                    str += `
+                    <div class="team-item  ${active} ${existTeamColor}" data-group="${teamID}" data-projectid="${project ? project : "no"}">
+                        <div class="name"   data-teamid="${teamID}" data-projectid="${project ? project : "no"}">${name}</div>
+                        <div class="code">${teamID}</div>
+                    </div>
+                    `
+                }
+                $('#groups').html(str);
+
+                //检测是否有被激活的标签 如果都没有 那么置为第一个  //当前删除团队的时候会出现这个情况--无激活标签
+                let active_item = $('#groups .team-item');
+                let active_flag = false;
+                for (let i = 0; i < active_item.length; i++) {
+                    let item = active_item.eq(i);
+                    if (item.hasClass("active")) {
+                        active_flag = true
+                    }
+                }
+
+                if (!active_flag) { //如果没有激活的标签
+                    globalObj.activeTeamID = active_item.eq(0).data("group")
+                    activeProjectID = active_item.eq(0).data("projectid")
+                    active_item.eq(0).addClass("active")
+                }
+
+                addEventListener();//firstFlag
+                getTeamInfo(globalObj.activeTeamID);
+                getProject(activeProjectID)
+            }
+            function updateProjectNode(arr) {
+
+            }
+            function updateMemberNode(arr) {
+
+            }
+            function addProject() {
+                if (checkAuthClick()) {
+                    window.location = `image_edit_group.html?teamID=${globalObj.activeTeamID}`
+                } else {
+                    alert("抱歉，你不是该团队成员，无权限操作")
+                }
+            }
+
+            function getCurrentMember() {
+                //获取当前团队的成员信息
+                let members = $("#members_div .mb-item");
+                let membersArr = [];
+                for (let i = 0; i < members.length; i++) {
+                    let item = members.eq(i)
+                    membersArr.push(item.text());
+                }
+                console.log("membersArr:", membersArr) //先拿到 ，万一后面要用
+                return membersArr;
+            }
+            //检测是否是当前组的成员， 如果不是不能执行点击增加项目或者编辑项目操作//还有来判断加入或退出的显示
+            function checkAuthClick() {
+                //获取当前用户
+                let username = globalObj.username;
+                console.log("当前用户--username:", username)
+                let membersArr = getCurrentMember();
+                if (membersArr.includes(username)) {
+                    console.log("有权限")
+                    return true
+                } else {
+                    return false;
+                }
+
+            }
+            function joinOrLeaveTeam() {
+                let leaveFlag = $("#leaveTeam").text() == "Leave Team" ? true : false;
+                let membersArr = getCurrentMember();
+                let memberID;
+                if (leaveFlag) {
+                    //如果是离开 那么就从当前团队删除当前用户
+                    memberID = membersArr.filter(item => {
+                        return item !== globalObj.username;
+                    })
+                } else {
+                    //如果是加入 那么就从当前团队增加当前用户
+                    membersArr.push(globalObj.username)
+                    memberID = membersArr;
+                }
+                memberID = memberID.join(",")
+                console.log("joinOrLeaveTeam----memberID:", memberID)
+
+                request("/leaveOrJoinGroup", { teamID: globalObj.activeTeamID, memberID }).then(res => {
+                    //加入或离开成功后，开始广播 //在路由层实现
+                    // if (!leaveFlag) {
+                    //     var r = confirm("Join the project immediately?");
+                    //     if (r == true) {
+                    //     }
+                    // }
+                }).catch(err => {
+                    console.log(err)
+                    alert(JSON.stringify(err))
+                })
+            }
+            function addEventListener(firstFlag) {  //第一次进来   把第一个的东西相关项目要展示
+                let nodes = document.querySelectorAll('.team-item .name')
+                for (const node of nodes) {
+                    node.addEventListener('click', function (event) {
+                        teamClickHandler(event);
+                    })
+                }
+            }
+            function teamClickHandler(event) {
+                const teamID = event.target.dataset.teamid;
+                let projectID = event.target.dataset.projectid;
+                getTeamInfo(teamID)
+                rendeGroupActive(teamID);
+                getProject(projectID)
+            }
+            //哪个标签激活
+            function rendeGroupActive(teamID) {
+                let groupDiv = $("#groups .team-item")
+                for (let i = 0; i < groupDiv.length; i++) {
+                    groupDiv.eq(i).removeClass("active");
+                }
+                globalObj.activeTeamID = teamID;
+                $(`[data-group="${globalObj.activeTeamID}"]`).addClass("active")
+                console.log(groupDiv[0])
+            }
+            function getTeamInfo(teamID) {
+                $.ajax({
+                    type: "post",
+                    url: window.location.origin + "/queryGroups",
+                    dataType: "JSON",
+                    contentType: 'application/json;charset=utf-8',
+                    data: JSON.stringify(
+                        {
+                            teamID,
+                        }
+                    ),
+                    success: (res) => {
+                        if (res.data[0]) {
+                            let { member } = res.data[0];
+                            member = member.split(",");
+                            renderMembers(member)
+                        } else {
+                            renderMembers([])
+                            renderImg([])
+                        }
+                    },
+                    error: () => {
+                        alert("小组列表获取失败")
+                    }
+                });
+            }
+            function getProject(projectID) {
+                projectID = projectID + "";
+                if (!projectID) {
+                    return;
+                }
+                projectID = projectID.split(",");
+                console.log(projectID)
+                $.ajax({
+                    type: "post",
+                    url: window.location.origin + "/queryProjectById",
+                    dataType: "JSON",
+                    contentType: 'application/json;charset=utf-8',
+                    data: JSON.stringify(
+                        {
+                            projectID
+                        }
+                    ),
+                    success: (res) => {
+                        renderImg(res.data)
+                    },
+                    error: (e) => {
+                        let err = JSON.stringify(e);
+                        console.log(err)
+                        alert("获取项目失败:", e)
+                    }
+                });
+            }
+
+            function queryGroups(teamID) {
+                $.ajax({
+                    type: "post",
+                    url: window.location.origin + "/queryGroups",
+                    dataType: "JSON",
+                    contentType: 'application/json;charset=utf-8',
+                    data: {},
+                    success: (res) => {
+                        const groups = res.data;
+                        let {username} = globalObj
+                        groups.map(item=>{
+                            console.log(item.member)
+                            let arr = item.member.split(",");
+                            if(arr.includes(username)){
+                                item.exist = true
+                            }
+                        })
+                        console.log(groups)
+                        updateGroupsNode(groups, teamID);
+                    },
+                    error: () => {
+                        alert("小组列表获取失败")
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

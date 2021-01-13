@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="C++, coding competition, algorithm, data structure">
+    <meta name="description" content="Personal blog focus on some C++ skills on coding competition">
+    <meta name="author" content="Haohu Shen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        A short introduction of Disjoint Set -- Haohu's Blog
+    </title>
+    <link rel="icon" href="blog.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <!-- Import the MathJax script to support showing formula written in Latex. I have been asked the tutorial for the permission to use this script.-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="header">Welcome to Haohu Shen's Personal Blog!</div>
+
+    <ul class="top_navigator">
+        <li><a href="index.html" target="_blank">Home Page</a></li>
+        <li><a href="a1.html" target="_blank">Fast Way to Input/Output in C++</a></li>
+        <li><a href="a2.html" target="_blank">Tricks of Modulo Operation</a></li>
+        <li><a href="a3.html" target="_blank">The Application of a GCC Extension</a></li>
+        <li><a href="a4.html" target="_blank" class="active">Introduction of Disjoint Set</a></li>
+        <li><a href="https://github.com/H-Shen" target="_blank">My Github</a></li>
+    </ul>
+
+    <div class="middle">
+        <div class="col lnav">
+            <ul>
+                <li><a href="a1.html">How to Reduce Input/Output Time in C++</a></li>
+                <li><a href="a2.html">Tricks of Modulo Operation</a></li>
+                <li><a href="a3.html">The Application of a GCC Extension</a></li>
+                <li><a href="a4.html">Introduction of Disjoint Set</a></li>
+                <li><a href="https://github.com/H-Shen/Collection_of_my_coding_practice/blob/master/Miscellaneous/template.cpp"
+                        target="_blank">My
+                        Coding Templates for Competitions</a></li>
+            </ul>
+            <p>Some Other Good Resources:</p>
+            <ul>
+                <li><a href="https://en.cppreference.com/w/cpp" target="_blank">Cpp Reference</a></li>
+                <li><a href="https://cp-algorithms.com/" target="_blank">Algorithms for Coding Competitions</a></li>
+                <li><a href="https://open.kattis.com/" target="_blank">Open Kattis</a></li>
+                <li><a href="https://www.hackerrank.com/domains/algorithms" target="_blank">Problemset in Hackerrank</a>
+                </li>
+                <li><a href="https://codeforces.com/" target="_blank">Codeforces</a></li>
+                <li><a href="https://onlinejudge.org/" target="_blank">UVA Onlinejudge</a></li>
+                <li><a href="https://leetcode.com/problemset/all/" target="_blank">Problemset in Leetcode</a></li>
+            </ul>
+        </div>
+
+        <div class="col content">
+            <div class="article_header">
+                <h1>3A Rules: Almost Always Auto in C++</h1>
+            </div>
+
+            <div class="article">
+
+                <h1>The Disjoint Set Union and its Optimizations in the Coding Competition</h1>
+
+                <div id="div_0x00_4">
+                    <h3>0x00 Preface</h3>
+                </div>
+
+                <p>The Disjoint Set, or Union Find, or DSU, is a data structure that provides some functions, suppose we
+                    are given several elements where each is a separate set, and we are also given some instructions to
+                    combine random sets, and the disjoint set can tell us if any of two elements are in the same set at
+                    any time. The data structure is pretty common in coding competitions, especially in graph problems.
+                    In this article, I will give a short introduction from the interface of a Disjoint Set, and then two
+                    optimizations on it.</p>
+
+
+                <h3>Contents</h3>
+
+                <a href="#div_0x00_4">
+                    <h4>0x00 Preface</h4>
+                </a>
+
+                <a href="#div_0x01_4">
+                    <h4>0x01 The Normal Disjoint Set</h4>
+                </a>
+
+                <a href="#div_0x02_4">
+                    <h4>0x02 The Disjoint Set with Path Compression Optimized</h4>
+                </a>
+
+                <a href="#div_0x03_4">
+                    <h4>0x03 The Disjoint Set with Rank By Size Optimized</h4>
+                </a>
+
+                <a href="#div_0x04_4">
+                    <h4>0x04 The Complexity of operations on the Disjoint Set</h4>
+                </a>
+
+                <a href="#div_0x05_4">
+                    <h4>0x05 References and Exercises</h4>
+                </a>
+
+                <div id="div_0x01_4">
+                    <h3>0x01 The Normal Disjoint Set</h3>
+                </div>
+
+                <p>Any disjoint set should support three basic operations:</p>
+
+                <ul>
+                    <li>
+                        <p>Initialization: Given \(N\) elements, each element should be initialized as an isolated set.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Find: Given an element, return the set it belongs to</p>
+                    </li>
+                    <li>
+                        <p>Merge: Given two element \(A\) and \(B\), merge the set where \(A\) is and the set where
+                            \(B\) is as one.</p>
+                    </li>
+                </ul>
+
+                <p>So you can see that DSU does not support the operation that split two sets, but a modified DSU is
+                    able to support the deletion of single element in a set, see <a
+                        href="https://open.kattis.com/problems/almostunionfind">Kattis Almost Union-Find</a>.</p>
+
+                <p>Thus, we can have the code for the initialization:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    vector&lt;int> father; // father[i] = the set id of 'i'
+    void init(int n) {
+        father.resize(n);
+        for (int i = 0; i &lt; n; ++i) {
+            father[i] = i;  // the set id of 'i' is 'i' itself
+        }
+    }
+            </code></pre>
+                </div>
+
+                <p>For finding in DSU, this example may help you to understand, suppose there are several families are
+                    having a party, because each family has many members and each member has a pretty long length of
+                    life, they only remember who are their fathers after many decades. The eldest people in a family is
+                    called the ancestor of the family. Thus if someone wants to confirm which family he belongs to, he
+                    can ask his father, then his father can ask his grandfather, recursively, until someone asks the
+                    ancestor. Thus if we want to confirm if two members are in the same family, we can check if they
+                    have the same ancestor.</p>
+
+                <p>That is the <strong>find</strong> on DSU, and here is the implementation:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    int find(int x) {
+        // find x's ancestor
+        if (father[x] == x) {   // if x is the ancestor himself, just return
+            return x;
+        }
+        // otherwise, let's ask x's father
+        return father[x];
+    }
+        </code></pre>
+                </div>
+
+                <p>Apparently the recursion will be eventually terminated if the ancestor is found.</p>
+
+                <div id="div_0x02_4">
+                    <h3>0x02 The Disjoint Set with Path Compression Optimized</h3>
+                </div>
+
+                <p>But it is inefficient to find the ancestor by asking fathers one by one, since who is my ancestor has
+                    nothing to do with who is my father, we can make the family member to be the son of the ancestor. It
+                    is not important that who is the ancestor, as long as there is someone can represent the whole
+                    family, thus, we can directly connect the node to the root of the tree, as below:</p>
+
+
+                <p style="text-align: center;"><img src="pic/dsu_find.png" style='height: 50%; width: 50%;'
+                        alt="demo of how DSU do the find operation"></p>
+
+                <p>And the code is also easily implemented:</p>
+
+                <p>Thus the code can be easily implemented as below:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    int find(int x) {
+        // if x is not the ancestor, then its father, also do the path compression
+        if (x != father[x]) {
+            father[x] = find(father[x]);
+        }
+        return father[x];
+    }
+            </code></pre>
+                </div>
+
+                <p>In the party, an ancestor of a family wants to merge with another family since both families are in a
+                    good relationship. Just like I say before, we do not care who is the ancestor as long as there is
+                    someone can represent the whole family. Thus we let one ancestor be the son of another ancestor.
+                    That is how two sets are merged in DSU, as below:</p>
+
+
+                <p style="text-align: center;"><img src="pic/dsu_merge.png" style='height: 60%; width: 60%;'
+                        alt="demo of how DSU do the merge operation"></p>
+
+                <p>And the code is also easily implemented:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    void merge(int x, int y) {
+        // Find the ancestors of x and y
+        int ancestor_x = find(x);
+        int ancestor_y = find(y);
+        // Return if they are in the same family already
+        if (ancestor_x == ancestor_y) return;
+        // Otherwise, let x's ancestor be the son of y's ancestor
+        father[ancestor_x] = ancestor_y;
+    }
+            </code></pre>
+                </div>
+
+                <div id="div_0x03_4">
+                    <h3>0x03 The Disjoint Set with Rank By Size Optimized</h3>
+                </div>
+
+                <p>When we merge two sets in DSU, no matter which set is being merged into, the result is the same. But
+                    if we choose different set to be merged into, the time complexity may be different. More
+                    specifically, if we merge a tree which represents a set in DSU with smaller size or smaller depth
+                    into another tree with bigger size or bigger depth, it is better than the vice versa. Thus we can
+                    have another array to store the size of each set, and every time we merge two sets, we will choose
+                    the smaller set to be the one that is being merged into. And this is the optimization by size.</p>
+
+                <p>Here is the implementation:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    vector&lt;int>sizeOfSet(n, 1);
+    void merge(int x, int y) {
+        int ancestor_x = find(x);
+        int ancestor_y = find(y);
+        if (ancestor_x == ancestor_y) return;
+        if (sizeOfSet[ancestor_x] > sizeOfSet[ancestor_y]) {
+            swap(ancestor_x, ancestor_y);
+        }
+        father[ancestor_x] = ancestor_y;
+        // Update the size
+        sizeOfSet[ancestor_y] += sizeOfSet[ancestor_x];
+    }
+            </code></pre>
+                </div>
+
+                <div id="div_0x04_4">
+                    <h3>0x04 The Complexity of operations on the Disjoint Set</h3>
+                </div>
+
+                <p>After applying the optimization of path compression and rank by size, the amortized time complexity
+                    of each operation in DSU is only \(O(\alpha{(n)})\) where \(\alpha{(n)}\) is the inverse Ackermann
+                    function, which is less than 5 for any practical input size \(n\).</p>
+
+                <p>For space complexity, since we only use two arrays to store information, we can easily know it is
+                    \(O(n)\) where \(n\) is the number of elements in the DSU.</p>
+
+                <p>Finally, we can wrap all functions mentioned above into a namespace:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    namespace DSU {
+        vector&lt;int> father;
+        vector&lt;int> Size;
+        // initialization
+        inline
+        void init(int n) {
+            vector&lt;int>().swap(father);
+            vector&lt;int>().swap(Size);
+            father.resize(n);
+            iota(father.begin(), father.end(), 0);
+            Size.resize(n, 1);
+        }
+        inline
+        int find(int x) {
+            if (x != father[x]) {
+                father[x] = find(father[x]);
+            }
+            return father[x];
+        }
+        // merge x and y
+        inline
+        void merge(int x, int y) {
+            x = find(x);
+            y = find(y);
+            if (x == y) {
+                return;
+            }
+            if (Size[x] > Size[y]) {
+                swap(x, y);
+            }
+            father[x] = y;
+            Size[y] += Size[x];
+        }
+
+        // check if x and y are in the same set
+        inline
+        bool is_same_group(int i, int j) {
+            return find(i) == find(j);
+        }
+    }
+            </code></pre>
+                </div>
+
+                <div id="div_0x05_4">
+                    <h3>0x05 References and Exercises</h3>
+                </div>
+
+                <p><a href="https://en.wikipedia.org/wiki/Ackermann_function">Ackermann function</a></p>
+
+                <p><a href="https://cp-algorithms.com/data_structures/disjoint_set_union.html">Disjoint Set Union</a>
+                </p>
+
+                <p><a href="https://open.kattis.com/problems/control">Association for Control Over Minds</a></p>
+
+                <p><a href="https://open.kattis.com/problems/tildes">Tildes</a></p>
+
+                <p><a href="https://open.kattis.com/problems/unionfind">Union-Find</a></p>
+
+                <p><a href="https://open.kattis.com/problems/virtualfriends">Virtual Friends</a></p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="buttom">
+        <a href="mailto:haohu.shen@ucalgary.ca" target="_blank" style="color: azure;">Email Me</a>
+    </div>
+
+</body>
+
+</html>

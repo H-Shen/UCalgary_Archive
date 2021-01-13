@@ -1,0 +1,218 @@
+/* Global Setting */
+
+* {
+    box-sizing: border-box;
+}
+
+/* styling the header of the page */
+
+.header {
+    width: 100%;
+    margin: auto;
+    clear: both;
+    font-size: 20px;
+    line-height: 70px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    height: 70px;
+    border: 1px solid#000000fb;
+    padding-left: 3%;
+    background-color: rgb(134, 170, 218);
+}
+
+/* styling top navigator */
+
+.top_navigator {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(110, 110, 110);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.top_navigator li {
+    float: left;
+}
+
+.top_navigator li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+}
+
+.top_navigator li a:hover {
+    background-color: black;
+}
+
+.top_navigator li a.active {
+    color: white;
+    background-color: #e29117;
+}
+
+/* styling body */
+
+body {
+    margin: auto;
+}
+
+/* styling the header of the article */
+
+.article_header {
+    background-color: #34b18b;
+    color: white;
+    text-align: center;
+    font-family: monospace;
+    line-height: 20px;
+    padding: 5px;
+}
+
+/* styling the article */
+
+.article {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 180%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000de;
+    padding: 15px;
+}
+
+/* styling the column */
+
+.col {
+    padding: 10px;
+    float: left;
+}
+
+/* styling the middle of the page */
+
+.middle::after {
+    display: table;
+    content: "";
+    clear: both;
+}
+
+/* right side */
+
+.content {
+    width: 75%;
+}
+
+/* left side */
+
+/* styling the left navigator */
+
+.lnav {
+    width: 25%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(202, 202, 202);
+}
+
+.lnav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.lnav li a {
+    margin-bottom: 4px;
+    display: block;
+    padding: 8px;
+    background-color: #eee;
+    text-decoration: none;
+    color: rgb(90, 90, 90);
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000;
+}
+
+.lnav li a:hover {
+    background-color: rgba(85, 85, 85);
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #00000000;
+}
+
+.lnav li a.active {
+    background-color: #009ace;
+    color: white;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #000000de;
+}
+
+/* styling footer */
+
+.buttom {
+    background-color: rgb(94, 94, 94);
+    color: white;
+    padding: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* styling inner C++ code */
+
+pre code {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    border: none;
+    background: transparent;
+}
+
+pre {
+    background-color: #070606cb;
+    color: rgb(255, 255, 255);
+    border: 1px solid #000000;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 18px;
+    overflow: auto;
+    padding: 3px 3px;
+    border-radius: 5px;
+}
+
+/* styling tables */
+
+table {
+    padding: 0;
+    border-collapse: collapse;
+}
+
+table tr th {
+    font-weight: bold;
+    border: 1px solid #000000;
+    background-color: #c9c9c9;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+table tr td {
+    border: 1px solid #000000;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+/* styling links */
+
+/* when the link is unvisited */
+
+a:link {
+    color: rgb(82, 144, 224)
+}
+
+/* when the link has been visited */
+
+a:visited {
+    color: purple;
+}
+
+/* when the link is hovering by mouse */
+
+a:hover {
+    color: blue;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "image-o-city",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon .\\new_server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "global-paths": "^1.0.0",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "async": "^3.2.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.1",
+    "mocha": "^8.2.1",
+    "nodemon": "^2.0.6",
+    "should": "^13.2.3",
+    "socket.io": "^3.0.3",
+    "uuid": "^8.3.2"
+  }
+}

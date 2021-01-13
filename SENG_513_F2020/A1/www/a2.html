@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="C++, coding competition, algorithm, data structure">
+    <meta name="description" content="Personal blog focus on some C++ skills on coding competition">
+    <meta name="author" content="Haohu Shen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Tricks of Modulo Operation -- Haohu's Blog
+    </title>
+    <link rel="icon" href="blog.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <!-- Import the MathJax script to support showing formula written in Latex. I have been asked the tutorial for the permission to use this script.-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="header">Welcome to Haohu Shen's Personal Blog!</div>
+
+    <ul class="top_navigator">
+        <li><a href="index.html" target="_blank">Home Page</a></li>
+        <li><a href="a1.html" target="_blank">Fast Way to Input/Output in C++</a></li>
+        <li><a href="a2.html" target="_blank" class="active">Tricks of Modulo Operation</a></li>
+        <li><a href="a3.html" target="_blank">The Application of a GCC Extension</a></li>
+        <li><a href="a4.html" target="_blank">Introduction of Disjoint Set</a></li>
+        <li><a href="https://github.com/H-Shen" target="_blank">My Github</a></li>
+    </ul>
+
+    <div class="middle">
+        <div class="col lnav">
+            <ul>
+                <li><a href="a1.html">How to Reduce Input/Output Time in C++</a></li>
+                <li><a href="a2.html">Tricks of Modulo Operation</a></li>
+                <li><a href="a3.html">The Application of a GCC Extension</a></li>
+                <li><a href="a4.html">Introduction of Disjoint Set</a></li>
+                <li><a href="https://github.com/H-Shen/Collection_of_my_coding_practice/blob/master/Miscellaneous/template.cpp"
+                        target="_blank">My
+                        Coding Templates for Competitions</a></li>
+            </ul>
+            <p>Some Other Good Resources:</p>
+            <ul>
+                <li><a href="https://en.cppreference.com/w/cpp" target="_blank">Cpp Reference</a></li>
+                <li><a href="https://cp-algorithms.com/" target="_blank">Algorithms for Coding Competitions</a></li>
+                <li><a href="https://open.kattis.com/" target="_blank">Open Kattis</a></li>
+                <li><a href="https://www.hackerrank.com/domains/algorithms" target="_blank">Problemset in Hackerrank</a>
+                </li>
+                <li><a href="https://codeforces.com/" target="_blank">Codeforces</a></li>
+                <li><a href="https://onlinejudge.org/" target="_blank">UVA Onlinejudge</a></li>
+                <li><a href="https://leetcode.com/problemset/all/" target="_blank">Problemset in Leetcode</a></li>
+            </ul>
+        </div>
+
+        <div class="col content">
+            <div class="article_header">
+                <h1>Code is like humor. When you have to explain it, it’s bad.</h1>
+            </div>
+
+            <div class="article">
+
+                <h1>The Tricks of Modulo Operation with Exponentiation for Coding Competition</h1>
+
+                <div id="div_0x00_2">
+                    <h3>0x00 Preface</h3>
+                </div>
+
+                <p>Modulo operation with integers and modulo operation under the exponentiation are pretty common in
+                    math-related problems in coding competitions. In this article I am going to share with you some
+                    techniques I used for such problems. Before that, if you are familiar to the basic of modulo
+                    operation you can just skip this part, otherwise take a look of the properties of modulo operation
+                    listed below:</p>
+
+                <ul>
+                    <li> \({A}\bmod{P} = A - \lfloor\dfrac{A}{P}\rfloor P\)</li>
+                    <li> \({(A + B)}\bmod{P} = (A \bmod P + B \bmod P) \bmod P\)</li>
+                    <li> \({(AB)}\bmod{P} = ((A \bmod P)(B \bmod P)) \bmod P\)</li>
+                </ul>
+
+
+                <p>And don't forget <strong>a >> 1</strong> equals to <strong>a / 2</strong>, <strong>a &
+                        1</strong> equals to <strong>a % 2</strong> in C++.</p>
+
+                <h3>Contents</h3>
+
+                <a href="#div_0x00_2">
+                    <h4>0x00 Preface</h4>
+                </a>
+
+                <a href="#div_0x01_2">
+                    <h4>0x01 Multiplication with Modulo Operation</h4>
+                </a>
+
+                <a href="#div_0x02_2">
+                    <h4>0x02 Exponentiation with Modulo Operation</h4>
+                </a>
+
+                <a href="#div_0x03_2">
+                    <h4>0x03 Exponentiation of Matrix with Modulo Operation</h4>
+                </a>
+
+                <a href="#div_0x04_2">
+                    <h4>0x04 References</h4>
+                </a>
+
+                <div id="div_0x01_2">
+                    <h3>0x01 Multiplication with Modulo Operation</h3>
+                </div>
+
+                <p>Multiplication of integers with modulo operation is simple, as below, which takes constant time
+                    complexity:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    int mul(int a, int n, int p) {
+        return (int)((long long)a * n % p);
+    }
+</code></pre>
+                </div>
+
+                <p>What about two integers of <strong>long long</strong> type, well, we can use recursion to calculate
+                    their product. Suppose we are calculating the product of <strong>a</strong> and <strong>n</strong>,
+                    then we can firstly calculate the product of <strong>a</strong> and <strong>n / 2</strong>. Suppose
+                    that</p>
+
+                <p>\[w = an / 2\]</p>
+
+                <p>Then if <strong>n</strong> is odd, we can have</p>
+
+                <p>\[an = 2w + a\]</p>
+
+                <p>Otherwise</p>
+
+                <p>\[an = 2w\]</p>
+
+                <p>Thus we can have an algorithm like this:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    long long mul(long long a, long long n, long long p) {
+        if (n == 0) {
+            return 0;   // Pruning
+        }
+        ll w = mul(a, n >> 1, p);
+        if (n & 1) {
+            return ((w &lt;&lt; 1) + a) % p;
+        }
+        return (w &lt;&lt; 1) % p;
+    }
+</code></pre>
+                </div>
+
+                <p>And we will find the time complexity of the algorithm is \(\Theta(\log{b})\).</p>
+
+                <p>But we can actually do it in constant time, that is, we firstly obtain the product of
+                    <strong>a</strong> and <strong>n</strong> no matter the result will overflow, then we convert it
+                    into <strong>long double</strong>, divided by <strong>p</strong>, and convert back to <strong>long
+                        long</strong>, finally we times it with <strong>p</strong> and subtract it by <strong>a *
+                        n</strong>, the trick here is both <strong>a * n</strong> and <strong>a * (n / p) * p</strong>
+                    may both overflow, but their difference will be in the range, thus we can have the code like this:
+                </p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    long long mul(long long a, long long n, long long p) {
+        return a * n - (long long)((long double)a * n / p) * p;
+    } 
+            </code></pre>
+                </div>
+
+                <div id="div_0x02_2">
+                    <h3>0x02 Exponentiation with Modulo Operation</h3>
+                </div>
+
+                <h4>Linear calculation</h4>
+
+                <p>The linear calculation is most directly way, whose time complexity is linear to b, as below:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    int linear_modpow(int a, int b, int p) {
+        long long result = a;   // Use 'long long' to avoid overflow
+        for (int i = 1; i &lt;= b; ++i) {
+            result = result * b % p;
+        }
+        return result;
+    }
+            </code></pre>
+                </div>
+
+                <h4>Calculation in logarithmic time</h4>
+
+                <p>That is,</p>
+
+                <p>Let \(f(a, b, p) = a^b \bmod p\), then:</p>
+
+                <p>If \(b\) is even, then:</p>
+
+                <p>\(f(a, b, p) = (a^{b/2})^2 \bmod p = f(a, b/2, p)f(a, b/2, p) \mod p\)</p>
+
+                <p>Otherwise:</p>
+
+                <p>\(f(a, b, p) = ((a^{(b-1)/2})^2 a) \bmod p = (f(a, (b-1)/2, p)f(a, (b-1)/2, p)a) \bmod p\)</p>
+
+                <p>Thus, it can be implemented as below:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    int log_modpow(int a, int b, int p) {
+        if (b == 0) {
+            return 1;   // Pruning
+        }
+        long long temp = log_modpow(a, b >> 1, p);
+        temp = (temp * temp) % p;
+        if (b & 1) {
+            return (temp * a) % p;
+        }
+        return temp;
+    }
+            </code></pre>
+                </div>
+
+                <p>And the benchmark is shown as below, where you can see there is a huge difference in efficiency of
+                    two different algorithms. In the benchmark I take 100000 tests of random positive integers of \(a,
+                    b, p\) between 1 and 10000:</p>
+
+                <p style="text-align: center;"><img src="pic/logpowmod_linearpowmod_bench.png"
+                        style='height: 70%; width: 70%;' alt="logpowmod_linearpowmod_bench"></p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>METHOD</th>
+                            <th>TIME COST (seconds)</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td>linear_modpow</td>
+                            <td>5.47541</td>
+                        </tr>
+                        <tr>
+                            <td>log_modpow</td>
+                            <td>0.027426</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h4>Pre-calculation of exponentiation with Modulo Operation</h4>
+
+                <p>Suppose we are given three integers \(b, p, k\), we are asked to query \(b^{p}\bmod k\), where \(0
+                    \leq b, p &lt; 2^{32}\) and \(1 \leq k \leq 2^{32}\).</p>
+
+                <p>Since there is only one case, we could just use quick modulo operation with exponentiation mentioned
+                    above to obtain the answer in \(\mathcal{O}(\log k)\). But here we are going to talk about another
+                    technique. That is, suppose there are \(5 \times 10^{7}\) cases to test with different values of
+                    \(p\) and we also suppose \(k\) is a constant prime, while other restrictions are not changed. In
+                    that case, we are going to use modulo operation with exponentiation to obtain \(a^{n}\bmod{m}\) with
+                    \(\Theta(\lceil \sqrt{m} \rceil)\)
+                    pre-process and \(\mathcal{O}(1)\) query for different \(n\).</p>
+
+                <p>But this technique requires two preconditions:</p>
+
+                <ul>
+                    <li> \(a\) and \(m\) are constants.</li>
+                    <li> \(m\) is a prime.</li>
+                </ul>
+
+                <p>And here are the steps for pre-calculations:</p>
+
+                <p>We let \(k = \lceil \sqrt{m} \rceil\), then we can pre-calculate all values below in \(\Theta(k)\)
+                    time:</p>
+
+                <p>\[
+                    \begin{align*}
+                    p_{0} &= 1 \bmod m \\
+                    p_{1} &= a \bmod m\\
+                    p_{2} &= a^{2} \bmod m\\
+                    & \vdots \\
+                    p_{k-1} &= a^{k-1} \bmod m\\
+                    p_{k} &= a^{k} \bmod m
+                    \end{align*}
+                    \]</p>
+
+                <p>And:</p>
+
+                <p>\[
+                    \begin{align*}
+                    q_{0} &= 1 \bmod m\\
+                    q_{1} &= a^{k} \bmod m\\
+                    q_{2} &= a^{2k} \bmod m\\
+                    & \vdots \\
+                    q_{k-1} &= a^{(k-1)k} \bmod m\\
+                    q_{k} &= a^{k \cdot k} \bmod m
+                    \end{align*}
+                    \]</p>
+
+                <p>Where we can obtain \(p_{0}, p_{1}, \cdots , p_{k-1}, p_{k}\) and \(q_{0}, q_{1}, \cdots , q_{k-1},
+                    q_{k}\) by using recurrence relations:</p>
+
+                <p>\[
+                    p_{i} =
+                    \begin{cases}
+                    ap_{i-1} \bmod m & \text{if $i > 0$} \\
+                    1 \bmod m & \text{if $i = 0$}
+                    \end{cases}
+                    \]</p>
+
+                <p>\[
+                    q_{i} =
+                    \begin{cases}
+                    a^{k}q_{i-1} \bmod m & \text{if $i > 0$} \\
+                    1 \bmod m & \text{if $i = 0$}
+                    \end{cases}
+                    \]</p>
+
+                <p>Since \(m\) is a prime, \(a^{n}\bmod{m} = a^{n \bmod (m-1)}\bmod{m}\) due to Fermat's little
+                    theorem. Thus for each \(n\) given, we suppose \(n^{\prime}\) is the result of \(n \bmod (m-1)\),
+                    and we can also suppose that \(n^{\prime}=xk+y\), then \(x=n^{\prime} / k\) and \(y=n^{\prime} \bmod
+                    k\), And we have</p>
+
+                <p>\[
+                    \begin{equation}\label{eq1}
+                    \begin{split}
+                    a^{n}\bmod{m} & = a^{n \bmod (m-1)}\bmod{m} \\
+                    & = a^{n^{\prime}}\bmod{m} \\
+                    & = a^{xk+y}\bmod{m} \\
+                    & = a^{xk}a^{y}\bmod{m} \\
+                    & = (a^{xk} \bmod m)(a^{y} \bmod m) \bmod m \\
+                    & = q_{x}p_{y}\bmod{m} \\
+                    \end{split}
+                    \end{equation}
+                    \]</p>
+
+                <p>Since we can do \(q_{x}p_{y}\bmod{m}\) in \(\mathcal{O}(1)\), we can solve the problem with the time
+                    complexity of \(\mathcal{O}(\sqrt{m} + n)\).
+                    Notice that if \(m\) is not a prime, we can also use the conclusion below to process \(n\):</p>
+
+                <p>\[
+                    a^n\equiv
+                    \begin{cases}
+                    a^{n\bmod\varphi(m)},\,&\gcd(a,\,m)=1\\
+                    a^n,&\gcd(a,\,m)\ne1,\,n&lt;\varphi(m)\\
+                    a^{n\bmod\varphi(m)+\varphi(m)},&\gcd(a,\,m)\ne1,\,n\ge\varphi(m)
+                    \end{cases}
+                    \pmod m
+                    \]</p>
+
+                <p>Thus we can use \(n \bmod \varphi(m)\) instead of \(n\).
+                    Now I wrap the whole algorithm with a tester in C++ as below, to help you understand:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+
+    using namespace std;
+    using namespace __gnu_pbds;
+    using ll = long long;
+    
+    constexpr ll MOD = 1000000007;
+    
+    namespace QuickModularPowerWithPreprocess {
+        // all variables
+        ll k;
+        vector&lt;ll> p;
+        vector&lt;ll> q;
+    
+        // O(1) modulo mul to calculate a^b mod m
+        inline static
+        ll modmul(ll a, ll b, ll m) {
+            a = (a % m + m) % m;
+            b = (b % m + m) % m;
+            return ((a * b -
+                        static_cast&lt;ll>(static_cast&lt;long double>(a) / m * b) * m) %
+                    m + m) % m;
+        }
+    
+        // Preprocess
+        inline static
+        void init(ll a, ll m) {
+            k = ceil(sqrt(static_cast&lt;double>(m)));
+            vector&lt;ll>().swap(p);
+            vector&lt;ll>().swap(q);
+    
+            p.resize(k + 1);
+            p.at(0) = 1 % m;
+            for (int i = 1; i &lt;= k; ++i) {
+                p.at(i) = modmul(a, p.at(i - 1), m);
+            }
+            q.resize(k + 1);
+            q.at(0) = 1 % m;
+            for (int i = 1; i &lt;= k; ++i) {
+                // q[i] = a^k * q_{i-1} mod m = p.at(k) * q_{i-1} mod m
+                q.at(i) = modmul(p.at(k), q.at(i - 1), m);
+            }
+        }
+    
+        // Query in O(1)
+        inline static
+        ll query(ll n) {
+            ll n_prime = n % (MOD - 1);
+            ll x = n_prime / k;
+            ll y = n_prime % k;
+            return modmul(q.at(x), p.at(y), MOD);
+        }
+    }
+    
+    namespace Tester {
+        inline static
+        ll modpow(ll a, ll n, ll M = MOD) {
+            if (M == 1) return 0;
+            ll r;
+            for (r = 1, a %= M; n; a = (a * a) % M, n >>= 1)
+                if (n % 2)
+                    r = (r * a) % M;
+            return r;
+        }
+    
+        auto get_random_n = []() {
+            static ll lower_bound = 1;
+            static ll upper_bound = 1000000000000000000;
+            static random_device dev;
+            static mt19937 random_generator(dev());
+            static uniform_int_distribution dist(lower_bound, upper_bound);
+            return dist(random_generator);
+        };
+    }
+    
+    int main() {
+    
+        int t = 10000000;
+        ll a = 1147483648;
+        ll b;
+        // init
+        QuickModularPowerWithPreprocess::init(a, MOD);
+        while (t--) {
+            b = Tester::get_random_n();
+            assert(QuickModularPowerWithPreprocess::query(b) ==
+                    Tester::modpow(a, b, MOD));
+        }
+        return 0;
+    }
+                    </code></pre>
+                </div>
+
+                <p>Furthermore, you can always rewrite the algorithm and let the modern C++ does the pre-calculation in
+                    compile-time and reduce its runtime, if the value of \(b\) is read from standard input, you can use
+                    the faster method for IO I mentioned <a href="a1.html" target="_blank">HERE</a> which will again
+                    help you reduce the runtime.
+                </p>
+
+                <div id="div_0x03_2">
+                    <h3>0x03 Exponentiation of Matrix with Modulo Operation</h3>
+                </div>
+
+                <p>Like the integers, suppose we are given a matrix \(A\) with same length of rows and columns and two
+                    positive integers \(b,p\), and calculate \( A^b \bmod p\). Since the matrix has the associative
+                    property, we can apply the method which is similar to the second method in <strong>0x02</strong>, in
+                    coding competition, this technique can help obtain some value that fits in a linear recurrence
+                    relation in logarithmic time, such as obtain the <strong>kth</strong> Fibonacci number in
+                    \(O(\log{k})\), which can extend to obtain the <strong>kth</strong> element of any linear recurrence
+                    relation with constant coefficients. I don't want to go deeper since this technique has been
+                    covered in Eigen values of linear algebra, and its time complexity is</p>
+
+                <p>\[\Theta(r^3 \log b)\]</p>
+
+                <p>such that \(r\) is the size of \(A\).</p>
+
+                <p>But I would like to share with you some tips when you solve such problems, as a coding competitor:
+                </p>
+
+                <ul>
+                    <li> Avoid recursion, since it is expensive to copy the matrix.</li>
+                    <li> Do not forget the modulo operation when you do the multiplication of two matrices.</li>
+                    <li> For the multiplication of extremely large matrices, use other algorithms such as <a
+                            href="https://en.wikipedia.org/wiki/Strassen_algorithm">Strassen algorithm</a> to reduce the
+                        time complexity.</li>
+                </ul>
+
+                <div id="div_0x04_2">
+                    <h3>0x04 References</h3>
+                </div>
+
+                <p><a href="https://cp-algorithms.com/algebra/fibonacci-numbers.html">Fibonacci Numbers</a> </p>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="buttom">
+        <a href="mailto:haohu.shen@ucalgary.ca" target="_blank" style="color: azure;">Email Me</a>
+    </div>
+
+</body>
+
+</html>

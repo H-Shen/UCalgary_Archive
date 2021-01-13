@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SENG513 Assignment 3</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            margin: 0;
+            font: 15px Helvetica, Arial;
+            background-color: #262626;
+            color: #e5e5e5;
+        }
+
+        #wrap {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            -webkit-box-orient: vertical;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            display: flex;
+            flex-direction: column;
+            max-width: 960px;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        #containers {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 100%;
+            height: inherit;
+            overflow: hidden;
+            margin: 15px 0;
+            padding: 0 10px;
+        }
+
+        #msg-container {
+            flex: 4;
+            display: flex;
+            height: inherit;
+            overflow-y: auto;
+        }
+
+        #user-container {
+            display: flex;
+            flex-direction: column;
+            flex: 3;
+            margin-left: 12px;
+        }
+
+        li {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            list-style: none;
+        }
+
+        #online-users-title {
+            align-self: center;
+            font: 20px Helvetica, Arial;
+            margin: 0;
+        }
+
+        #online-users {
+            margin: 10px 0;
+            padding: 0;
+        }
+
+        #online-users li {
+            padding: 5px 10px;
+            background: #222222;
+        }
+
+        #messages {
+            flex: 1;
+            padding-left: 0;
+            padding-top: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            overflow-y: auto;
+        }
+
+        #messages li {
+            padding: 5px 10px;
+        }
+
+        #messages li:nth-child(odd) {
+            background: #222222;
+        }
+
+        #status {
+            align-self: center;
+            font-size: 25px;
+            margin: 5px 10px;
+        }
+
+        #sendForm {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+
+        #f1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            height: 35px;
+            flex: 1;
+            font: 15px Helvetica, Arial;
+        }
+
+        #msg_send {
+            flex: 11;
+        }
+
+        #msg_bt {
+            flex: 1;
+            background: rgb(130, 224, 255);
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    </style>
+    <script>
+
+        const LOCAL_MESSAGES_MAXIMUM = 1000;
+        let localChatLog = []; // Local chat log is not the chat log history which stores in the server side
+
+        $(function () {
+
+            const socket = io();
+
+            let userName = "";
+            let userNameColor = "";
+
+            function addToLocalMessages(time, username, usernameColor, message) {
+                while (localChatLog.length >= LOCAL_MESSAGES_MAXIMUM) {
+                    localChatLog.shift();
+                }
+                localChatLog.push({time: time, username: username, usernameColor: usernameColor, message: message});
+            }
+
+            function addToLocalMessagesNonConversations(message) {
+                while (localChatLog.length >= LOCAL_MESSAGES_MAXIMUM) {
+                    localChatLog.shift();
+                }
+                localChatLog.push({message: message});
+            }
+
+            function refreshLocalMessages() {
+                // Clear the chat log
+                const $chat_messages = $('#messages');
+                $chat_messages.empty();
+                // Rewrite the chat log
+                for (let i = 0; i < localChatLog.length; ++i) {
+                    if (!localChatLog[i].hasOwnProperty('username')) {
+                        $chat_messages.append(localChatLog[i].message);
+                    } else {
+                        let message;
+                        if (localChatLog[i].username === userName) {
+                            message = '<li><div style="font-weight: bold">' + localChatLog[i].time + " " +
+                                `<span class="user" style="color: ${localChatLog[i].usernameColor}">` + localChatLog[i].username + '</span>' +
+                                '<span>' + ': ' + localChatLog[i].message + '</span>' +
+                                '</div></li>';
+                        } else {
+                            message = '<li><div>' + localChatLog[i].time + " " +
+                                `<span class="user" style="color: ${localChatLog[i].usernameColor}">` + localChatLog[i].username + '</span>' +
+                                '<span>' + ': ' + localChatLog[i].message + '</span>' +
+                                '</div></li>';
+                        }
+                        $chat_messages.append(message);
+                    }
+                }
+            }
+
+            socket.on('send name', function (username, usernameColor) {
+                // When the server sends its name and color the client, the client will check
+                // its local storage, if the client has a username and a username color already,
+                // it will send them back to the server to check
+                if (localStorage.hasOwnProperty("userName") && localStorage.hasOwnProperty("userNameColor")) {
+                    socket.emit('send name back to check', localStorage.getItem("userName"), localStorage.getItem("userNameColor"));
+                }
+                // Otherwise, the client will be given a new username and a color
+                else {
+                    userName = username;
+                    userNameColor = usernameColor;
+                    // And we store them in the localStorage
+                    localStorage.setItem("userName", userName);
+                    localStorage.setItem("userNameColor", userNameColor);
+                    socket.emit('no need to check just update title and online list');
+                }
+            });
+
+            socket.on('resend name', function (username, usernameColor) {
+                userName = username;
+                userNameColor = usernameColor;
+                // Store them in the localStorage
+                localStorage.setItem("userName", userName);
+                localStorage.setItem("userNameColor", userNameColor);
+            });
+
+            $('form').submit(function (e) {
+                e.preventDefault(); // prevents page reloading
+                let msgSend = $('#msg_send');
+                socket.emit('message', msgSend.val());
+                msgSend.val('');
+                return false;
+            });
+
+            socket.on('get chat log history', function (chat_log_history) {
+                for (let i = 0; i < chat_log_history.length; ++i) {
+                    addToLocalMessages(chat_log_history[i].time, chat_log_history[i].username, chat_log_history[i].usernameColor, chat_log_history[i].message);
+                }
+                // show the chat log
+                refreshLocalMessages();
+            });
+
+            socket.on('update local chat log username color', function (username, usernameColor) {
+                for (let i = 0; i < localChatLog.length; ++i) {
+                    if (localChatLog[i].hasOwnProperty('username')) {
+                        if (localChatLog[i].username === username) {
+                            localChatLog[i].usernameColor = usernameColor;
+                        }
+                    }
+                }
+                // refresh after update
+                refreshLocalMessages();
+            });
+
+            socket.on('update local chat log username', function (username, oldUsername) {
+                for (let i = 0; i < localChatLog.length; ++i) {
+                    if (localChatLog[i].hasOwnProperty('username')) {
+                        if (localChatLog[i].username === oldUsername) {
+                            localChatLog[i].username = username;
+                        }
+                    }
+                }
+                // refresh after update
+                refreshLocalMessages();
+            });
+
+            socket.on('message', function (currentTime, username, usernameColor, msg) {
+                let message;
+                if (username === userName) {
+                    message = '<li><div style="font-weight: bold">' + currentTime + " " +
+                        `<span class="user" style="color: ${usernameColor}">` + username + '</span>' +
+                        '<span>' + ': ' + msg + '</span>' +
+                        '</div></li>';
+                } else {
+                    message = '<li><div>' + currentTime + " " +
+                        `<span class="user" style="color: ${usernameColor}">` + username + '</span>' +
+                        '<span>' + ': ' + msg + '</span>' +
+                        '</div></li>';
+                }
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessages(currentTime, username, usernameColor, msg);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            function refreshLocalOnlineList(onlineList) {
+                const $online_list = $('#online-users');
+                // clear the original online list
+                $online_list.empty();
+                // rewrite the online list from the list given by the server
+                let message = "";
+                for (let i of onlineList) {
+                    if (i.name === userName) {
+                        message = '<li>' +
+                            `<span style="color: ${i.color}; font-weight: bold ">` + i.name + '</span></li>';
+                    } else {
+                        message = '<li>' +
+                            `<span style="color: ${i.color}">` + i.name + '</span></li>';
+                    }
+                    $online_list.append(message);
+                }
+            }
+
+            socket.on('user enters', function (currentTime, username, usernameColor, onlineList) {
+                let message = '<li><div>' + currentTime + " " + "User " +
+                    `<span  style="color: ${usernameColor}">` + username + '</span>' +
+                    '  <span >' + 'enters the chat room' + '</span>' +
+                    '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+                // refresh the local online list
+                refreshLocalOnlineList(onlineList);
+            });
+
+            socket.on('user leaves', function (currentTime, username, usernameColor, onlineList) {
+                let message = '<li><div>' + currentTime + " " + "User " +
+                    `<span style="color: ${usernameColor}">` + username + '</span>' +
+                    '  <span >' + 'leaves the chat room' + '</span>' +
+                    '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+                // refresh the local online list
+                refreshLocalOnlineList(onlineList);
+            });
+
+            socket.on('username in title', function (username, usernameColor) {
+                let message = '<div>' + "Welcome to the chat room! Your current username is " +
+                    `<span style="color: ${usernameColor}">` + username + '</span></div>'
+                $('#status').html(message);
+            });
+
+            socket.on('invalid_command', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + 'Invalid command!' + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('invalid_name_1', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + "The username cannot be empty!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('invalid_name_2', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + "The username can only contain letters, digits and underscores!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('invalid_name_3', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + "The username should be not longer than 15 characters!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('invalid_name_4', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + "Username unchanged!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('invalid_name_5', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + "The username already exists!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('valid_name_change', function (newUsername) {
+                let message = '<li><div>' + `<span style="color: #32cf35">` + 'OK: ' + '</span>' +
+                    '  <span >' + "The username changed successfully!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+                userName = newUsername;
+                // update the localStorage
+                localStorage.setItem("userName", userName);
+            });
+
+            socket.on('invalid_color_1', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + "Color hex code is empty!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('invalid_color_2', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + "Invalid color hex code! Correct examples: ff0000, 00FF00" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('invalid_color_3', function () {
+                let message = '<li><div>' + `<span style="color: #ff0000">` + 'Error: ' + '</span>' +
+                    '  <span >' + "Color unchanged!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+            });
+
+            socket.on('valid_color_change', function (newUsernameColor) {
+                let message = '<li><div>' + `<span style="color: #32cf35">` + 'OK: ' + '</span>' +
+                    '  <span >' + "The username's color changed successfully!" + '</span>' + '</div></li>';
+                $('#messages').append(message);
+                // add to local messages
+                addToLocalMessagesNonConversations(message);
+                // scroll down
+                const temp = $(document).height();
+                $('#messages').animate({scrollTop: temp}, 50);
+                userNameColor = newUsernameColor;
+                // update the localStorage
+                localStorage.setItem("userNameColor", userNameColor);
+            });
+
+            socket.on('update the list of online users', function (onlineList) {
+                refreshLocalOnlineList(onlineList);
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="wrap">
+    <div id="status">Welcome to chat room!</div>
+    <div id="containers">
+        <div id="msg-container">
+            <ul id="messages"></ul>
+        </div>
+        <div id="user-container">
+            <h2 id="online-users-title">List of Online Users</h2>
+            <ul id="online-users">
+            </ul>
+        </div>
+    </div>
+    <div id="sendForm">
+        <form action="" id="f1">
+            <label for="msg_send"></label><input autocomplete="off" id="msg_send"
+                                                 placeholder="Please type your message here ..."/>
+            <button id="msg_bt">SEND</button>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

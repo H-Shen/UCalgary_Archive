@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="C++, coding competition, algorithm, data structure">
+    <meta name="description" content="Personal blog focus on some C++ skills on coding competition">
+    <meta name="author" content="Haohu Shen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Fast Way to Input/Output in C++ -- Haohu's Blog
+    </title>
+    <link rel="icon" href="blog.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+
+<body>
+    <div class="header">Welcome to Haohu Shen's Personal Blog!</div>
+
+    <ul class="top_navigator">
+        <li><a href="index.html" target="_blank">Home Page</a></li>
+        <li><a href="a1.html" target="_blank" class="active">Fast Way to Input/Output in C++</a></li>
+        <li><a href="a2.html" target="_blank">Tricks of Modulo Operation</a></li>
+        <li><a href="a3.html" target="_blank">The Application of a GCC Extension</a></li>
+        <li><a href="a4.html" target="_blank">Introduction of Disjoint Set</a></li>
+        <li><a href="https://github.com/H-Shen" target="_blank">My Github</a></li>
+    </ul>
+
+    <div class="middle">
+        <div class="col lnav">
+            <ul>
+                <li><a href="a1.html">How to Reduce Input/Output Time in C++</a></li>
+                <li><a href="a2.html">Tricks of Modulo Operation</a></li>
+                <li><a href="a3.html">The Application of a GCC Extension</a></li>
+                <li><a href="a4.html">Introduction of Disjoint Set</a></li>
+                <li><a href="https://github.com/H-Shen/Collection_of_my_coding_practice/blob/master/Miscellaneous/template.cpp"
+                        target="_blank">My
+                        Coding Templates for Competitions</a></li>
+            </ul>
+            <p>Some Other Good Resources:</p>
+            <ul>
+                <li><a href="https://en.cppreference.com/w/cpp" target="_blank">Cpp Reference</a></li>
+                <li><a href="https://cp-algorithms.com/" target="_blank">Algorithms for Coding Competitions</a></li>
+                <li><a href="https://open.kattis.com/" target="_blank">Open Kattis</a></li>
+                <li><a href="https://www.hackerrank.com/domains/algorithms" target="_blank">Problemset in Hackerrank</a>
+                </li>
+                <li><a href="https://codeforces.com/" target="_blank">Codeforces</a></li>
+                <li><a href="https://onlinejudge.org/" target="_blank">UVA Onlinejudge</a></li>
+                <li><a href="https://leetcode.com/problemset/all/" target="_blank">Problemset in Leetcode</a></li>
+            </ul>
+        </div>
+
+        <div class="col content">
+            <div class="article_header">
+                <h1>First, solve the problem. Then, write the code.</h1>
+            </div>
+
+            <div class="article">
+
+                <h1>The Fastest Way of I/O in C++ for Coding Competition</h1>
+
+                <div id="div_0x00_1">
+                    <h3>0x00 Preface</h3>
+                </div>
+
+                <p>When a coding competitor encounters a problem that requires large size of input/output and limited
+                    time, I/O will become the bottleneck of the solution. Especially for C++ programmers, they will find
+                    that <strong>cin/cout</strong> will always be slower than <strong>scanf/printf</strong>, thus in
+                    this article, I will share with you guys how do I find the fastest way to read from standard input
+                    and write to standard output in C++ by setting up a benchmark and how I wrap the facility in a
+                    coding competition. Finally, I will share with you some tips you should notice if you really want to
+                    use the code for fast input/output, and a disadvantage of it.</p>
+
+                <p>On the other hand, since in most competitions problem graders are running on a Linux machine and the
+                    source code of C++ will be compiled in GCC, I decide to use the following environment to benchmark
+                    the code for faster I/O:</p>
+
+                <ul>
+                    <li> Fedora in csx.cs.ucalgary.ca by SSH</li>
+                    <li> Compile in g++ with -O2 using C++17 standard</li>
+                </ul>
+
+                <p>In this way, you can also verify or re-benchmark by yourself.</p>
+
+                <h3>Contents</h3>
+
+                <a href="#div_0x00_1">
+                    <h4>0x00 Preface</h4>
+                </a>
+
+                <a href="#div_0x01_1">
+                    <h4>0x01 How to set the benchmark of different ways of I/O?</h4>
+                </a>
+
+                <a href="#div_0x02_1">
+                    <h4>0x02 How to wrap the faster way of I/O?</h4>
+                </a>
+
+                <a href="#div_0x03_1">
+                    <h4>0x03 How to tweak the faster way of I/O to handle different variadic arguments?</h4>
+                </a>
+
+                <a href="#div_0x04_1">
+                    <h4>0x04 What you should know if you want to use the wrapper in a real competition?</h4>
+                </a>
+
+                <a href="#div_0x05_1">
+                    <h4>0x05 Reference</h4>
+                </a>
+
+                <div id="div_0x01_1">
+                    <h3>0x01 How to set the benchmark of different ways of I/O?</h3>
+                </div>
+
+                <p>In most cases, if a problem that requires large size of input/output and limited time in the coding
+                    competitions, we can assume that the data type for input/output are <strong>integers</strong>,
+                    therefore, in order to benchmark, we need a generator that creates specified random integers to a
+                    specified external file, as below:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    inline static
+    void create_data(const size_t &data_size, const std::string &file_name) {
+
+        // Initialize a random number generator.
+        std::random_device dev;
+        std::mt19937 random_generator(dev());
+        std::uniform_int_distribution&lt;int> dist(std::numeric_limits&lt;int>::min(),
+                                                std::numeric_limits&lt;int>::max());
+
+        // Create an empty file
+        std::fstream file;
+        file.open(file_name, std::ios::out);
+        if (!file) {
+            std::cerr &lt;&lt; "Failed to create the test file!" &lt;&lt; std::endl;
+            exit(-1);
+        }
+
+        // Write into a file
+        std::ofstream myFile;
+        myFile.open(file_name);
+        for (size_t i = 0; i != data_size; ++i) {
+            myFile &lt;&lt; dist(random_generator) &lt;&lt; '\n';
+        }
+        myFile.close();
+    }
+                    </code></pre>
+                </div>
+
+                <p>On the other hand, to benchmark different methods, I decide to generate 10000000 integers, start
+                    measuring the time <strong>before</strong> reading from standard input or writing to standard output
+                    and stop
+                    measuring the time once the job is done, as below:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    void test_func() {
+
+        std::chrono::time_point&lt;std::chrono::steady_clock> start, stop;
+        std::chrono::duration&lt;double> elapsed_in_seconds{};
+    
+        start = std::chrono::steady_clock::now();
+        // Read/Write data here
+        stop = std::chrono::steady_clock::now();
+        elapsed_in_seconds = stop - start;
+    
+        // Output the result to stdout
+        std::cerr &lt;&lt; "result:  &lt;&lt; elapsed_in_seconds.count() &lt;&lt; " seconds"
+                    &lt;&lt; std::endl;
+    
+        // Cleaning the file for input
+        std::remove(inputFile);
+    }
+                </code></pre>
+                </div>
+
+                <p>Right now, I am going to share with you all methods for reading and writing:</p>
+
+                <ul>
+                    <li>
+                        <p><strong>cin/cout</strong></p>
+
+                        <p>For most C++ beginners, <strong>cin/cout</strong> are a nice and convenient way to read from
+                            stdin until <strong>EOF</strong> and write to stdout, as below:</p>
+
+                        <div>
+                            <pre><code class="language-cpp">
+    int main() {
+        int input;
+        while (std::cin >> std::input) {
+            std::cout &lt;&lt; input &lt;&lt; std::endl;
+        }
+    }
+            </code></pre>
+                        </div>
+
+                        <p>The buffer will be flushed after every <strong>endl</strong>, thus we can make it quicker by
+                            flushing the buffer only once after EOF, like this:</p>
+
+                        <div>
+                            <pre><code class="language-cpp">
+    int main() {
+        int input;
+        while (std::cin >> std::input) {
+            std::cout &lt;&lt; input &lt;&lt; '\n';
+        }
+    } 
+                        </code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>cin/cout</strong> without synchronization</p>
+
+                        <p>One reason that <strong>cin/cout</strong> is slower is that for compatibility
+                            <strong>cin/cout</strong> are designed to sync with <strong>printf/scanf</strong> at
+                            default, thus the order of input/output is clear if you mix using two pairs of different
+                            ways to handle I/O. Thus we can cancel such sync and only use <strong>cin/cout</strong> or
+                            <strong>printf/scanf</strong> in our solution. In this way the time cost on I/O will
+                            significantly reduced. Meanwhile we can also cancel the binding between <strong>cin</strong>
+                            and <strong>cout</strong>. And don't forget to avoid using <strong>endl</strong> for
+                            flushing the buffer only once, like this:</p>
+
+                        <div>
+                            <pre><code class="language-cpp">
+    int main() {
+        int input;
+        // Stop synchronization with C stdio
+        std::ios_base::sync_with_stdio(false);
+        // Cancel binding
+        std::cin.tie(nullptr);
+        std::cout.tie(nullptr);
+        while (std::cin >> std::input) {
+            std::cout &lt;&lt; input &lt;&lt; '\n';
+        }
+    } 
+                        </code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        <p><strong>getchar/putchar</strong></p>
+
+                        <p>If you parse the integer and output the integer by digits using
+                            <strong>getchar/putchar</strong>, it will be faster than any methods above, meanwhile, we
+                            can use recursion in <strong>putchar</strong>, which is a little bit faster than using a
+                            stack to store each digit, as below:</p>
+
+                        <div>
+                            <pre><code class="language-cpp">
+    // Read and return false if EOF is encountered,
+    // otherwise return true
+    inline
+    bool read(int &t) {
+        int n = 0;
+        int ch = getchar();
+        while (!isdigit(ch)) {
+            if (ch == EOF) return false;
+            n |= ch == '-';     // Handle negative numbers
+            ch = getchar();
+        }
+        t = 0;
+        while (isdigit(ch)) {
+            t = t * 10 + ch - 48;
+            ch = getchar();
+        }
+        if (n) t = -t;
+        return true;
+    }
+    inline
+    void write(int x) {
+        if (x &lt; 0) x = -x, putchar('-');
+        if (x > 9) write(x / 10);
+        putchar(x % 10 + 48);
+    }
+    int main() {
+        int input;
+        while (read(input)) {
+            write(output);
+            putchar('\n');
+        }
+    }
+                        </code></pre>
+                        </div>
+
+                        <p>If we only need to parse an integer and store it to a reference instead of checking if there
+                            is an EOF, we can use the code below, which is actually more common in competitions:</p>
+
+                        <div>
+                            <pre><code class="language-cpp">
+    inline
+    void read(int &t) {
+        int n = 0;
+        int c = getchar();
+        t = 0;
+        while (!isdigit(c)) n |= c == '-', c = getchar();
+        while (isdigit(c)) t = t * 10 + c - 48, c = getchar();
+        if (n) t = -t;
+    }
+</code></pre>
+                        </div>
+
+                        <p>Moreover, since coders are allowed to use only a single thread in the competition, we
+                            don't need to consider situations such as multi-threads, sharing variables, thus we can
+                            replace <strong>getchar</strong> and <strong>putchar</strong> with their thread-unsafe
+                            versions, <strong>getchar_unlocked</strong> and <strong>putchar_unlocked</strong>.
+                            Similarily, we can use <strong>fputs_unlocked</strong> to output C style strings.</p>
+                    </li>
+                    <li>
+                        <p><strong>fread/fwrite</strong></p>
+
+                        <p>We can even make it faster by reading all input into a buffer using <strong>fread</strong>
+                            and output the whole contents from buffer once for all with <strong>fwrite</strong>, since
+                            coders are given the size of data in many coding problems, they are able to estimate the
+                            size of buffers used for input/output. We use two pointers to point at these two buffers
+                            respectively, when a digit is parsed for input/output, pointers will advance for a step as
+                            below, notice don't forget to flush the buffer:</p>
+
+                        <div>
+                            <pre><code class="language-cpp">
+    static constexpr int MAXSIZE = 1024 * 1024;
+    static char input_buffer[MAXSIZE];
+    static char *ptr1 = input_buffer + MAXSIZE;
+    static char *ptr2 = input_buffer + MAXSIZE;
+    static char output_buffer[MAXSIZE];
+    static char *ptr = output_buffer;
+    
+    inline static
+    char my_getchar() {
+        if (ptr1 == ptr2) {
+            ptr1 = input_buffer;
+            ptr2 = input_buffer + fread(input_buffer, 1, MAXSIZE, stdin);
+            if (ptr1 == ptr2) {
+                return EOF;
+            }
+        }
+        return *ptr1++;
+    }
+    
+    inline static
+    void my_putchar(const char &ch) {
+        if (ptr - output_buffer == MAXSIZE) {
+            fwrite(output_buffer, 1, MAXSIZE, stdout);
+            ptr = output_buffer;
+        }
+        *ptr++ = ch;
+    }
+    
+    inline
+    void read(int &t) {
+        int n = 0;
+        int c = my_getchar();
+        t = 0;
+        while (!isdigit(c)) n |= c == '-';, c = my_getchar();
+        while (isdigit(c)) t = t * 10 + c - 48, c = my_getchar();
+        if (n) t = -t;
+    }
+    
+    inline void
+    write(int x) {
+        if (x &lt; 0) x = -x, my_putchar('-');
+        if (x > 9) write(x / 10);
+        my_putchar(x % 10 + 48);
+    }
+    
+    // Execute this function after using write() on all numbers for output.
+    inline
+    void flush() {
+        fwrite(output_buffer, 1, ptr - output_buffer, stdout);
+    }
+    
+    int main() {
+        int n = 1000000;
+        int input;
+        for (int i = 0; i &lt; n; ++i) {
+            read(input);
+            write(input);
+        }
+        my_putchar('\n');
+        flush();
+    }
+                            </code></pre>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p>More faster method of I/O?</p>
+
+                        <p>Is there an even faster method for input/output in C++? Well, instead of writing into a
+                            buffer, we can always map stdin into memory directly, it will be a little faster than
+                            <strong>fread</strong>. The function <strong>mmap</strong> helps us do the job easily, but
+                            it also requires us to include additional header files, if you really want to use it, make
+                            sure it is legal in the competition. Here I wrap a thread-unsafe
+                            <strong>mmap/fwrite</strong> into a namespace:</p>
+
+                        <div>
+                            <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+    #include &lt;sys/mman.h>
+    #include &lt;sys/stat.h>
+
+    namespace FasterIO {
+
+        static constexpr int MAXSIZE = 1024 * 1024;
+        static char *input_buffer = nullptr;
+        static char *ptr0;
+        static char output_buffer[MAXSIZE];
+        static char *ptr = output_buffer;
+        int total_size;
+
+        inline static
+        void init() {
+            struct stat sb; // dont initialize it in order to save time
+            fstat(fileno_unlocked(stdin), &sb);
+            total_size = sb.st_size;
+            input_buffer = reinterpret_cast&lt;char *>(mmap(nullptr, total_size,
+                                                        PROT_READ, MAP_PRIVATE,
+                                                        fileno_unlocked(stdin),
+                                                        0));
+            ptr0 = input_buffer;
+        }
+
+        inline static
+        char getchar() {
+            if (ptr0 == input_buffer + total_size || *ptr0 == EOF) return EOF;
+            return *ptr0++;
+        }
+
+        void read(int &t) {
+            int n = 0;
+            int c = getchar();
+            t = 0;
+            while (!isdigit(c)) n |= c == '-', c = getchar();
+            while (isdigit(c)) t = t * 10 + c - 48, c = getchar();
+            if (n) t = -t;
+        }
+
+        inline static
+        void putchar(const char &ch) {
+            if (ptr - output_buffer == MAXSIZE) {
+                fwrite_unlocked(output_buffer, 1, MAXSIZE, stdout);
+                ptr = output_buffer;
+            }
+            *ptr++ = ch;
+        }
+
+        inline void write(int x) {
+            if (x &lt; 0) x = -x, putchar('-');
+            if (x > 9) write(x / 10);
+            putchar(x % 10 + 48);
+        }
+
+        inline
+        void flush() {
+            fwrite_unlocked(output_buffer, 1, ptr - output_buffer, stdout);
+        }
+    }
+
+    int main() {
+
+        // Use freopen here if you want
+        // Init before reading any data
+        FasterIO::init();
+
+        int n, input;
+        FasterIO::read(n);
+        for (int i = 0; i &lt; n; ++i) {
+            FasterIO::read(input);
+            FasterIO::write(input);
+            FasterIO::putchar('\n');
+        }
+        // Again, don't forget to flush the buffer
+        FasterIO::flush();
+    }
+</code></pre>
+                        </div>
+                    </li>
+
+                    <li>
+                        <p>BENCHMARK</p>
+
+                        <p>So what is the benchmark of different methods after all these tests? Well, here are two
+                            tables
+                            of results, I tested with reading and writing 10000000 integers <strong>separately</strong>
+                            on the server of UofC by SSH:</p>
+
+                        <p>For input, we have:</p>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>METHOD</th>
+                                    <th>TIME COST (seconds)</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>mmap</td>
+                                    <td>0.333833</td>
+                                </tr>
+                                <tr>
+                                    <td>fread</td>
+                                    <td>0.493002</td>
+                                </tr>
+                                <tr>
+                                    <td>getchar unlocked</td>
+                                    <td>0.433707</td>
+                                </tr>
+                                <tr>
+                                    <td>getchar</td>
+                                    <td>0.619069</td>
+                                </tr>
+                                <tr>
+                                    <td>scanf</td>
+                                    <td>1.62939</td>
+                                </tr>
+                                <tr>
+                                    <td>cin without sync</td>
+                                    <td>1.7917</td>
+                                </tr>
+                                <tr>
+                                    <td>cin</td>
+                                    <td>5.04564</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>Also, for output, we have:</p>
+
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>METHOD</th>
+                                    <th>TIME COST (seconds)</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <tr>
+                                    <td>fwrite</td>
+                                    <td>0.735085</td>
+                                </tr>
+                                <tr>
+                                    <td>putchar unlocked</td>
+                                    <td>0.826488</td>
+                                </tr>
+                                <tr>
+                                    <td>putchar</td>
+                                    <td>0.815868</td>
+                                </tr>
+                                <tr>
+                                    <td>printf</td>
+                                    <td>1.41162</td>
+                                </tr>
+                                <tr>
+                                    <td>cout without sync</td>
+                                    <td>1.36623</td>
+                                </tr>
+                                <tr>
+                                    <td>cout</td>
+                                    <td>30.6118</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p>Now you see that different way of I/O may make a huge impact on the time cost of a routine in
+                            coding competitions. For unknown reasons, <strong>putchar unlocked</strong> is a little bit
+                            slower than <strong>putchar</strong>, but it will definitely faster than
+                            <strong>printf</strong>.</p>
+
+                    </li>
+                </ul>
+
+                <div id="div_0x02_1">
+                    <h3>0x02 How to wrap the faster way of I/O?</h3>
+                </div>
+
+                <p>Since <strong>mmap</strong> is only available in Linux machines and there are some problems out there
+                    that you cannot predict the size of input/output, I decide to take <strong>getchar/putchar</strong>
+                    methods and wrap it into a namespace, which has better readablity. Now since we may read integers
+                    that have wider range in real problems, so I also decided to wrap it with <strong>C++
+                        templates</strong>, thus the user can also process data types such as <strong>long long</strong>
+                    with it, with the help of <strong>template argument deduction</strong> in C++17, you don't need
+                    to explicitly indicate the type.</p>
+
+
+                <div>
+                    <pre><code class="language-cpp">
+    namespace IO {
+        template&lt;typename T>
+        inline
+        bool can_read(T &t) {
+            int n = 0;
+            int ch = getchar_unlocked();
+            while (!isdigit(ch)) {
+                if (ch == EOF) return false;
+                n |= ch == '-';
+                ch = getchar_unlocked();
+            }
+            t = 0;
+            while (isdigit(ch)) {
+                t = t * 10 + ch - 48;
+                ch = getchar_unlocked();
+            }
+            if (n) t = -t;
+            return true;
+        }
+        template &lt;typename T>
+        inline
+        void read(T &t) {
+            int n = 0; int c = getchar_unlocked(); t = 0;
+            while (!isdigit(c)) n |= c == '-', c = getchar_unlocked();
+            while (isdigit(c)) t = t * 10 + c - 48, c = getchar_unlocked();
+            if (n) t = -t;
+        }
+        template &lt;typename T, typename... Args>
+        inline
+        void read(T &t, Args &... args) {
+            read(t); read(args...);
+        }
+        template &lt;typename T>
+        inline void write(T x) {
+            if (x &lt; 0) x = -x, putchar_unlocked('-');
+            if (x > 9) write(x / 10);
+            putchar_unlocked(x % 10 + 48);
+        }
+        template &lt;typename T>
+        inline void writeln(T x) {
+            write(x);
+            putchar_unlocked('\n');
+        }
+    }
+    int main() {
+        int n;
+        long long val;
+        IO::read(n);
+        for (int i = 0; i &lt; n; ++i) {
+            IO::read(val);
+            IO::writeln(val);
+        }
+    }
+                </code></pre>
+                </div>
+
+                <div id="div_0x03_1">
+                    <h3>0x03 How to tweak the faster way of I/O to handle different variadic arguments?</h3>
+                </div>
+
+                <p>Since C++11 we have <strong>Parameter pack</strong> that accepts zero or more template arguments, we
+                    can simply pack variadic arguments and process them using recursion, and now we can have the full
+                    demo code with the final version of a wrapper:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+
+    using namespace std;
+    using ll = long long;
+
+    namespace IO {
+        template&lt;typename T>
+        inline
+        bool can_read(T &t) {
+            int n = 0;
+            int ch = getchar_unlocked();
+            while (!isdigit(ch)) {
+                if (ch == EOF) return false;
+                n |= ch == '-';
+                ch = getchar_unlocked();
+            }
+            t = 0;
+            while (isdigit(ch)) {
+                t = t * 10 + ch - 48;
+                ch = getchar_unlocked();
+            }
+            if (n) t = -t;
+            return true;
+        }
+        template&lt;typename T, typename... Args>
+        inline
+        bool can_read(T& t, Args&... args) {
+            return can_read(t) && can_read(args...);
+        }
+
+        template&lt;typename T>
+        inline
+        void read(T &t) {
+            int n = 0;
+            int c = getchar_unlocked();
+            t = 0;
+            while (!isdigit(c)) n |= c == '-', c = getchar_unlocked();
+            while (isdigit(c)) t = t * 10 + c - 48, c = getchar_unlocked();
+            if (n) t = -t;
+        }
+
+        template&lt;typename T, typename... Args>
+        inline
+        void read(T &t, Args &... args) {
+            read(t);
+            read(args...);
+        }
+
+        template&lt;typename T>
+        inline void write(T x) {
+            if (x &lt; 0) x = -x, putchar_unlocked('-');
+            if (x > 9) write(x / 10);
+            putchar_unlocked(x % 10 + 48);
+        }
+
+        template&lt;typename T>
+        inline void writeln(T x) {
+            write(x);
+            putchar_unlocked('\n');
+        }
+        template&lt;typename T, typename... Args>
+        inline void writeln(T t, Args... args) {
+            writeln(t); writeln(args...);
+        }
+    }
+    int main() {
+        ll val;
+        while (IO::can_read(val)) IO::writeln(val);
+    }
+</code></pre>
+                </div>
+
+                <p>You can try<a href="https://open.kattis.com/problems/sumsets" target="_blank"> this problem</a> with
+                    and without using fast IO method, and here are the my two different time costs. You can see in this
+                    case the fast IO method hugely helps you reduce the run-time, even thought the algorithm is the
+                    same.</p>
+
+                <p style="text-align: center;"><img src="pic/fast_io.png" style='height: 70%; width: 70%;'
+                        alt="fast_io"></p>
+
+                <div id="div_0x04_1">
+                    <h3>0x04 What you should know if you want to use the wrapper in a real competition?</h3>
+                </div>
+
+                <p>Well, for problems that only require you read or write wrappers, you could just use it in the
+                    competition. On the other hand, if the problem requires you process strings, you should use
+                    <strong>scanf</strong> or <strong>cin</strong> without sync and <strong>std::string</strong>. If you
+                    have to handle numbers and strings at the same , don't use the wrapper and
+                    <strong>cin/cout</strong> without sync together since the sync between <strong>cin/cout</strong> and
+                    <strong>getchar/putchar</strong> is cancelled.</p>
+
+                <div id="div_0x05_1">
+                    <h3>0x05 References</h3>
+                </div>
+
+                <p><a
+                        href="https://github.com/H-Shen/Collection_of_my_coding_practice/blob/master/Miscellaneous/FastIO.cpp">Implementation
+                        of fast IO in C++</a></p>
+
+                <p><a
+                        href="https://github.com/H-Shen/Collection_of_my_coding_practice/blob/master/Miscellaneous/FastIOTest.sh">Shellscript
+                        to run the benchmark</a></p>
+
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="buttom">
+        <a href="mailto:haohu.shen@ucalgary.ca" target="_blank" style="color: azure;">Email Me</a>
+    </div>
+
+</body>
+
+</html>

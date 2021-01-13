@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="C++, coding competition, algorithm, data structure">
+    <meta name="description" content="Personal blog focus on some C++ skills on coding competition">
+    <meta name="author" content="Haohu Shen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        The Application of a GCC Extension in Coding Competition -- Haohu's Blog
+    </title>
+    <link rel="icon" href="blog.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+    <!-- Import the MathJax script to support showing formula written in Latex. I have been asked the tutorial for the permission to use this script.-->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+    <div class="header">Welcome to Haohu Shen's Personal Blog!</div>
+
+    <ul class="top_navigator">
+        <li><a href="index.html" target="_blank">Home Page</a></li>
+        <li><a href="a1.html" target="_blank">Fast Way to Input/Output in C++</a></li>
+        <li><a href="a2.html" target="_blank">Tricks of Modulo Operation</a></li>
+        <li><a href="a3.html" target="_blank" class="active">The Application of a GCC Extension</a></li>
+        <li><a href="a4.html" target="_blank">Introduction of Disjoint Set</a></li>
+        <li><a href="https://github.com/H-Shen" target="_blank">My Github</a></li>
+    </ul>
+
+    <div class="middle">
+        <div class="col lnav">
+            <ul>
+                <li><a href="a1.html">How to Reduce Input/Output Time in C++</a></li>
+                <li><a href="a2.html">Tricks of Modulo Operation</a></li>
+                <li><a href="a3.html">The Application of a GCC Extension</a></li>
+                <li><a href="a4.html">Introduction of Disjoint Set</a></li>
+                <li><a href="https://github.com/H-Shen/Collection_of_my_coding_practice/blob/master/Miscellaneous/template.cpp"
+                        target="_blank">My
+                        Coding Templates for Competitions</a></li>
+            </ul>
+            <p>Some Other Good Resources:</p>
+            <ul>
+                <li><a href="https://en.cppreference.com/w/cpp" target="_blank">Cpp Reference</a></li>
+                <li><a href="https://cp-algorithms.com/" target="_blank">Algorithms for Coding Competitions</a></li>
+                <li><a href="https://open.kattis.com/" target="_blank">Open Kattis</a></li>
+                <li><a href="https://www.hackerrank.com/domains/algorithms" target="_blank">Problemset in Hackerrank</a>
+                </li>
+                <li><a href="https://codeforces.com/" target="_blank">Codeforces</a></li>
+                <li><a href="https://onlinejudge.org/" target="_blank">UVA Onlinejudge</a></li>
+                <li><a href="https://leetcode.com/problemset/all/" target="_blank">Problemset in Leetcode</a></li>
+            </ul>
+        </div>
+
+        <div class="col content">
+            <div class="article_header">
+                <h1>Talk is cheap. Show me the code.</h1>
+            </div>
+
+            <div class="article">
+
+                <h1>The Application of Policy Based Data Structure in GCC for Coding Competition</h1>
+
+                <div id="div_0x00_3">
+                    <h3>0x00 Preface</h3>
+                </div>
+
+                <p>If you ask a C++ coding competitor why he or she chooses such language, he or she may tell you one
+                    reason is that C++ STL is powerful since it has already provided a lot of data structures, such as
+                    priority queue, hashmap. It also provide some built-in algorithm, covering sorting, merging, high
+                    order functions. But STL still do not provide some other data structures, such as
+                    <strong>trie</strong> for coding competitors. Luckily we have a GCC extension called <strong>Policy
+                        Based Data Structure</strong> (PBDS) that cover some advanced data structures, such as a red
+                    black tree that have order statistics, a trie or a pairing-heap. If we are allowed to use them in
+                    the competition, it will hugely save your time and you don't need to implement them again and
+                    again.</p>
+
+                <p>Unlike my other articles, this article is a short introduction of some basic usage of this extension.
+                    And before that, you need to include its relative header files like this:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/stdc++.h> // import C++ standard lib
+    #include &lt;ext/pb_ds/assoc_container.hpp>
+    #include &lt;ext/pb_ds/tree_policy.hpp>    // include this to use rbtree
+    #include &lt;ext/pb_ds/hash_policy.hpp>    // include this to use hashmap
+    #include &lt;ext/pb_ds/trie_policy.hpp> // include this to use trie
+    #include &lt;ext/pb_ds/priority_queue.hpp> // include to use pairing heap
+
+    using namespace std;
+    using namespace __gnu_pbds;
+</code></pre>
+                </div>
+
+                <p>Alternatively, there is another way to make it shorter, like this:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+
+    using namespace std;
+    using namespace __gnu_pbds;
+</code></pre>
+                </div>
+
+                <h3>Contents</h3>
+
+                <a href="#div_0x00_3">
+                    <h4>0x00 Preface</h4>
+                </a>
+
+                <a href="#div_0x01_3">
+                    <h4>0x01 Hashmap or hashset using PBDS</h4>
+                </a>
+
+                <a href="#div_0x02_3">
+                    <h4>0x02 Red black tree of PBDS</h4>
+                </a>
+
+                <a href="#div_0x03_3">
+                    <h4>0x03 Trie of PBDS</h4>
+                </a>
+
+                <a href="#div_0x04_3">
+                    <h4>0x04 Priority Queue of PBDS</h4>
+                </a>
+
+                <a href="#div_0x05_3">
+                    <h4>0x05 Reference and Exercises</h4>
+                </a>
+
+                <div id="div_0x01_3">
+                    <h3>0x01 Hashmap or hashset using PBDS</h3>
+                </div>
+
+                <p>There are two types of hash maps in PBDS, we can define them like this:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    cc_hash_table&lt;int, int> ht_cc;
+    gp_hash_table&lt;int, int> ht_gp;
+                </code></pre>
+                </div>
+
+                <p>Unlike <strong>std::unordered_map</strong>, <strong>cc_hash_table</strong> are collision-chaining
+                    hash-based, while <strong>gp_hash_table</strong> are probing hash-based.</p>
+
+                <p>If you want to make them into hashsets, we can define their values like this:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    cc_hash_table&lt;int, null_type> hs_cc;
+    gp_hash_table&lt;int, null_type> hs_gp;
+                </code></pre>
+                </div>
+
+                <p>And its usage is pretty similar to <strong>std::unordered_map</strong>, here is an example:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+    
+    using namespace std;
+    using namespace __gnu_pbds;
+    
+    int main() {
+        gp_hash_table&lt;int, int> ht;
+        ht.insert({1, 2});  // insertion
+        assert(ht[1] == 2);
+        ht[1] = 5;  // update
+        assert(ht[1] == 5);
+        ht.erase(1);    // remove
+        assert(ht.find(1) == ht.end());
+        assert(ht.empty());  // check if it is empty
+        ht.insert({2, 2});
+        assert(ht.size() == 1); // check its size
+        ht.clear(); // clear all pairs
+    }
+                </code></pre>
+                </div>
+
+                <p>Similar to <strong>std::unordered_map</strong>, you can also provide a custom hash function to
+                    it:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+    
+    using namespace std;
+    using namespace __gnu_pbds;
+    using pii = pair&lt;int, int>;
+    
+    struct Custom_Hash {
+        size_t operator()(const pii &obj) const {
+            return hash&lt;int>()(obj.first) ^ hash&lt;int>()(obj.second);
+        }
+    };
+    
+    int main() {
+        gp_hash_table&lt;pii, int, Custom_Hash> ht;
+        ht.insert({{1, 2}, 6});
+        assert((ht[{1, 2}] == 6));
+    }
+                </code></pre>
+                </div>
+
+                <p>So how is its performance, well, I did a benchmark on these 3 types of hashmaps by insertion and
+                    deletion of numbers from 0 to 1000000 multiple times to compare their average time cost and here is
+                    the result:</p>
+
+                <p style="text-align: center;"><img src="pic/hashmap_benchmark.png" style='height: 80%; width: 80%;'
+                        alt="benchmark on three types of hashmap"></p>
+
+                <p>So normally if <strong>gp_hash_table</strong> is allowed in the competition, it would be your
+                    first choice, a better hash function will further help increasing the performance.</p>
+
+                <div id="div_0x02_3">
+                    <h3>0x02 Red black tree of PBDS</h3>
+                </div>
+
+                <p>Since the data structure under <strong>std::map</strong> is a red-black tree, it has no public
+                    API and it does not provide a rank-query interface. Luckily, PBDS provides three types of
+                    balanced tree, that is red-black tree, splay tree and ov-tree. I will focus on the red-black
+                    tree since it is faster in most cases than other two, here is an example, and remember, keys in
+                    a red-black tree are unique:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+    
+    using namespace std;
+    using namespace __gnu_pbds;
+    
+    struct Node {
+        int first;
+        int second;
+        explicit Node(int first, int second) : first(first), second(second) {}
+        bool operator &lt; (const Node &obj) const {
+            if (first == obj.first) {
+                return second &lt; obj.second;
+            }
+            return first &lt; obj.first;
+        }
+        bool operator==(const Node &rhs) const {
+            return first == rhs.first &&
+                    second == rhs.second;
+        }
+    };
+    using RBTreeOfNode =
+    tree&lt;
+            Node,           // The datatype that stores in the tree
+            null_type,  // Just keys, no mapping values
+            less&lt;>,     // Order by &lt;
+            rb_tree_tag,    // Use RBTree
+            tree_order_statistics_node_update // The policy of update
+    >;
+    
+    int main() {
+
+        // Define a red-black tree with its default constructor
+        RBTreeOfNode Rbtree;
+    
+        // insertion
+        Rbtree.insert(Node(1, 2));
+        Rbtree.insert(Node(1, 3));
+        Rbtree.insert(Node(1, 7));
+    
+        // deletion
+        Rbtree.erase(Node(1, 3));
+    
+        // obtain the rank
+        assert(Rbtree.order_of_key(Node(1, 2)) == 0);
+    
+        // obtain the kth element and return an iterator
+        assert((*Rbtree.find_by_order(0)) == Node(1, 2));
+    
+        RBTreeOfNode Rbtree2;
+        Rbtree2.insert(Node(2, 3));
+        // Merge Rbtree2 into Rbtree, thus Rbtree2 will be empty
+        Rbtree.join(Rbtree2);
+        assert(Rbtree2.empty());    // check if it is empty
+    
+        // Split Rbtree, all keys in Rbtree &lt;= Node(1, 1) remain in Rbtree,
+        // others will move to Rbtree2
+        Rbtree.split(Node(1, 2), Rbtree2);
+    
+        // Check size
+        assert(Rbtree.size() == 1);
+    
+        Rbtree.insert(Node(1, 3));
+        Rbtree.insert(Node(1, 4));
+        // Return the iterator to the first key that is >= Node(1,3)
+        assert(*Rbtree.lower_bound(Node(1,3)) == Node(1,3));
+        // Return the iterator to the first key that is > Node(1,3)
+        assert(*Rbtree.upper_bound(Node(1,3)) == Node(1,4));
+        // If no such key is found, return the end of the tree
+        assert(Rbtree.upper_bound(Node(1, 4)) == Rbtree.end());
+    }
+                </code></pre>
+                </div>
+
+                <p>And remember that all operations above except for the size checking is \(O(\log{n})\) where \(n\)
+                    is the number of nodes in the tree.</p>
+
+                <div id="div_0x03_3">
+                    <h3>0x03 Trie of PBDS</h3>
+                </div>
+
+                <p>The way to define and use of a trie is pretty similar to the red-black tree, here is the example:
+                </p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+    
+    using namespace std;
+    using namespace __gnu_pbds;
+    
+    using Trie =
+    trie&lt;
+            string,
+            null_type,
+            trie_string_access_traits&lt;>,
+            pat_trie_tag,
+            trie_prefix_search_node_update
+    >;
+    
+    int main() {
+
+        // Define a trie with its default constructor
+        Trie t;
+    
+        // insertion
+        t.insert("abcd");
+        t.insert("abcde");
+        t.insert("abc");
+        t.insert("abcdef");
+        t.insert("bcde");
+    
+        // erase
+        t.erase("abcde");
+    
+        // check size
+        assert(!t.empty());
+        assert(t.size() == 4);
+    
+        // search
+        assert(t.find("abcde") == t.end());
+    
+        // iterate and print all strings with prefix "abc"
+        auto range = t.prefix_range("abc");
+        for (auto it = range.first; it != range.second; ++it) {
+            cout &lt;&lt; *it &lt;&lt; '\n';
+        }
+    }
+                    </code></pre>
+                </div>
+
+                <div id="div_0x04_3">
+                    <h3>0x04 Priority Queue of PBDS</h3>
+                </div>
+
+                <p>There are multiple implementations of priority queue in PBDS, all of them can be defined as
+                    below, with integers as keys:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    priority_queue&lt;int, greater&lt;>, tag> min_heap; // min-heap
+    priority_queue&lt;int, less&lt;>, tag> max_heap; // max-heap
+</code></pre>
+                </div>
+
+                <p>The <strong>tag</strong> can be <strong>pairing_heap_tag</strong>,
+                    <strong>thin_heap_tag</strong>, <strong>binomial_heap_tag</strong>,
+                    <strong>rc_binomial_heap_tag</strong>, <strong>binary_heap_tag</strong>, here is the
+                    complexities of the different underlying data structures in terms of orders of growth, which
+                    comes from the GNU official's documentation:</p>
+
+                <img src="pic/pbds_complexity.png" style='height: 90%; width: 90%;'
+                    alt="screenshot of time complexity of each type of pq">
+
+                <p>Thus, in most cases you should choose the pairing heap as the first option, since it is faster
+                    than other five types of heaps. At the end of the article, I will share with you the
+                    implementation of Dijkstra's algorithm on searching the shortest path from
+                    <strong>a</strong> to <strong>b</strong> using a pairing heap, which is a template I use often
+                    in the coding competitions:</p>
+
+                <div>
+                    <pre><code class="language-cpp">
+    #include &lt;bits/extc++.h>
+    
+    using namespace std;
+    using pii = pair&lt;int, int>;
+    
+    // The implementation of Dijkstra using an adjacency list
+    namespace Dijkstra {
+    
+        constexpr int INF = 0x3f3f3f3f; //  A weight indicates two nodes have no paths between them
+        vector&lt;vector&lt;pii> > adj; // The adjacency list of the graph
+        int number_of_nodes;
+        vector&lt;int> dis;    // dis.at(n) = the shortest distance from source to n
+    
+        inline void
+        init(int n, bool store_path = false) {
+            number_of_nodes = n;
+            // initialize the containers
+            adj.resize(number_of_nodes + 5);
+            dis.resize(number_of_nodes + 5, INF);
+        }
+    
+        inline void
+        add_edge(int u, int v, int w) {
+            adj.at(u).emplace_back(make_pair(v, w));
+        }
+    
+        inline void
+        dijkstra(int source) {
+            dis.at(source) = 0;
+            __gnu_pbds::priority_queue&lt;pii, greater&lt;>, pairing_heap_tag > pq;
+            pq.push(make_pair(dis.at(source), source));
+            while (!pq.empty()) {
+                int d_v = pq.top().first;
+                int v = pq.top().second;
+                pq.pop();
+                if (d_v != dis.at(v)) {
+                    continue;
+                }
+                for (const auto &[to, weight] : adj.at(v)) {
+                    if (dis.at(to) > dis.at(v) + weight) {
+                        dis.at(to) = dis.at(v) + weight;
+                        pq.push(make_pair(dis.at(to), to));
+                    }
+                }
+            }
+        }
+    }
+    
+    int main() {
+        int number_of_nodes, number_of_edges, a, b, u, v, w;
+        cin >> number_of_nodes >> number_of_edges >> a >> b;
+        Dijkstra::init(number_of_nodes);
+        while (number_of_edges--) {
+            cin >> u >> v >> w;
+            Dijkstra::add_edge(u, v, w);
+        }
+        Dijkstra::dijkstra(a);
+        if (Dijkstra::dis.at(b) == Dijkstra::INF) {
+            cout &lt;&lt; "No routes from a to b!";
+        } else {
+            cout &lt;&lt; Dijkstra::dis.at(b);
+        }
+        cout &lt;&lt; '\n';
+    }
+                </code></pre>
+                </div>
+
+                <div id="div_0x05_3">
+                    <h3>0x05 Reference and Exercises</h3>
+                </div>
+
+                <p><a href="https://codeforces.com/blog/entry/11080">C++ STL: Policy based data structures</a></p>
+
+                <p><a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/policy_based_data_structures_test.html">Performance
+                        of PBDS</a></p>
+
+                <p><a href="https://open.kattis.com/problems/babynames">Kattis: Baby Names</a></p>
+
+                <p><a href="https://open.kattis.com/problems/continuousmedian">Kattis: Continuous Median</a></p>
+
+                <p><a href="https://open.kattis.com/problems/gcpc">Kattis: Galactic Collegiate Programming
+                        Contest</a></p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="buttom">
+        <a href="mailto:haohu.shen@ucalgary.ca" target="_blank" style="color: azure;">Email Me</a>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Profile</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .dropdown-item {
+            cursor: pointer;
+        }
+
+        #projects .pj-item {
+            /* width: 20%; */
+            padding: 20px;
+        }
+
+        div#pj_item {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        #add-project{
+            width: 130px;
+            height: 32px;
+            background-color: lightblue;
+            border: 1px solid #ccc;
+            line-height: 32px;
+            border-radius: 10px;
+            color: white;
+        }
+        img.imageIcon {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+        }
+        label#username {
+            display: flex;
+            align-items: center;
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <div class="limiter">
+        <div class="container-login">
+            <div class="image-edit-wrap">
+                <!-- Header Bar: logo, webapp name, notification bell, my account -->
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <a class="navbar-brand me-auto" href="#">
+                            <img src="logo.png" alt="Logo" style="width:70px;">
+                        </a>
+                        <span id="header-title">Image-O-City</span>
+                        <ul class="navbar-nav list-inline ms-auto">
+                            <!-- Icon dropdown -->
+                            <!-- <li class="nav-item me-3 me-lg-0 dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="navbarDropdown1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-bell fa-2x" style="color: black;"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                    <a class="dropdown-item">You've been added to team [team code]</a>
+                                </div>
+                            </li> -->
+                            <li class="nav-item me-3 me-lg-0 dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="navbarDropdown2"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user-circle fa-2x" style="color: black;"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                    <a class="dropdown-item" href="/user_profile.html">My Profile</a>
+                                    <a class="dropdown-item" href="/group_profile.html">Group Profile</a>
+                                    <a class="dropdown-item" href="/account_recovery.html">Change Password</a>
+                                    <a id="logout" class="dropdown-item"> Log Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <!-- Profile Page -->
+                <h2 class="myProfile">My Profile</h2>
+
+                <div class="profileFlexContainer">
+                    <!--User information-->
+                    <div class="user-info">
+                        <h3>User Info</h3>
+                        <label id="username">Username</label>
+                        <label id="user-email">Email</label>
+                    </div>
+                    <!--User's Projects-->
+                    <div class="user-projects">
+                        <div class="user-projects-header">
+                            <h3>Personal Projects</h3>
+                            <button id="add-project">
+                                <a href="image_edit_user.html" style="color: white; font-family: Lucida, cursive;">
+                                    Add New Project
+                                </a>
+                            </button>
+                        </div>
+                        <div id="projects">
+                            <div class="pj-item" id="pj_item">
+                                <!-- <img class="imageIcon" src="image.png"/>
+                                <img class="imageIcon" src="image.png"/>
+                                <img class="imageIcon" src="image.png"/> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // toggle showing and hiding dropdown
+        function toggleDropdown(elem) {
+            $('.show').removeClass('show');
+            $(elem).next().toggleClass("show");
+        }
+        function request(url, data) {
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        type: "post",
+                        url: window.location.origin + url,
+                        dataType: "JSON",
+                        contentType: 'application/json;charset=utf-8',
+                        data: JSON.stringify(data),
+                        success: (res) => {
+                            const { code } = res;
+                            if (code == 200) {
+                                resolve(res)
+                            } else {
+                                reject(res.msg)
+                            }
+                        },
+                        error: (error) => {
+                            reject(error)
+                        }
+                    });
+                })
+            }
+           
+        function getProject(projectID) {
+                if(!projectID){
+                    return;
+                }
+                projectID = projectID.split(",");
+                console.log(projectID)
+                $.ajax({
+                    type: "post",
+                    url: window.location.origin + "/queryProjectById",
+                    dataType: "JSON",
+                    contentType: 'application/json;charset=utf-8',
+                    data: JSON.stringify(
+                        {
+                            projectID
+                        }
+                    ),
+                    success: (res) => {
+                        renderImg(res.data)
+                    },
+                    error: (e) => {
+                        let err = JSON.stringify(e);
+                        console.log(err)
+                        alert("获取项目失败:", e)
+                    }
+                });
+            }
+            function renderImg(data) {//渲染缩略图
+                $("#pj_item").html("");
+                let str = ``;
+                data.map(item => {
+                    str += ` <img class="imageIcon" src="${item.url}" data-projectID="${item.projectID}" />`;
+                })
+                $("#pj_item").html(str);
+
+
+                //图片绑定事件
+                let nodes = document.querySelectorAll('.pj-item .imageIcon')
+                for (const node of nodes) {
+                    node.addEventListener('click', function (event) {
+                        let projectID = event.target.dataset.projectid;
+                            console.log("imageIcon----imageIcon:", projectID)
+                            window.location = `image_edit_user.html?projectID=${projectID}`
+                    })
+                }
+            }
+            
+            
+        // close dropdown
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+        window.onpageshow = (e) => {
+            if (e.persisted) {
+                window.location.reload();
+            }
+        }
+
+        window.onload = function () {
+            $.ajax({
+                type: "post",
+                url: window.location.origin+"/user_profile",
+                //server sent back response
+                success: (res) => {
+                    switch (res.ret.returnCode) {
+                        case "1":
+                            $('#username').text(res.ret.userInfo.username);
+                            $('#user-email').text(res.ret.userInfo.user_email);
+                            let data = res.ret.data;
+                            console.log(data.project)
+                            getProject(data.project)
+                            break;
+                        case "-1":
+                            alert("The system is down.");
+                            break;
+                    }
+                },
+                error: () => {
+                    console.log('process error');
+                }
+            });
+            //}
+            $('#logout').click(
+                function () {
+                    $.ajax({
+                        type: "post",
+                        url: window.location.origin+"/delete_session",
+                        //server sent back respons
+                        success: (res) => {
+                            switch (res["ret"]) {
+                                case "1":
+                                    window.location.href = 'index.html';
+                                    break;
+                                case "-1":
+                                    alert("Logout failed")
+                                    window.location.href = 'index.html';
+                                    break;
+                            }
+                        }
+                    })
+                }
+            );
+        };
+    </script>
+</body>
+
+</html>

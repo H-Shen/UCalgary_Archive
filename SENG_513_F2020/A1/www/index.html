@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="C++, coding competition, algorithm, data structure">
+    <meta name="description" content="Personal blog focus on some C++ skills on coding competition">
+    <meta name="author" content="Haohu Shen">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        Coding is Fun, Solving Problems is Fun! -- Haohu's Blog
+    </title>
+    <link rel="icon" href="blog.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="style1.css">
+</head>
+
+<body>
+    <div class="header">Welcome to Haohu Shen's Personal Blog!</div>
+
+    <ul class="top_navigator">
+        <li><a href="index.html" target="_blank" class="active">Home Page</a></li>
+        <li><a href="a1.html" target="_blank">Fast Way to Input/Output in C++</a></li>
+        <li><a href="a2.html" target="_blank">Tricks of Modulo Operation</a></li>
+        <li><a href="a3.html" target="_blank">The Application of a GCC Extension</a></li>
+        <li><a href="a4.html" target="_blank">Introduction of Disjoint Set</a></li>
+        <li><a href="https://github.com/H-Shen" target="_blank">My Github</a></li>
+    </ul>
+
+    <div class="middle">
+        <div class="col lnav">
+            <ul>
+                <li><a href="a1.html">How to Reduce Input/Output Time in C++</a></li>
+                <li><a href="a2.html">Tricks of Modulo Operation</a></li>
+                <li><a href="a3.html">The Application of a GCC Extension</a></li>
+                <li><a href="a4.html">Introduction of Disjoint Set</a></li>
+                <li><a href="https://github.com/H-Shen/Collection_of_my_coding_practice/blob/master/Miscellaneous/template.cpp"
+                        target="_blank">My
+                        Coding Templates for Competitions</a></li>
+            </ul>
+            <p>Some Other Good Resources:</p>
+            <ul>
+                <li><a href="https://en.cppreference.com/w/cpp" target="_blank">Cpp Reference</a></li>
+                <li><a href="https://cp-algorithms.com/" target="_blank">Algorithms for Coding Competitions</a></li>
+                <li><a href="https://open.kattis.com/" target="_blank">Open Kattis</a></li>
+                <li><a href="https://www.hackerrank.com/domains/algorithms" target="_blank">Problemset in Hackerrank</a>
+                </li>
+                <li><a href="https://codeforces.com/" target="_blank">Codeforces</a></li>
+                <li><a href="https://onlinejudge.org/" target="_blank">UVA Onlinejudge</a></li>
+                <li><a href="https://leetcode.com/problemset/all/" target="_blank">Problemset in Leetcode</a></li>
+            </ul>
+        </div>
+
+        <div class="col content">
+            <div class="article_header">
+                <h1>Solving problems by coding is fun.</h1>
+            </div>
+
+            <div class="article">
+                <h1>Preface</h1>
+
+                <p>Welcome to my blogs, I am Haohu and this blog is a collection of some of my coding experience and
+                    skills
+                    used in coding competition. Unlike those WIKI of algorithms, this blog just contains some techniques
+                    or
+                    introductions of some data structures I found interesting and not that hard to understand for a CS
+                    student. All the code here are successfully tested in the server of UofC by running Secure Shell.
+                </p>
+
+                <p>All the code in all my four articles are written in C++, so why C++?
+                    Well, here are some reasons:</p>
+
+                <ul>
+                    <li>
+                        <p>C++ is faster and easy to tweak than other languages in real coding competitions.</p>
+                    </li>
+                    <li>
+                        <p>C++ has STL, which implements a lot of built-in data structures and algorithms and thus bring
+                            much convenience to coders.</p>
+                    </li>
+                    <li>
+                        <p>You can directly use CPU instructions or inline assembly code in C++ for optimization, even
+                            though such case is pretty rare.</p>
+                    </li>
+                </ul>
+
+                <p>There are other advantages of using C++ in coding competition, since it can help you get in touch
+                    with
+                    the hardware more easily than other languages. </p>
+
+                <p>On the other hand, the collection of my articles is made of 4 parts:</p>
+
+                <ul>
+                    <li>
+                        <p>Firstly I introduce how can a coding competitor reduce their run-time in C++ when they have
+                            to
+                            encounter large size of input/output in competitions.</p>
+                    </li>
+                    <li>
+                        <p>Secondly I introduce the application of Modulo Operation in coding competition.</p>
+                    </li>
+                    <li>
+                        <p>In the third article I share how to use a compiler extension to save coder's time.</p>
+                    </li>
+                    <li>
+                        <p>Finally I give a short introduction on the disjoint set, which is a useful data structure and
+                            some interesting stories help you to understand it.</p>
+                    </li>
+                </ul>
+
+                <p>Compiler version and arguments:</p>
+
+                <img src="pic/homepage_ssh.png" style='height: 80%; width: 80%;' alt="screenshot of g++ settings">
+
+                <p>Some tools I found useful for coding competitors are also listed here:</p>
+
+                <ul>
+                    <li>
+                        <p><a href="https://www.quick-bench.com/" target="_blank">To quickly benchmark</a></p>
+                    </li>
+                </ul>
+
+                <img src="pic/homepage_benchmark.png" style='height: 95%; width: 95%;'
+                    alt="screenshot of C++ quick benchmark">
+                <ul>
+                    <li>
+                        <p><a href="https://godbolt.org/" target="_blank">To quickly compile with different
+                                settings</a></p>
+                    </li>
+                </ul>
+
+                <img src="pic/homepage_compiler.png" style='height: 95%; width: 95%;' alt="screenshot of godbolt">
+
+                <p>If you do not understand any part of my articles or find some bugs in one of them, you are welcome
+                    to email me at any time. Happy reading!</p>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="buttom">
+        <a href="mailto:haohu.shen@ucalgary.ca" target="_blank" style="color: azure;">Email Me</a>
+    </div>
+
+</body>
+
+</html>

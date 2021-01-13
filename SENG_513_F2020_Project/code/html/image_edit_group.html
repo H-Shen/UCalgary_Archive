@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Group Image Editing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="chatroom.css">
+    <style>
+        .dropdown-item {
+            cursor: pointer;
+        }
+
+        #foto_image {
+            width: 500px;
+            height: 360px;
+        }
+
+        .group-project {
+            display: flex;
+        }
+
+        @media (max-width: 992px) {
+            .group-project {
+                flex-direction: column;
+            }
+            .chatroom-container{
+                width: 100%;
+                margin-top: 20px;
+            }
+        }
+
+        .editingWindow {
+            width: 600px;
+        }
+
+        #foto_image {
+            width: 500px;
+            height: 360px;
+        }
+
+        #foto_file {
+            display: none;
+        }
+
+        #myRotate {
+            z-index: 100;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-login">
+            <div class="image-edit-wrap">
+                <nav class="navbar navbar-expand-lg">
+                    <div class="container-fluid">
+                        <a class="navbar-brand me-auto" href="/group_profile.html">
+                            <img src="logo.png" alt="Logo" style="width:70px;">
+                        </a>
+                        <span id="header-title">Image-O-City</span>
+                        <ul class="navbar-nav list-inline ms-auto">
+                            <!-- Icon dropdown -->
+                            <!-- <li class="nav-item me-3 me-lg-0 dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="navbarDropdown1"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-bell fa-2x" style="color: black;"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                                    <a class="dropdown-item">You've been added to team [team code]</a>
+                                </div>
+                            </li> -->
+                            <li class="nav-item me-3 me-lg-0 dropdown">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="navbarDropdown2"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="fa fa-user-circle fa-2x" style="color: black;"></i>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                    <a class="dropdown-item" href="/user_profile.html">My Profile</a>
+                                    <a class="dropdown-item" href="/group_profile.html">Group Profile</a>
+                                    <a class="dropdown-item" href="/account_recovery.html">Change Password</a>
+                                    <a id="logout" class="dropdown-item"> Log Out</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="group-project">
+                    <div class="editingWindow">
+                        <div class="icons p-r-50">
+                            <button class="editingIcon"><img class="editingIconImage rotateImg" src="rotate.png">
+                                <input type="range" id="myRotate" value="0" min="0" max="360" oninput="handleRotate()">
+                            </button>
+                            <button class="editingIcon"><img class="editingIconImage" src="opacity.png">
+                                <input type="range" id="myOpacity" value="100" min="0" max="100"
+                                    oninput="handleOpacity()">
+                            </button>
+                            <button class="editingIcon" id="flip" onclick="handleFlip()"><img class="editingIconImage"
+                                    src="flip.png"></button>
+                            <button class="editingIcon" onclick="handleDownload()"><img class="editingIconImage"
+                                    src="download.png"></button>
+                        </div>
+
+                        <div class="img-wrapper">
+                            <div class="file-upload-section" id="select_img">
+                                select Image
+                            </div>
+                            <input id="foto_file" type="file" onchange="input_change(this)">
+                            <div class="img-container">
+                                <!-- <img id="foto_image" class="image" src="image.png"> -->
+                                <canvas id="canvas"></canvas>
+                            </div>
+                        </div>
+
+                        <div id="splitter">
+                        </div>
+                    </div>
+                    <!-- 聊天窗口 -->
+                    <section class="chatroom-container">
+                        <div class="window">
+                            <!-- 左侧用户列表 -->
+                            <nav class="left-nav">
+                                <section class="users">
+                                </section>
+                            </nav>
+                            <!-- 聊天主窗口 -->
+                            <div class="chat-window">
+                                <!-- 聊天信息展示区 -->
+                                <div class="chat-msg">
+                                    <!-- <div class="msg self">
+                                        <div class="msg-info">user0:asfsaf
+                                        </div>
+                                        <div class="time">2020/12/19 下午2:53:04</div>
+                                    </div> -->
+                                </div>
+                                <!-- 底部信息输入区 -->
+                                <footer class="bot-window">
+                                    <!-- 聊天信息输入区 -->
+                                    <section class="content">
+                                        <textarea id="msg" style="resize:none;"></textarea>
+                                    </section>
+                                    <!-- 发送消息按钮 -->
+                                    <div class="action">
+                                        <button class="btn-send" id="btn-send">send</button>
+                                    </div>
+                                </footer>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <!-- 自身js依赖 -->
+    <script>
+        // change http://35.230.37.124
+        const socket = io('http://localhost:8089')
+        let globalObj = {
+            project: "",
+            teamData: {},
+            myRotate: 0, //旋转度数， 当广播之后 也需要设置这个度数
+            myOpacity: 100,
+            flip: 0,
+            teamID: getQueryVariable("teamID"),
+            username: sessionStorage.getItem("username"),
+            imgUrl: "",
+        }
+        let context = null;
+        let canvas = null;
+        let img = null;
+        let width = 0;
+        let height = 0;
+        let interfaceTime = null; //防抖
+        // 离开页面前更新图片
+        window.onbeforeunload = function () {
+            updateInterfaceImg(true)
+        };
+
+        socket.on('project-update', (info) => {
+            let { opacity, rotate, flip, imgUrl } = info;
+            const oldFilp = globalObj.flip;
+            globalObj.myOpacity = opacity;
+            globalObj.myRotate = rotate;
+            globalObj.flip = flip;
+            globalObj.imgUrl = imgUrl;
+            if (oldFilp !== flip) {
+                updateFlip(flip);
+            }
+            updateOpacity(opacity);
+            rotateImage(rotate);
+            $("#myOpacity").val(opacity);
+            $("#myRotate").val(rotate);
+            $(".rotateImg").css("transform", `rotate(${rotate}deg)`)
+        })
+        function getQueryVariable(variable)//获取url参数
+        {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            console.log(vars)
+            return (false);
+        }
+
+        //画画布
+        function drawCanvas(url) {
+           
+            canvas = document.getElementById('canvas');
+            context = canvas.getContext("2d");
+            context.clearRect(0, 0, width, height); //话之前清理一次
+            img = new Image();
+            img.src = url;
+            img.onload = function () {
+                // 将图片画到canvas
+                width = 400;
+                height = img.height * 400 / img.width;
+                canvas.setAttribute("width", width);
+                canvas.setAttribute("height", height);
+                // context.drawImage(img, 0, 0, img.width, img.height);
+                // 设置参数
+                var center = {
+                    x: Math.round(width / 2),
+                    y: Math.round(height / 2)
+                };
+                const { flip, myOpacity, myRotate } = globalObj;
+                context.translate(center.x, center.y)
+                context.rotate(myRotate * Math.PI / 180)
+                if (flip == 1) {
+                    context.scale(-1, 1);
+                }
+                context.translate(-center.x, -center.y)
+                drawImage(img, 0, 0, width, height, myOpacity);
+            }
+        };
+        function handleFlip() {
+            const { flip, myOpacity } = globalObj;
+            context.clearRect(0, 0, width, height);
+            if (flip == 1) {
+                globalObj.flip = 0;
+            } else {
+                globalObj.flip = 1;
+            }
+            context.translate(width / 2, height / 2);
+            context.scale(-1, 1);
+            context.translate(-width / 2, -height / 2);
+            drawImage(img, 0, 0, width, height, myOpacity);
+            updateProject();
+        }
+        function handleOpacity() {
+            let val = document.getElementById("myOpacity").value;
+            globalObj.myOpacity = val;
+            console.log(val)
+            drawImage(img, 0, 0, width, height, val);
+            updateProject();
+        }
+        function rotateImage(rotate) {
+            const { flip, myOpacity } = globalObj;
+            context.setTransform();
+            context.clearRect(0, 0, width, height);
+            context.translate(width / 2, height / 2);
+            context.rotate(rotate * Math.PI / 180);
+            if (flip == 1) {
+                context.scale(-1, 1);
+            }
+            context.translate(-width / 2, -height / 2);
+            drawImage(img, 0, 0, width, height, myOpacity);
+        }
+
+        function handleRotate() {
+            let val = document.getElementById("myRotate").value;
+            globalObj.myRotate = val;
+            $(".rotateImg").css("transform", `rotate(${val}deg)`)
+            rotateImage(val);
+            console.log(val)
+            updateProject();
+
+        }
+        function updateProject() {
+            const { myRotate, myOpacity, flip, teamID, username } = globalObj;
+            socket.emit('project-update', {
+                rotate: myRotate,
+                opacity: myOpacity,
+                flip: flip,
+                teamID,
+                username,
+                imgUrl: globalObj.imgUrl
+            })
+            updateInterfaceImg();
+        }
+        function updateOpacity(val) {
+            drawImage(img, 0, 0, width, height, val);
+        }
+        function updateFlip(flip) {
+            context.translate(width / 2, height / 2);
+            context.scale(-1, 1);
+            context.translate(-width / 2, -height / 2);
+            drawImage(img, 0, 0, width, height, myOpacity);
+        }
+       
+        function handleDownload() {
+            canvas.toBlob(function (blob) {
+                var a = document.createElement("a");
+                var body = document.getElementsByTagName("body");
+                document.body.appendChild(a);
+                a.download = "img" + ".jpg";
+                a.href = window.URL.createObjectURL(blob);
+                a.click();
+                body.removeChild("a");
+            });
+        }
+        function drawImage(image, x, y, width, height, alpha) {
+            // 绘制图片
+            alpha = alpha / 100;
+            context.drawImage(image, x, y, width, height);
+            // 获取从x、y开始，宽为image.width、高为image.height的图片数据
+            // 也就是获取绘制的图片数据
+            var imgData = context.getImageData(x, y, width, height);
+            for (var i = 0, len = imgData.data.length; i < len; i += 4) {
+                // 改变每个像素的透明度
+                imgData.data[i + 3] = imgData.data[i + 3] * alpha;
+            }
+            // 将获取的图片数据放回去。
+            context.putImageData(imgData, x, y);
+        }
+        //获取url参数
+        function getQueryVariable(variable) {//获取url参数
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) { return pair[1]; }
+            }
+            return (false);
+        }
+        //根据id获取项目id
+        function getProject(projectID) {
+            projectID = projectID ? projectID : globalObj.addProjectID?globalObj.addProjectID:getQueryVariable("projectID")
+            if (!projectID) { //空的就不要
+                return;
+            }
+            projectID = projectID.split(",");
+            request("/queryProjectById", { projectID }).then((res) => {
+                const info = res.data[0];
+                const { url } = info
+                setInitStatus(info);
+                setImg(url);
+            })
+        }
+        function setInitStatus(info) {
+            let  opacity , rotate, turn ;
+            if(info){
+                opacity=info.opacity;
+                rotate=info.rotate;
+                turn=info.turn;
+            }
+            opacity = opacity ? (opacity) % 100 : 100;
+            rotate = rotate ? rotate : 0;
+            turn = turn ? turn : 0;
+
+            globalObj.myOpacity = opacity;
+            globalObj.myRotate = rotate;
+            globalObj.flip = turn;
+            console.log(globalObj)
+            $("#myOpacity").val(opacity);
+            $("#myRotate").val(rotate);
+            $(".rotateImg").css("transform", `rotate(${rotate}deg)`)
+        }
+        //设置图片url
+        function setImg(url) {
+            // $("#foto_image").attr("src", url)
+            const time =(new Date()).valueOf()+ "";
+            url = `${url}?date=${time}`;
+            globalObj.imgUrl = url;
+            drawCanvas(url)
+            $("#select_img").hide()
+        }
+        //文件框改变的时候
+          //文件框改变的时候
+        function input_change(file) {
+            let files = file.files;
+            if (!files || !files[0]) {
+                return;
+            }
+            if(files.length > 0){
+                var patt = new RegExp(".*.(png|PNG|jpg|jpeg)$");
+                if(!patt.test(files[0].name)){
+                    alert("Only PNG| PNG| JPG |jpeg format!");
+                    return false;
+                }
+                var MaxSize = 10 * 1024 *1024;
+                var size = files[0].size;
+                if (size > MaxSize) {
+                    alert("The file size cannot be greater than 10M！");
+                    return false;
+                } else if (size <= 0) {
+                    alert("The file size cannot be 0M！");
+                    return false;
+                }
+                fileToBase64Url(file.files[0], (url) => {
+                    setImg(url)
+                    addProjectS(url)
+                })
+            }
+        }
+        
+        //文件转base64
+        function fileToBase64Url(file, callback) { //图片转为base64
+            //1.修改图片信息
+            let src = '';
+            const reader = new FileReader();
+            if (file) {
+                reader.readAsDataURL(file); //URL格式的Base64字符串以表示所读取文件的内容。
+            } else {
+                src = '';
+            }
+            //     FileReader.onloadend
+            // 处理loadend事件。该事件在读取操作结束时（要么成功，要么失败）触发。
+
+            //2.阅读器已经解析完毕,图片解析完毕后的操作
+            reader.onloadend = () => {
+                //       FileReader.result 只读
+                // 文件的内容。该属性仅在读取操作完成后才有效，数据的格式取决于使用哪个方法来启动读取操作。
+                src = reader.result;
+                //回调返回
+                callback && callback(src);
+            }
+        }
+        //增加团队项目
+        function addProjectS(url) { //img url
+            let interfaceUrl = "/addProjectS";
+            let time = (new Date()).valueOf() + "";
+            let projectID = getQueryVariable("projectID")
+            projectID = projectID ? projectID : time;
+            let { teamID, project } = globalObj.teamData
+            let data = {
+                projectID,
+                url,
+                teamID,
+                teamProjectID: project
+            }
+            request(interfaceUrl, data).then(res => {
+                globalObj.addProjectID = res.projectID
+                setImg(res.imgUrl)
+                console.log(globalObj)
+            }).catch(err => {
+                console.log(JSON.stringify(err))
+
+            })
+        }
+
+        //通过接口更新图片
+        function updateInterfaceImg(now) {
+            if(!canvas){
+                return
+            }
+            var base64Url = canvas?.toDataURL('image/jpg');
+            if (now) {
+                changeProject(base64Url);
+                return
+            }
+            if (interfaceTime) {
+                clearTimeout(interfaceTime)
+            }
+            interfaceTime = setTimeout(function () {
+                changeProject(base64Url);
+                interfaceTime = null;
+            }, 500);
+
+        }
+        //改变项目
+        function changeProject(base64Url, rotate, turn, opacity, light) { //img url
+            let interfaceUrl = "/changeProject";
+            let projectID = getQueryVariable("projectID") ? getQueryVariable("projectID") : globalObj.addProjectID
+            let imgName = globalObj.imgUrl?.split(".")[0];
+            let data = {
+                projectID,
+                url: base64Url,
+                rotate,
+                turn,
+                opacity,
+                light,
+                imgName
+            }
+            request(interfaceUrl, data).then(res => {
+            }).catch(err => {
+                alert(JSON.stringify(err))
+                console.log(err)
+            })
+        }
+        //获取团队信息
+        function getTeamInfo(teamID) {
+            teamID = teamID ? teamID : getQueryVariable("teamID")
+            if (!teamID) {
+                return;
+            }
+            request("/queryGroups", {
+                teamID
+            }).then(res => {
+                globalObj.teamData = res.data[0]
+            })
+        }
+
+        function request(url, data) {
+            return new Promise((resolve, reject) => {
+                $.ajax({
+                    type: "post",
+                    url: window.location.origin + url,
+                    dataType: "JSON",
+                    contentType: 'application/json;charset=utf-8',
+                    data: JSON.stringify(data),
+                    success: (res) => {
+                        const { code } = res;
+                        if (code == 200) {
+                            resolve(res)
+                        } else {
+                            reject(res.msg)
+                        }
+                    },
+                    error: (error) => {
+                        console.log(JSON.stringify(error))
+                        alert(JSON.stringify(error))
+                        reject(error)
+                    }
+                });
+            })
+        }
+        window.onload = function () {
+            $('#logout').click(
+                function () {
+                    $.ajax({
+                        type: "post",
+                        url: window.location.origin + "/delete_session",
+                        //server sent back respons
+                        success: (res) => {
+                            switch (res["ret"]) {
+                                case "1":
+                                    window.location.href = 'index.html';
+                                    break;
+                                case "-1":
+                                    alert("Logout failed")
+                                    window.location.href = 'index.html';
+                                    break;
+                            }
+                        }
+                    })
+                }
+            );
+            $("#select_img").click(function () {
+                $("#foto_file").click();
+            })
+            getProject();
+            getTeamInfo();
+        }
+    </script>
+    <script src="chatroom.js"></script>
+</body>
+
+</html>
